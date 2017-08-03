@@ -1,2 +1,2 @@
 # queue-ios
-Queue iOS App - Discover Music Through Intelligent Playlists 
+Queue iOS App - Discover Music Together Through Intelligent Playlists 
