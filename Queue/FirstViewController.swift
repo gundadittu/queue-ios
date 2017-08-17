@@ -7,9 +7,15 @@
 //
 
 import UIKit
+import Firebase
 
 class FirstViewController: UIViewController {
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        //handle = Auth.auth().addStateDidChangeListener { (auth, user) in
+            
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -19,7 +25,9 @@ class FirstViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        //Auth.auth().removeStateDidChangeListener(handle!)
+    }
 }
 
