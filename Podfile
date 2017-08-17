@@ -8,5 +8,6 @@ target 'Queue' do
   # Pods for Queue
   pod 'Firebase/Core'
   pod 'Firebase/Auth' 
-
+  pod 'Onboard'
+  
 end
