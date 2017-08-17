@@ -7,7 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0464BB771F463EBF0057501A /* EmailSignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0464BB761F463EBF0057501A /* EmailSignUp.swift */; };
 		0471EAB01F4602850022CD07 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0471EAAF1F4601FC0022CD07 /* GoogleService-Info.plist */; };
+		0471EAB71F461CF40022CD07 /* GetStarted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0471EAB61F461CF40022CD07 /* GetStarted.swift */; };
+		0471EAB91F4631D30022CD07 /* highlightedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0471EAB81F4631D30022CD07 /* highlightedButton.swift */; };
+		0478B65C1F464EFC005932E7 /* GetStartedNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478B65B1F464EFC005932E7 /* GetStartedNavBar.swift */; };
+		0478B6601F465BFA005932E7 /* roundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478B65F1F465BFA005932E7 /* roundButton.swift */; };
 		0484ADE41F33B0660045AE34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0484ADE31F33B0660045AE34 /* AppDelegate.swift */; };
 		0484ADE61F33B0660045AE34 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0484ADE51F33B0660045AE34 /* FirstViewController.swift */; };
 		0484ADE81F33B0660045AE34 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0484ADE71F33B0660045AE34 /* SecondViewController.swift */; };
@@ -18,7 +23,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0464BB761F463EBF0057501A /* EmailSignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSignUp.swift; sourceTree = "<group>"; };
 		0471EAAF1F4601FC0022CD07 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0471EAB61F461CF40022CD07 /* GetStarted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStarted.swift; sourceTree = "<group>"; };
+		0471EAB81F4631D30022CD07 /* highlightedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = highlightedButton.swift; sourceTree = "<group>"; };
+		0478B65B1F464EFC005932E7 /* GetStartedNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStartedNavBar.swift; sourceTree = "<group>"; };
+		0478B65F1F465BFA005932E7 /* roundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = roundButton.swift; sourceTree = "<group>"; };
 		0484ADE01F33B0660045AE34 /* Queue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Queue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0484ADE31F33B0660045AE34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0484ADE51F33B0660045AE34 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -44,6 +54,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0471EAB11F461CA40022CD07 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0484ADE31F33B0660045AE34 /* AppDelegate.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0471EAB21F461CAF0022CD07 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0471EAB81F4631D30022CD07 /* highlightedButton.swift */,
+				0478B65B1F464EFC005932E7 /* GetStartedNavBar.swift */,
+				0478B65F1F465BFA005932E7 /* roundButton.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0471EAB31F461CB40022CD07 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0484ADE51F33B0660045AE34 /* FirstViewController.swift */,
+				0484ADE71F33B0660045AE34 /* SecondViewController.swift */,
+				0471EAB61F461CF40022CD07 /* GetStarted.swift */,
+				0464BB761F463EBF0057501A /* EmailSignUp.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		0484ADD71F33B0660045AE34 = {
 			isa = PBXGroup;
 			children = (
@@ -65,9 +104,9 @@
 		0484ADE21F33B0660045AE34 /* Queue */ = {
 			isa = PBXGroup;
 			children = (
-				0484ADE31F33B0660045AE34 /* AppDelegate.swift */,
-				0484ADE51F33B0660045AE34 /* FirstViewController.swift */,
-				0484ADE71F33B0660045AE34 /* SecondViewController.swift */,
+				0471EAB31F461CB40022CD07 /* Controller */,
+				0471EAB21F461CAF0022CD07 /* View */,
+				0471EAB11F461CA40022CD07 /* Model */,
 				0484ADE91F33B0660045AE34 /* Main.storyboard */,
 				0484ADEC1F33B0660045AE34 /* Assets.xcassets */,
 				0484ADEE1F33B0660045AE34 /* LaunchScreen.storyboard */,
@@ -191,6 +230,7 @@
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/Onboard/Onboard.framework",
+				"${BUILT_PRODUCTS_DIR}/TextFieldEffects/TextFieldEffects.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -198,6 +238,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Onboard.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TextFieldEffects.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -230,9 +271,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0478B6601F465BFA005932E7 /* roundButton.swift in Sources */,
 				0484ADE81F33B0660045AE34 /* SecondViewController.swift in Sources */,
 				0484ADE41F33B0660045AE34 /* AppDelegate.swift in Sources */,
+				0464BB771F463EBF0057501A /* EmailSignUp.swift in Sources */,
+				0471EAB71F461CF40022CD07 /* GetStarted.swift in Sources */,
+				0478B65C1F464EFC005932E7 /* GetStartedNavBar.swift in Sources */,
 				0484ADE61F33B0660045AE34 /* FirstViewController.swift in Sources */,
+				0471EAB91F4631D30022CD07 /* highlightedButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

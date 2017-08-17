@@ -20,11 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         
         if Auth.auth().currentUser == nil{
-          
             //update bodies of all these VC's
-            let logoPage = OnboardingContentViewController(title: "Discover music together through intelligent playlists.", body: "Scroll through to learn more.", image: nil, buttonText: nil) { () -> Void in return } //add logo to top
-            //logoPage.topPadding = 0
-            //logoPage.underIconPadding = 0
+            let logoPage: OnboardingContentViewController = OnboardingContentViewController(title: "Discover music together through intelligent playlists.", body: "Scroll through to learn more.", image: nil, buttonText: nil) { () -> Void in return } //add logo to top
             logoPage.titleLabel.textAlignment = .left
             logoPage.bodyLabel.textAlignment = .left
             logoPage.titleLabel.font = UIFont(name: "Avenir-Heavy", size: 40)
@@ -58,13 +55,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             socialFeatures.titleLabel.font = UIFont(name: "Avenir-Heavy", size: 40)
             socialFeatures.bodyLabel.font = UIFont(name: "Avenir-Thin", size: 20)
             
-            let onboardingVC = OnboardingViewController(backgroundImage: UIImage(named: "Feed"), contents: [logoPage,playlistFeatures, groupPlaylists, eventPlaylists, socialFeatures]) //change background to proper video or individual images
+            let onboardingVC = OnboardingViewController(backgroundImage: UIImage(named: "Background"), contents: [logoPage,playlistFeatures, groupPlaylists, eventPlaylists, socialFeatures]) //change background to proper video or individual images
+            onboardingVC?.shouldMaskBackground = false //change later? 
             onboardingVC?.allowSkipping = true
             onboardingVC?.skipButton.setTitle("Get Started", for: UIControlState.normal )
             onboardingVC?.skipButton.titleLabel?.font = UIFont(name: "Avenir-Heavy", size: 20)
+            onboardingVC?.skipButton.titleEdgeInsets = UIEdgeInsetsMake(0, 0, 10, 20)
             onboardingVC?.skipHandler = {
                 onboardingVC?.dismiss(animated: true, completion: nil)
-                //present login screen
+                let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+                let getstartedVC = storyboard.instantiateViewController(withIdentifier: "gsnav")
+                self.window?.makeKeyAndVisible()
+                self.window?.rootViewController?.present(getstartedVC, animated: true, completion: nil) //different way to do this?
             }
             window?.makeKeyAndVisible()
             window?.rootViewController?.present(onboardingVC!, animated: true, completion: nil)
@@ -72,29 +74,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
-
-    func applicationWillResignActive(_ application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
-    }
-
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-    }
-
-    func applicationWillEnterForeground(_ application: UIApplication) {
-        // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-    }
-
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    }
-
-    func applicationWillTerminate(_ application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    }
-
 
 }
 

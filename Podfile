@@ -9,5 +9,6 @@ target 'Queue' do
   pod 'Firebase/Core'
   pod 'Firebase/Auth' 
   pod 'Onboard'
+  pod 'TextFieldEffects'
   
 end
