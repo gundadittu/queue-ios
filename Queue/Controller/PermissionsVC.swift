@@ -1,14 +1,14 @@
 //
-//  EmailSignUp.swift
+//  PermissionsVC.swift
 //  Queue
 //
-//  Created by Aditya Gunda on 8/17/17.
+//  Created by Aditya Gunda on 8/18/17.
 //  Copyright © 2017 Aditya Gunda. All rights reserved.
 //
 
 import UIKit
 
-class SignUpVC: UIViewController {
+class PermissionsVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,14 +16,11 @@ class SignUpVC: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        self.title = "Create Account"
-    }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
 
     /*
     // MARK: - Navigation

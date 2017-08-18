@@ -16,4 +16,5 @@ class GetStartedNavBar: UINavigationBar {
         self.setBackgroundImage(UIImage(), for: .default)
         self.shadowImage = UIImage()
     }
+
 }

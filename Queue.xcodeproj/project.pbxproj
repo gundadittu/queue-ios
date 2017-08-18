@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		042A97B41F46CD8000A925A6 /* PermissionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042A97B31F46CD8000A925A6 /* PermissionsVC.swift */; };
+		042A97B61F46D41600A925A6 /* GetStartedNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042A97B51F46D41600A925A6 /* GetStartedNavController.swift */; };
 		0447C1F51F46791F0037CB26 /* MusicPermissionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0447C1F41F46791F0037CB26 /* MusicPermissionsVC.swift */; };
 		0464BB771F463EBF0057501A /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0464BB761F463EBF0057501A /* SignUpVC.swift */; };
 		0471EAB01F4602850022CD07 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0471EAAF1F4601FC0022CD07 /* GoogleService-Info.plist */; };
@@ -25,6 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		042A97B31F46CD8000A925A6 /* PermissionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsVC.swift; sourceTree = "<group>"; };
+		042A97B51F46D41600A925A6 /* GetStartedNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStartedNavController.swift; sourceTree = "<group>"; };
 		0447C1F41F46791F0037CB26 /* MusicPermissionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPermissionsVC.swift; sourceTree = "<group>"; };
 		0464BB761F463EBF0057501A /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		0471EAAF1F4601FC0022CD07 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -85,6 +89,8 @@
 				0464BB761F463EBF0057501A /* SignUpVC.swift */,
 				0478B6611F466A8B005932E7 /* LoginVC.swift */,
 				0447C1F41F46791F0037CB26 /* MusicPermissionsVC.swift */,
+				042A97B31F46CD8000A925A6 /* PermissionsVC.swift */,
+				042A97B51F46D41600A925A6 /* GetStartedNavController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -277,12 +283,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				042A97B61F46D41600A925A6 /* GetStartedNavController.swift in Sources */,
 				0478B6601F465BFA005932E7 /* roundButton.swift in Sources */,
 				0447C1F51F46791F0037CB26 /* MusicPermissionsVC.swift in Sources */,
 				0484ADE81F33B0660045AE34 /* SecondViewController.swift in Sources */,
 				0478B6621F466A8B005932E7 /* LoginVC.swift in Sources */,
 				0484ADE41F33B0660045AE34 /* AppDelegate.swift in Sources */,
 				0464BB771F463EBF0057501A /* SignUpVC.swift in Sources */,
+				042A97B41F46CD8000A925A6 /* PermissionsVC.swift in Sources */,
 				0471EAB71F461CF40022CD07 /* GetStartedVC.swift in Sources */,
 				0478B65C1F464EFC005932E7 /* GetStartedNavBar.swift in Sources */,
 				0484ADE61F33B0660045AE34 /* FirstViewController.swift in Sources */,

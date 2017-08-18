@@ -1,16 +1,15 @@
 //
-//  GetStarted.swift
+//  GetStartedNavController.swift
 //  Queue
 //
-//  Created by Aditya Gunda on 8/17/17.
+//  Created by Aditya Gunda on 8/18/17.
 //  Copyright © 2017 Aditya Gunda. All rights reserved.
 //
 
 import UIKit
 
-class GetStartedVC: UIViewController {
+class GetStartedNavController: UINavigationController {
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,7 +20,5 @@ class GetStartedVC: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
 
 }
