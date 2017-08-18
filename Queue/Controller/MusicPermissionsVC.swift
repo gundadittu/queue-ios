@@ -1,5 +1,5 @@
 //
-//  EmailSignUp.swift
+//  MusicPermissionsVC.swift
 //  Queue
 //
 //  Created by Aditya Gunda on 8/17/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SignUpVC: UIViewController {
+class MusicPermissionsVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,11 +16,11 @@ class SignUpVC: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
 
     /*
     // MARK: - Navigation

@@ -55,7 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             socialFeatures.titleLabel.font = UIFont(name: "Avenir-Heavy", size: 40)
             socialFeatures.bodyLabel.font = UIFont(name: "Avenir-Thin", size: 20)
             
-            let onboardingVC = OnboardingViewController(backgroundImage: UIImage(named: "Background"), contents: [logoPage,playlistFeatures, groupPlaylists, eventPlaylists, socialFeatures]) //change background to proper video or individual images
+            let onboardingVC = OnboardingViewController(backgroundImage: UIImage(named: "background"), contents: [logoPage,playlistFeatures, groupPlaylists, eventPlaylists, socialFeatures]) //change background to proper video or individual images
             onboardingVC?.shouldMaskBackground = false //change later? 
             onboardingVC?.allowSkipping = true
             onboardingVC?.skipButton.setTitle("Get Started", for: UIControlState.normal )
