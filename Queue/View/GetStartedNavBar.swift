@@ -14,5 +14,6 @@ class GetStartedNavBar: UINavigationBar {
         //self.isTranslucent = true
         //self.backgroundColor = .clear
         self.setBackgroundImage(UIImage(), for: .default)
+        self.shadowImage = UIImage()
     }
 }

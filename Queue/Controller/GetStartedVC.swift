@@ -8,11 +8,8 @@
 
 import UIKit
 
-class GetStarted: UIViewController {
+class GetStartedVC: UIViewController {
 
-    @IBAction func emailSignUpPressed(_ sender: Any) {
-        //performSegue(withIdentifier: "emailsignup", sender: nil)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

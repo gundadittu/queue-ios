@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0464BB771F463EBF0057501A /* EmailSignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0464BB761F463EBF0057501A /* EmailSignUp.swift */; };
+		0464BB771F463EBF0057501A /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0464BB761F463EBF0057501A /* SignUpVC.swift */; };
 		0471EAB01F4602850022CD07 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0471EAAF1F4601FC0022CD07 /* GoogleService-Info.plist */; };
-		0471EAB71F461CF40022CD07 /* GetStarted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0471EAB61F461CF40022CD07 /* GetStarted.swift */; };
-		0471EAB91F4631D30022CD07 /* highlightedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0471EAB81F4631D30022CD07 /* highlightedButton.swift */; };
+		0471EAB71F461CF40022CD07 /* GetStartedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0471EAB61F461CF40022CD07 /* GetStartedVC.swift */; };
+		0471EAB91F4631D30022CD07 /* fbButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0471EAB81F4631D30022CD07 /* fbButton.swift */; };
 		0478B65C1F464EFC005932E7 /* GetStartedNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478B65B1F464EFC005932E7 /* GetStartedNavBar.swift */; };
 		0478B6601F465BFA005932E7 /* roundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478B65F1F465BFA005932E7 /* roundButton.swift */; };
+		0478B6621F466A8B005932E7 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478B6611F466A8B005932E7 /* LoginVC.swift */; };
 		0484ADE41F33B0660045AE34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0484ADE31F33B0660045AE34 /* AppDelegate.swift */; };
 		0484ADE61F33B0660045AE34 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0484ADE51F33B0660045AE34 /* FirstViewController.swift */; };
 		0484ADE81F33B0660045AE34 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0484ADE71F33B0660045AE34 /* SecondViewController.swift */; };
@@ -23,12 +24,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0464BB761F463EBF0057501A /* EmailSignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSignUp.swift; sourceTree = "<group>"; };
+		0464BB761F463EBF0057501A /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		0471EAAF1F4601FC0022CD07 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		0471EAB61F461CF40022CD07 /* GetStarted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStarted.swift; sourceTree = "<group>"; };
-		0471EAB81F4631D30022CD07 /* highlightedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = highlightedButton.swift; sourceTree = "<group>"; };
+		0471EAB61F461CF40022CD07 /* GetStartedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStartedVC.swift; sourceTree = "<group>"; };
+		0471EAB81F4631D30022CD07 /* fbButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fbButton.swift; sourceTree = "<group>"; };
 		0478B65B1F464EFC005932E7 /* GetStartedNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStartedNavBar.swift; sourceTree = "<group>"; };
 		0478B65F1F465BFA005932E7 /* roundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = roundButton.swift; sourceTree = "<group>"; };
+		0478B6611F466A8B005932E7 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		0484ADE01F33B0660045AE34 /* Queue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Queue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0484ADE31F33B0660045AE34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0484ADE51F33B0660045AE34 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -65,7 +67,7 @@
 		0471EAB21F461CAF0022CD07 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				0471EAB81F4631D30022CD07 /* highlightedButton.swift */,
+				0471EAB81F4631D30022CD07 /* fbButton.swift */,
 				0478B65B1F464EFC005932E7 /* GetStartedNavBar.swift */,
 				0478B65F1F465BFA005932E7 /* roundButton.swift */,
 			);
@@ -77,8 +79,9 @@
 			children = (
 				0484ADE51F33B0660045AE34 /* FirstViewController.swift */,
 				0484ADE71F33B0660045AE34 /* SecondViewController.swift */,
-				0471EAB61F461CF40022CD07 /* GetStarted.swift */,
-				0464BB761F463EBF0057501A /* EmailSignUp.swift */,
+				0471EAB61F461CF40022CD07 /* GetStartedVC.swift */,
+				0464BB761F463EBF0057501A /* SignUpVC.swift */,
+				0478B6611F466A8B005932E7 /* LoginVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -163,7 +166,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Aditya Gunda";
 				TargetAttributes = {
 					0484ADDF1F33B0660045AE34 = {
@@ -273,12 +276,13 @@
 			files = (
 				0478B6601F465BFA005932E7 /* roundButton.swift in Sources */,
 				0484ADE81F33B0660045AE34 /* SecondViewController.swift in Sources */,
+				0478B6621F466A8B005932E7 /* LoginVC.swift in Sources */,
 				0484ADE41F33B0660045AE34 /* AppDelegate.swift in Sources */,
-				0464BB771F463EBF0057501A /* EmailSignUp.swift in Sources */,
-				0471EAB71F461CF40022CD07 /* GetStarted.swift in Sources */,
+				0464BB771F463EBF0057501A /* SignUpVC.swift in Sources */,
+				0471EAB71F461CF40022CD07 /* GetStartedVC.swift in Sources */,
 				0478B65C1F464EFC005932E7 /* GetStartedNavBar.swift in Sources */,
 				0484ADE61F33B0660045AE34 /* FirstViewController.swift in Sources */,
-				0471EAB91F4631D30022CD07 /* highlightedButton.swift in Sources */,
+				0471EAB91F4631D30022CD07 /* fbButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,7 +318,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -322,7 +328,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -364,7 +374,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -372,7 +384,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
