@@ -29,5 +29,13 @@ class FirstViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         //Auth.auth().removeStateDidChangeListener(handle!)
     }
+    @IBAction func signOutBtnPressed(_ sender: Any) {
+        do {
+            try Auth.auth().signOut()
+        } catch  {
+            print(error)
+        }
+    }
+
 }
 
