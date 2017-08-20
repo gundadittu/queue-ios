@@ -205,6 +205,9 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                         <state key="normal" title=" Log in with Facebook" image="fb_icon"/>
+                                        <connections>
+                                            <action selector="facebookBtnPressed:" destination="ofC-wx-sZX" eventType="touchUpInside" id="KwI-hp-Mbi"/>
+                                        </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Gke-Jf-FvJ">
                                         <rect key="frame" x="0.0" y="70" width="375" height="214"/>
@@ -217,17 +220,17 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="j1J-iK-yRc">
                                                 <rect key="frame" x="20" y="38" width="335" height="115"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="email address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eIT-pc-j9N" customClass="HoshiTextField" customModule="TextFieldEffects">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="email address" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="eIT-pc-j9N" customClass="HoshiTextField" customModule="TextFieldEffects">
                                                         <rect key="frame" x="0.0" y="0.0" width="335" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="LXR-vy-Zp6"/>
                                                         </constraints>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="email"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
-                                                                <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <color key="value" cocoaTouchSystemColor="lightTextColor"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="placeholderFontScale">
                                                                 <real key="value" value="1"/>
@@ -240,17 +243,17 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QGo-Ln-Ng8" customClass="HoshiTextField" customModule="TextFieldEffects">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="QGo-Ln-Ng8" customClass="HoshiTextField" customModule="TextFieldEffects">
                                                         <rect key="frame" x="0.0" y="65" width="335" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="TVl-R8-nBw"/>
                                                         </constraints>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
-                                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                        <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
-                                                                <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <color key="value" cocoaTouchSystemColor="lightTextColor"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="placeholderFontScale">
                                                                 <real key="value" value="1"/>
@@ -322,6 +325,7 @@
                     </view>
                     <connections>
                         <outlet property="emailField" destination="eIT-pc-j9N" id="EFS-ZT-QYn"/>
+                        <outlet property="facebookBtn" destination="hgM-Dz-gHq" id="Pxs-NH-9g0"/>
                         <outlet property="passwordField" destination="QGo-Ln-Ng8" id="oQi-E5-Odj"/>
                     </connections>
                 </viewController>
@@ -354,10 +358,10 @@
                                         </constraints>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" textContentType="email"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
-                                                <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="value" cocoaTouchSystemColor="lightTextColor"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="placeholderFontScale">
                                                 <real key="value" value="1"/>
@@ -425,14 +429,17 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="mGu-cz-tse">
                                 <rect key="frame" x="0.0" y="115.5" width="375" height="436"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6gh-3v-Mt9">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6gh-3v-Mt9" customClass="fbButton" customModule="Queue" customModuleProvider="target">
                                         <rect key="frame" x="30" y="0.0" width="315" height="45"/>
                                         <color key="backgroundColor" red="0.27058823529999998" green="0.39607843139999999" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="73W-HF-DlY"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
-                                        <state key="normal" title=" Sign in with Facebook" image="fb_icon"/>
+                                        <state key="normal" title=" Sign Up with Facebook" image="fb_icon"/>
+                                        <connections>
+                                            <action selector="facebookBtnPressed:" destination="aCb-3c-h0W" eventType="touchUpInside" id="wl5-mR-Yiq"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We won't post anything without your permission." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vMl-Nq-dc7">
                                         <rect key="frame" x="54" y="60" width="267" height="16.5"/>
@@ -451,11 +458,11 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="uYe-Oy-5Ik">
                                                 <rect key="frame" x="20" y="38.5" width="335" height="245"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="first name" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="joL-W1-JOP" customClass="HoshiTextField" customModule="TextFieldEffects">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="first name" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="joL-W1-JOP" customClass="HoshiTextField" customModule="TextFieldEffects">
                                                         <rect key="frame" x="0.0" y="0.0" width="335" height="50"/>
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
                                                                 <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -464,7 +471,7 @@
                                                                 <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
-                                                                <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <color key="value" cocoaTouchSystemColor="lightTextColor"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="placeholderFontScale">
                                                                 <real key="value" value="1"/>
@@ -478,7 +485,7 @@
                                                         </constraints>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="21"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="name"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
                                                                 <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -487,7 +494,7 @@
                                                                 <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
-                                                                <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <color key="value" cocoaTouchSystemColor="lightTextColor"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="placeholderFontScale">
                                                                 <real key="value" value="1"/>
@@ -501,7 +508,7 @@
                                                         </constraints>
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="email"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
                                                                 <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -510,7 +517,7 @@
                                                                 <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
-                                                                <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <color key="value" cocoaTouchSystemColor="lightTextColor"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="placeholderFontScale">
                                                                 <real key="value" value="1"/>
@@ -524,7 +531,7 @@
                                                         </constraints>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
-                                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                        <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
                                                                 <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -533,7 +540,7 @@
                                                                 <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
-                                                                <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <color key="value" cocoaTouchSystemColor="lightTextColor"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="placeholderFontScale">
                                                                 <real key="value" value="1"/>
@@ -598,10 +605,12 @@
                     </view>
                     <connections>
                         <outlet property="emailAddLbl" destination="cjm-Gy-NCr" id="iDB-QX-hU6"/>
+                        <outlet property="facebookBtn" destination="6gh-3v-Mt9" id="MOM-i3-Bxu"/>
                         <outlet property="firstNameLbl" destination="joL-W1-JOP" id="2Sa-SQ-fGW"/>
                         <outlet property="lastNameLbl" destination="FO3-nj-Xhh" id="xX8-LA-CS0"/>
                         <outlet property="passwordLbl" destination="fha-S3-9pO" id="6fk-8z-2BN"/>
                         <segue destination="4le-Vx-Z0M" kind="show" identifier="musicpermissions" id="Mkv-rg-Yez"/>
+                        <segue destination="ofC-wx-sZX" kind="show" identifier="signuptologin" id="dGk-3q-nlV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ulc-UI-C41" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -648,6 +657,9 @@
                                                 <state key="normal" title="Connect Spotify">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="spotifyBtnPressed:" destination="4le-Vx-Z0M" eventType="touchUpInside" id="PAa-eA-AhS"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="70g-0q-Vl7" customClass="roundButton" customModule="Queue" customModuleProvider="target">
                                                 <rect key="frame" x="30" y="57" width="315" height="45"/>
@@ -659,6 +671,9 @@
                                                 <state key="normal" title="Connect Apple Music">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="applemusicBtnPressed:" destination="4le-Vx-Z0M" eventType="touchUpInside" id="qza-e6-DfN"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -674,7 +689,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="J8c-WJ-JS7" kind="show" id="774-6H-8pN"/>
+                                            <action selector="skipBtnPressed:" destination="4le-Vx-Z0M" eventType="touchUpInside" id="kPK-TS-6ij"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -694,6 +709,9 @@
                             <constraint firstItem="jcv-fv-RQD" firstAttribute="top" secondItem="un3-Mh-anb" secondAttribute="bottom" constant="30" id="zCg-hQ-Hmt"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <segue destination="J8c-WJ-JS7" kind="show" identifier="musicpermtoperm" id="Gum-Fo-Zj0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yJX-Np-OUs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -878,4 +896,7 @@
         <image name="notification_icon_white" width="50" height="50"/>
         <image name="second" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="dGk-3q-nlV"/>
+    </inferredMetricsTieBreakers>
 </document>

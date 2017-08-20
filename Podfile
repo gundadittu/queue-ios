@@ -13,5 +13,7 @@ target 'Queue' do
   pod 'TextFieldEffects'
   pod 'SwiftMessages'
   pod 'NVActivityIndicatorView'
+  pod 'FacebookCore'
+  pod 'FacebookLogin'
   
 end

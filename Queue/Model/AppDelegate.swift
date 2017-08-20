@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import Onboard
+import FBSDKCoreKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,11 +18,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        FirebaseApp.configure()
+            FirebaseApp.configure()
+            FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
   
             if Auth.auth().currentUser == nil{
                 //update bodies of all these VC's
-                let logoPage: OnboardingContentViewController = OnboardingContentViewController(title: "Discover music together through intelligent playlists.", body: "Scroll through to learn more.", image: nil, buttonText: nil) { () -> Void in return } //add logo to top
+                let logoPage: OnboardingContentViewController = OnboardingContentViewController(title: "Discover music together through intelligent playlists.", body: nil, image: nil, buttonText: nil) { () -> Void in return } //add logo to top
                 logoPage.titleLabel.textAlignment = .left
                 logoPage.bodyLabel.textAlignment = .left
                 logoPage.titleLabel.font = UIFont(name: "Avenir-Heavy", size: 40)
@@ -73,6 +75,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        let handled = FBSDKApplicationDelegate.sharedInstance().application(app, open: url, sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String!, annotation: options[UIApplicationOpenURLOptionsKey.annotation])
+        return handled 
+    }
+    
 
 }
 

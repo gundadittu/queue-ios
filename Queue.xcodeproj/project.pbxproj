@@ -35,6 +35,7 @@
 		042A97B51F46D41600A925A6 /* GetStartedNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStartedNavController.swift; sourceTree = "<group>"; };
 		042CB8FE1F47D9E600B77973 /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
 		042CB9011F47EA5E00B77973 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
+		042CB9031F48296400B77973 /* Queue.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Queue.entitlements; sourceTree = "<group>"; };
 		0447C1F41F46791F0037CB26 /* MusicPermissionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPermissionsVC.swift; sourceTree = "<group>"; };
 		0449708C1F47B36600CC4D87 /* AuthServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServices.swift; sourceTree = "<group>"; };
 		0449708E1F47B38900CC4D87 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
@@ -135,6 +136,7 @@
 		0484ADE21F33B0660045AE34 /* Queue */ = {
 			isa = PBXGroup;
 			children = (
+				042CB9031F48296400B77973 /* Queue.entitlements */,
 				0449708B1F47B35100CC4D87 /* Services */,
 				0471EAB31F461CB40022CD07 /* Controller */,
 				0471EAB21F461CAF0022CD07 /* View */,
@@ -200,7 +202,13 @@
 				TargetAttributes = {
 					0484ADDF1F33B0660045AE34 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = JQ4K8EE77P;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -259,6 +267,11 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Queue/Pods-Queue-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
@@ -270,6 +283,11 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
@@ -460,6 +478,8 @@
 			baseConfigurationReference = 60F268C2574BF3CE9A8138B0 /* Pods-Queue.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Queue/Queue.entitlements;
+				DEVELOPMENT_TEAM = JQ4K8EE77P;
 				INFOPLIST_FILE = Queue/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = AG.Queue;
@@ -473,6 +493,8 @@
 			baseConfigurationReference = 693230A57FDCCFC4FEDE85AF /* Pods-Queue.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Queue/Queue.entitlements;
+				DEVELOPMENT_TEAM = JQ4K8EE77P;
 				INFOPLIST_FILE = Queue/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = AG.Queue;

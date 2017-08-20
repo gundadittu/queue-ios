@@ -26,5 +26,9 @@ class DataService {
     func createDBUser(uid: String, userData: Dictionary<String, Any>) {
         REF_USERS.child("\(uid)").updateChildValues(userData)
     }
+    
+    func writeUserData(uid: String, key: String, data: Any){
+        REF_USERS.child("\(uid)").updateChildValues([key:data])
+    }
 }
 
