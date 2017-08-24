@@ -20,7 +20,11 @@ class FirstViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-
+    @IBAction func refreshBtnPressed(_ sender: Any) {
+        let mpvc = MusicPermissionsVC()
+        mpvc.refreshSpotifyToken()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

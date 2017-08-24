@@ -15,7 +15,7 @@ import FBSDKLoginKit
 import FacebookCore
 import FacebookLogin
 
-class SignUpVC: UIViewController {
+class SignUpVC: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var firstNameLbl: HoshiTextField!
     @IBOutlet weak var lastNameLbl: HoshiTextField!
@@ -24,7 +24,7 @@ class SignUpVC: UIViewController {
     
     @IBOutlet weak var emailAddLbl: HoshiTextField!
     let failedLoginAlert = MessageView.viewFromNib(layout: .CardView)
-    
+
     @IBAction func facebookBtnPressed(_ sender: Any) {
         let loginManager = LoginManager()
         loginManager.logIn([ .publicProfile, .email, .userFriends ], viewController: self) { loginResult in
@@ -38,7 +38,7 @@ class SignUpVC: UIViewController {
             case LoginResult.cancelled: //facebook sign up request cancelled
                 print("User cancelled login.")
             case LoginResult.success(let _, let _, let _):
-                print("Logged in!")
+                //print("Logged in!")
                 //successfully authenticated with facebook
                 let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
                 AuthService.instance.facebookAuth(withCredential: credential, userAuthComplete: { success, error, errorSource in
@@ -146,24 +146,31 @@ class SignUpVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        firstNameLbl.delegate = self
+        firstNameLbl.tag = 0
+        lastNameLbl.delegate = self
+        lastNameLbl.tag = 1
+        emailAddLbl.delegate = self
+        emailAddLbl.tag = 2
+        passwordLbl.delegate = self
+        passwordLbl.tag = 3
     }
     
-    func keyboardWillShow(notification: NSNotification) {
-            if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-                if self.view.frame.origin.y == 0{
-                    self.view.frame.origin.y -= keyboardSize.height
-                }
-            }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
     }
     
-    func keyboardWillHide(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            if self.view.frame.origin.y != 0{
-                self.view.frame.origin.y += keyboardSize.height
-            }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool
+    {
+        // Try to find next responder
+        if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
+            nextField.becomeFirstResponder()
+        } else {
+            // Not found, so remove keyboard.
+            textField.resignFirstResponder()
         }
+        // Do not add a line break
+        return false
     }
 
 }

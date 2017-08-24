@@ -7,29 +7,34 @@
 //
 
 import UIKit
+import Sparrow
 
-class PermissionsVC: UIViewController {
+class PermissionsVC: UIViewController, SPRequestPermissionEventsDelegate {
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+   
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func btnPressed(_ sender: Any) {
+        SPRequestPermission.native.present(with: [.notification, .locationAlways], delegate: self)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func didHide() {
+      SPRequestPermission.native.present(with: [.notification, .locationAlways], delegate: self)
     }
-    */
-
+    
+    func didAllowPermission(permission: SPRequestPermissionType) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func didDeniedPermission(permission: SPRequestPermissionType) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func didSelectedPermission(permission: SPRequestPermissionType) {
+        return
+    }
+    
 }

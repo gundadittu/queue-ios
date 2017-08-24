@@ -15,5 +15,10 @@ target 'Queue' do
   pod 'NVActivityIndicatorView'
   pod 'FacebookCore'
   pod 'FacebookLogin'
-  
+  pod 'SwiftyJSON'
+  pod 'Alamofire'
+  pod 'ChameleonFramework/Swift'
+  pod 'Sparrow/Modules/RequestPermission', :git => 'https://github.com/IvanVorobei/Sparrow.git'
+  pod 'IQKeyboardManagerSwift'
+
 end

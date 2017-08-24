@@ -10,17 +10,24 @@ import UIKit
 import Firebase
 import Onboard
 import FBSDKCoreKit
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var auth = SPTAuth()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
             FirebaseApp.configure()
             FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
-  
+            IQKeyboardManager.sharedManager().enable = true
+            IQKeyboardManager.sharedManager().toolbarDoneBarButtonItemText = "Done"
+            IQKeyboardManager.sharedManager().enableAutoToolbar = false 
+           // IQKeyboardManager.sharedManager().toolbarTintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+            //IQKeyboardManager.sharedManager().shouldShowTextFieldPlaceholder = false
+            //IQKeyboardManager.sharedManager().previousNextDisplayMode = .alwaysShow
+        
             if Auth.auth().currentUser == nil{
                 //update bodies of all these VC's
                 let logoPage: OnboardingContentViewController = OnboardingContentViewController(title: "Discover music together through intelligent playlists.", body: nil, image: nil, buttonText: nil) { () -> Void in return } //add logo to top
@@ -40,7 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 groupPlaylists.underIconPadding = 0
                 groupPlaylists.titleLabel.textAlignment = .left
                 groupPlaylists.bodyLabel.textAlignment = .left
-                groupPlaylists.bodyLabel.font = UIFont(name: "Avenir-Thin", size: 20)
+                groupPlaylists.bodyLabel.font = UIFont(name: "Avenir-Heavy", size: 20)
                 let eventPlaylists = OnboardingContentViewController(title: "Event Playlists", body: "Page body goes here.", image: UIImage(named: "icon"), buttonText: nil) { () -> Void in return }
                 eventPlaylists.topPadding = 0
                 eventPlaylists.underIconPadding = 0
@@ -73,14 +80,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 window?.rootViewController?.present(onboardingVC!, animated: true, completion: nil)
             }
         
+            //spotify auth
+            auth.redirectURL  = URL(string: "Queue://returnAfterLogin")
+            auth.sessionUserDefaultsKey = "current session"
+        
         return true
     }
     
+    
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        //spotify auth
+        if auth.canHandle(auth.redirectURL) {
+            auth.handleAuthCallback(withTriggeredAuthURL: url, callback: { (error, session) in
+                if error != nil {
+                    print("error!")
+                }
+                let userDefaults = UserDefaults.standard // change?
+                let sessionData = NSKeyedArchiver.archivedData(withRootObject: session as Any)
+                userDefaults.set(sessionData, forKey: "SpotifySession")
+                userDefaults.synchronize()
+                NotificationCenter.default.post(name: Notification.Name(rawValue: "loginSuccessfull"), object: nil)
+            })
+            return true
+        } else {
+            return false
+        }
+        
+        //facebook auth
         let handled = FBSDKApplicationDelegate.sharedInstance().application(app, open: url, sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String!, annotation: options[UIApplicationOpenURLOptionsKey.annotation])
         return handled 
     }
-    
 
 }
 

@@ -1,10 +1,14 @@
 PODS:
+  - Alamofire (4.5.0)
   - Bolts (1.8.4):
     - Bolts/AppLinks (= 1.8.4)
     - Bolts/Tasks (= 1.8.4)
   - Bolts/AppLinks (1.8.4):
     - Bolts/Tasks
   - Bolts/Tasks (1.8.4)
+  - ChameleonFramework/Default (2.1.0)
+  - ChameleonFramework/Swift (2.1.0):
+    - ChameleonFramework/Default
   - FacebookCore (0.2.0):
     - Bolts (~> 1.8)
     - FBSDKCoreKit (~> 4.15)
@@ -55,6 +59,7 @@ PODS:
     - GoogleToolboxForMac/NSString+URLArguments (= 2.1.1)
   - GoogleToolboxForMac/NSString+URLArguments (2.1.1)
   - GTMSessionFetcher/Core (1.1.11)
+  - IQKeyboardManagerSwift (4.0.11)
   - leveldb-library (1.18.3)
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
@@ -65,22 +70,42 @@ PODS:
     - NVActivityIndicatorView/Presenter (= 3.7.0)
   - NVActivityIndicatorView/Presenter (3.7.0)
   - Onboard (2.3.1)
+  - Sparrow/Core (1.1.0)
+  - Sparrow/Modules/RequestPermission (1.1.0):
+    - Sparrow/Core
   - SwiftMessages (3.4.0)
+  - SwiftyJSON (3.1.4)
   - TextFieldEffects (1.3.3)
 
 DEPENDENCIES:
+  - Alamofire
+  - ChameleonFramework/Swift
   - FacebookCore
   - FacebookLogin
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
+  - IQKeyboardManagerSwift
   - NVActivityIndicatorView
   - Onboard
+  - Sparrow/Modules/RequestPermission (from `https://github.com/IvanVorobei/Sparrow.git`)
   - SwiftMessages
+  - SwiftyJSON
   - TextFieldEffects
 
+EXTERNAL SOURCES:
+  Sparrow:
+    :git: https://github.com/IvanVorobei/Sparrow.git
+
+CHECKOUT OPTIONS:
+  Sparrow:
+    :commit: 7415a10e150d6344a10b11572d0d85f3df83319c
+    :git: https://github.com/IvanVorobei/Sparrow.git
+
 SPEC CHECKSUMS:
+  Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
+  ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   FacebookCore: 2cb3f0fbff218e9d3119cec84bae983b232412de
   FacebookLogin: c9d606504735780a9e3002465a615512e0a691a5
   FBSDKCoreKit: 53e3f4bfb64e80c5f229dd30ae33ff57fbbbd2d1
@@ -93,13 +118,16 @@ SPEC CHECKSUMS:
   FirebaseInstanceID: 0500e3cb54a1a4e01a8cffcc09323b8bb8fc7e1e
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMSessionFetcher: 5ad62e8200fa00ed011fe5e08d27fef72c5b1429
+  IQKeyboardManagerSwift: 10f0a6b8ea2904c8943c0e1a116c99f5b8ad83af
   leveldb-library: 10fb39c39e243db4af1828441162405bbcec1404
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   NVActivityIndicatorView: d3738df7e2e476aca0ba6bf32a8c9fbcfc33d64b
   Onboard: b6871f25ac753175b2ab9a362fb2feb26a81a311
+  Sparrow: 86b8f0d7598dc52ff2b06bb1df05feb297d1821f
   SwiftMessages: e20aa1557fde1525ea369361bec4943cc0d08e7c
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   TextFieldEffects: 8706f53525f1ce51c8921b7af32237caab50c467
 
-PODFILE CHECKSUM: c1dfd0852ebc4233f80d484dc30fdde14103d206
+PODFILE CHECKSUM: f5e463fbb0eb8b23acadc1e97ae46ab990a2dc12
 
 COCOAPODS: 1.3.1

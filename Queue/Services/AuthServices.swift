@@ -3,9 +3,24 @@ import Firebase
 import FacebookLogin
 import FacebookCore
 import FBSDKLoginKit
+import SwiftyJSON 
 
 class AuthService {
     static let instance = AuthService()
+    
+    struct MyProfileRequest: GraphRequestProtocol {
+        struct Response: GraphResponseProtocol {
+            init(rawResponse: Any?) {
+                // Decode JSON from rawResponse into other properties here.
+            }
+        }
+        
+        var graphPath = "/me"
+        var parameters: [String : Any]? = ["fields": "id, name"]
+        var accessToken = AccessToken.current
+        var httpMethod: GraphRequestHTTPMethod = .GET
+        var apiVersion: GraphAPIVersion = .defaultVersion
+    }
     
     func registerUser(withEmail email: String, andPassword password: String, firstName: String, lastName: String, userCreationComplete: @escaping
         (_ status: Bool, _ error: Error?)-> ()){
@@ -45,9 +60,10 @@ class AuthService {
                 case .success(let response): //Graph Result success case
                     let username = response.dictionaryValue?["name"] as? String
                     let splitName = username!.components(separatedBy: " ")
-                    let userdata = ["provider": "Facebook", "email": response.dictionaryValue?["email"], "first_name": splitName[0], "last_name": splitName[1], "facebook_friendslist": response.dictionaryValue?["friendlists"], "facebook_accesstoken": FBSDKAccessToken.current().tokenString]
+                    let userData = ["provider": "Facebook", "email": response.dictionaryValue?["email"], "first_name": splitName[0], "last_name": splitName[1], "facebook_friendslist": response.dictionaryValue?["friendlists"], "facebook_accesstoken": FBSDKAccessToken.current().tokenString]
                     let userid = user!.uid
-                    DataService.instance.createDBUser(uid: userid, userData: userdata)
+                   // print(response.dictionaryValue?["friendlists"])
+                    DataService.instance.createDBUser(uid: userid, userData: userData)
                     userAuthComplete(true, nil, nil)
                 case .failed(let error): //Graph Result failed case
                     userAuthComplete(false, error, "graph_api")
@@ -55,6 +71,27 @@ class AuthService {
             }
             connection.start()
         }
+        
+        /* getting access to user friendslist
+        let params = ["fields": "id, first_name, last_name, name, email, picture"]
+        
+        let graphRequest = FBSDKGraphRequest(graphPath: "/me/friends", parameters: params)
+        let connection = FBSDKGraphRequestConnection()
+        connection.add(graphRequest, completionHandler: { (connection, result, error) in
+            if error == nil {
+                print(result)
+                if let userData = result as? Data {
+                    let indexedData = JSON(data: userData)
+                    print("friendlist data")
+                    print(indexedData)
+                }
+            } else {
+                print("Error Getting Friends \(String(describing: error))");
+            }
+        })
+        
+        connection.start()
+        */
     }
     
     func facebookLogin(withCredential credential: AuthCredential, userLoginComplete: @escaping (_ status: Bool, _ error: Error?) ->()){
