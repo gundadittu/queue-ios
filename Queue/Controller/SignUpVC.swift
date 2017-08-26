@@ -29,7 +29,6 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
         //start loading indicator
         let activityIndicatorView = NVActivityIndicatorView(frame: self.view.frame, type: NVActivityIndicatorType(rawValue: loadingTypeNo)!, padding: 150)
         self.view.addSubview(activityIndicatorView)
-        activityIndicatorView.startAnimating()
         
         let loginManager = LoginManager()
         loginManager.logIn([ .publicProfile, .email, .userFriends ], viewController: self) { loginResult in
@@ -46,6 +45,8 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
                 //print("Logged in!")
                 //successfully authenticated with facebook
                 let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
+                //start loading indicator
+                activityIndicatorView.startAnimating()
                 AuthService.instance.facebookAuth(withCredential: credential, userAuthComplete: { success, error,
                     errorSource in
                     //stop loading indicator after registration request and login request done

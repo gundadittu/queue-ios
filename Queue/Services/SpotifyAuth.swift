@@ -22,7 +22,6 @@ let SPtokenRefresh_URL = "https://gentle-woodland-29346.herokuapp.com/refresh"
 
 let SPSession_UserDefaults_Key = "SpotifySession"
 
-
 func refreshSpotifyToken()
 {
     //print("refresh token: \(self.session.encryptedRefreshToken)")

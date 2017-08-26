@@ -14,15 +14,28 @@ import Alamofire
 import SwiftyJSON
 import SafariServices
 import SwiftMessages
+import NVActivityIndicatorView
 
 class MusicPermissionsVC: UIViewController, SPTAudioStreamingPlaybackDelegate, SPTAudioStreamingDelegate {
     
     var loginUrl: URL?
     var spotifyAuthVC: SFSafariViewController?
     let failedAlert = MessageView.viewFromNib(layout: .CardView)
+    var activityIndicatorView = NVActivityIndicatorView(frame: CGRect(), type: NVActivityIndicatorType(rawValue: loadingTypeNo)!, padding: 150) // dummy data until viewDidLoad initializes with self.view.frame
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //initialize loading indicator view
+        activityIndicatorView = NVActivityIndicatorView(frame: self.view.frame, type: NVActivityIndicatorType(rawValue: loadingTypeNo)!, padding: 150)
+        self.view.addSubview(activityIndicatorView)
+        
+        //initialize music provider data under user in data base
+        DataService.instance.writeUserData(uid: AuthService.instance.current_uid, key: spotifyProviderKey, data: "false")
+        DataService.instance.writeUserData(uid: AuthService.instance.current_uid, key: spotifyPremiumProviderKey, data: "false")
+        DataService.instance.writeUserData(uid: AuthService.instance.current_uid, key: appleMusicProviderkey, data: "false")
+
+        //handle spotify auth notifications sent from app delegate
         SP_setup()
         NotificationCenter.default.addObserver(self, selector: #selector(MusicPermissionsVC.sp_updateAfterFirstLogin), name: Notification.Name(rawValue: "loginSuccessfull") ,object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(MusicPermissionsVC.closeSpotifyAuthVC), name: Notification.Name(rawValue: "loginSuccessfull") ,object: nil)
@@ -44,35 +57,22 @@ class MusicPermissionsVC: UIViewController, SPTAudioStreamingPlaybackDelegate, S
             let firstTimeSession = NSKeyedUnarchiver.unarchiveObject(with: sessionDataObj) as! SPTSession
             sp_session = firstTimeSession
             
-            //write token values to database
+            //write spotify token values to database
             DataService.instance.writeUserData(uid: AuthService.instance.current_uid, key: spotifyAccessTokenKey, data: sp_session.accessToken)
-            /*
-            ///TESTING TO GET SPOTIFY USER'S PLAYLISTS
-            if sp_session != nil {
-                SPTPlaylistList.playlists(forUser: sp_session.canonicalUsername, withAccessToken: sp_session.accessToken, callback: { (error, list) in
-                    if error == nil{
-                        //let json = JSON(list)
-                       // print(json.array)
-                        do {
-                            let data = nil
-                            let request = try SPTPlaylistList.createRequestForGettingPlaylists(forUser: sp_session.canonicalUsername!, withAccessToken: sp_session.accessToken)
-                        SPTPlaylistList.init(from: data!, with: request)
-                        } catch {
-                         //error handling
-                        }
-                    }
-                })
-            } else {
-                print("spotify session = nil")
-            }
-            */
-            
         }
     }
     
     func closeSpotifyAuthVC(){
         spotifyAuthVC?.dismiss(animated: true, completion: nil)
-        self.performSegue(withIdentifier: "musicpermtoperm", sender: nil)
+        activityIndicatorView.startAnimating()
+        //update user's music provider in database - spotify
+        DataService.instance.writeUserData(uid: AuthService.instance.current_uid, key: spotifyProviderKey, data: "true")
+        
+        //upload user's music data from spotify
+        musicData.instance.uploadSpotifyData(completion: {
+            self.activityIndicatorView.stopAnimating()
+            self.performSegue(withIdentifier: "musicpermtoperm", sender: nil)
+        })
     }
 
     @IBAction func spotifyBtnPressed(_ sender: Any) {
@@ -81,6 +81,7 @@ class MusicPermissionsVC: UIViewController, SPTAudioStreamingPlaybackDelegate, S
     }
     
     @IBAction func applemusicBtnPressed(_ sender: Any) {
+        self.activityIndicatorView.startAnimating()
         appleMusicCheckIfDeviceCanPlayback()
     }
     
@@ -92,6 +93,9 @@ class MusicPermissionsVC: UIViewController, SPTAudioStreamingPlaybackDelegate, S
             } else if  capability.contains(SKCloudServiceCapability.addToCloudMusicLibrary) { //The user has an Apple Music subscription, can playback music AND can add to the Cloud Music Library
                 self.appleMusicRequestPermission()
             } else { //The user doesn't have an Apple Music subscription available. Now would be a good time to prompt them to buy one?
+                //stop loading indicator
+                self.activityIndicatorView.stopAnimating()
+                //show alert of failed request
                 self.failedAlert.configureTheme(.error)
                 self.failedAlert.button?.isHidden = true
                 self.failedAlert.configureContent(title: "Woops!", body: "It looks like you don't have a valid Apple Music subscription!", iconText: iconText)
@@ -105,24 +109,19 @@ class MusicPermissionsVC: UIViewController, SPTAudioStreamingPlaybackDelegate, S
         SKCloudServiceController.requestAuthorization { (status:SKCloudServiceAuthorizationStatus) in
             switch status {
             case .authorized:
-                //self.appleMusicPlayTrackId(ids: ["201234458"])
+                //update user's music provider in data base
+                DataService.instance.writeUserData(uid: AuthService.instance.current_uid, key: appleMusicProviderkey, data: "true")
                 
-                let myPlaylistQuery = MPMediaQuery.playlists()
-                let playlists = myPlaylistQuery.collections
-                for playlist in playlists! {
-                    print(playlist.value(forProperty: MPMediaPlaylistPropertyName)!)
-                    
-                    /*
-                    let songs = playlist.items
-                    for song in songs {
-                        let songTitle = song.value(forProperty: MPMediaItemPropertyTitle)
-                        print("\t\t", songTitle!)
-                    }
-                     */
-                }
+                //upload user's music data from apple music
+                musicData.instance.uploadAppleMusicData(completion: {
+                    //self.activityIndicatorView.stopAnimating()
+                    self.performSegue(withIdentifier: "musicpermtoperm", sender: nil)
+                })
                 
-                self.performSegue(withIdentifier: "musicpermtoperm", sender: nil)
             case .denied:
+                //stop loading indicator
+                self.activityIndicatorView.stopAnimating()
+                //show failed alert
                 self.failedAlert.configureTheme(.error)
                 self.failedAlert.button?.isHidden = true
                 self.failedAlert.configureContent(title: "Woops!", body: "It looks like you didn't allows us to acccess your Apple Music library.", iconText: iconText)
@@ -140,16 +139,10 @@ class MusicPermissionsVC: UIViewController, SPTAudioStreamingPlaybackDelegate, S
             }
         }
     }
-    
-    let applicationMusicPlayer = MPMusicPlayerController.applicationMusicPlayer()
-    
-    func appleMusicPlayTrackId(ids:[String]) {
-        applicationMusicPlayer.setQueueWithStoreIDs(ids)
-        applicationMusicPlayer.play()
-    }
-    
+
     @IBAction func skipBtnPressed(_ sender: Any) {
         self.performSegue(withIdentifier: "musicpermtoperm", sender: nil)
     }
+    
 
 }
