@@ -11,6 +11,7 @@
 		042A97B61F46D41600A925A6 /* GetStartedNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042A97B51F46D41600A925A6 /* GetStartedNavController.swift */; };
 		042CB8FF1F47D9E600B77973 /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042CB8FE1F47D9E600B77973 /* ForgotPasswordVC.swift */; };
 		042CB9021F47EA5E00B77973 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042CB9011F47EA5E00B77973 /* Defaults.swift */; };
+		043986DD1F5004B90072E0ED /* StorageServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043986DC1F5004B90072E0ED /* StorageServices.swift */; };
 		0447C1F51F46791F0037CB26 /* MusicPermissionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0447C1F41F46791F0037CB26 /* MusicPermissionsVC.swift */; };
 		0449708D1F47B36600CC4D87 /* AuthServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0449708C1F47B36600CC4D87 /* AuthServices.swift */; };
 		0449708F1F47B38900CC4D87 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0449708E1F47B38900CC4D87 /* DataService.swift */; };
@@ -21,6 +22,8 @@
 		0478B65C1F464EFC005932E7 /* GetStartedNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478B65B1F464EFC005932E7 /* GetStartedNavBar.swift */; };
 		0478B6601F465BFA005932E7 /* roundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478B65F1F465BFA005932E7 /* roundButton.swift */; };
 		0478B6621F466A8B005932E7 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478B6611F466A8B005932E7 /* LoginVC.swift */; };
+		0480DA5F1F4F8B3300DC4580 /* SpotifyAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0480DA5E1F4F8B3300DC4580 /* SpotifyAuth.swift */; };
+		0480DA611F4F9F2300DC4580 /* dbKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0480DA601F4F9F2300DC4580 /* dbKeys.swift */; };
 		0484ADE41F33B0660045AE34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0484ADE31F33B0660045AE34 /* AppDelegate.swift */; };
 		0484ADE61F33B0660045AE34 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0484ADE51F33B0660045AE34 /* FirstViewController.swift */; };
 		0484ADE81F33B0660045AE34 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0484ADE71F33B0660045AE34 /* SecondViewController.swift */; };
@@ -40,6 +43,7 @@
 		042CB8FE1F47D9E600B77973 /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
 		042CB9011F47EA5E00B77973 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		042CB9031F48296400B77973 /* Queue.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Queue.entitlements; sourceTree = "<group>"; };
+		043986DC1F5004B90072E0ED /* StorageServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageServices.swift; sourceTree = "<group>"; };
 		0447C1F41F46791F0037CB26 /* MusicPermissionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPermissionsVC.swift; sourceTree = "<group>"; };
 		0449708C1F47B36600CC4D87 /* AuthServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServices.swift; sourceTree = "<group>"; };
 		0449708E1F47B38900CC4D87 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
@@ -50,6 +54,8 @@
 		0478B65B1F464EFC005932E7 /* GetStartedNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStartedNavBar.swift; sourceTree = "<group>"; };
 		0478B65F1F465BFA005932E7 /* roundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = roundButton.swift; sourceTree = "<group>"; };
 		0478B6611F466A8B005932E7 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		0480DA5E1F4F8B3300DC4580 /* SpotifyAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyAuth.swift; sourceTree = "<group>"; };
+		0480DA601F4F9F2300DC4580 /* dbKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dbKeys.swift; sourceTree = "<group>"; };
 		0484ADE01F33B0660045AE34 /* Queue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Queue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0484ADE31F33B0660045AE34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0484ADE51F33B0660045AE34 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -93,6 +99,9 @@
 				04FFD1191F4CC0AB008E2116 /* BridgeViewController.h */,
 				04FFD11A1F4CC0AB008E2116 /* BridgeViewController.m */,
 				04FFD1181F4CC0AB008E2116 /* Queue-Bridging-Header.h */,
+				0480DA5E1F4F8B3300DC4580 /* SpotifyAuth.swift */,
+				0480DA601F4F9F2300DC4580 /* dbKeys.swift */,
+				043986DC1F5004B90072E0ED /* StorageServices.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -291,6 +300,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Queue/Pods-Queue-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
@@ -312,6 +322,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
@@ -360,6 +371,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0480DA611F4F9F2300DC4580 /* dbKeys.swift in Sources */,
+				043986DD1F5004B90072E0ED /* StorageServices.swift in Sources */,
+				0480DA5F1F4F8B3300DC4580 /* SpotifyAuth.swift in Sources */,
 				042A97B61F46D41600A925A6 /* GetStartedNavController.swift in Sources */,
 				042CB9021F47EA5E00B77973 /* Defaults.swift in Sources */,
 				0449708F1F47B38900CC4D87 /* DataService.swift in Sources */,

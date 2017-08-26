@@ -108,6 +108,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                     //shows alert
                     SwiftMessages.show(view: self.failedLoginAlert)
                 }
+                
             })
         } else {
             //if any required field is nil

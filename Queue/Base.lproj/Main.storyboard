@@ -737,6 +737,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="yj5-Qh-XM0">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="zES-Tu-KwB">
                                 <rect key="frame" x="0.0" y="94" width="375" height="300"/>
                                 <subviews>
@@ -828,21 +832,14 @@
                                     <action selector="btnPressed:" destination="J8c-WJ-JS7" eventType="touchUpInside" id="Po6-rQ-jjX"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="yj5-Qh-XM0">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="zES-Tu-KwB" firstAttribute="leading" secondItem="STB-Vb-L4W" secondAttribute="leading" id="05V-US-kj8"/>
                             <constraint firstItem="07P-YM-o7y" firstAttribute="top" secondItem="zES-Tu-KwB" secondAttribute="bottom" constant="25" id="34V-Vm-poN"/>
                             <constraint firstItem="zES-Tu-KwB" firstAttribute="top" secondItem="FPj-xt-NZs" secondAttribute="bottom" constant="30" id="800-EN-6Od"/>
-                            <constraint firstAttribute="trailing" secondItem="yj5-Qh-XM0" secondAttribute="trailing" id="BGb-jN-t4E"/>
                             <constraint firstItem="07P-YM-o7y" firstAttribute="leading" secondItem="STB-Vb-L4W" secondAttribute="leading" constant="30" id="M9p-Ki-2tN"/>
                             <constraint firstAttribute="trailing" secondItem="07P-YM-o7y" secondAttribute="trailing" constant="30" id="NYV-wG-MCX"/>
-                            <constraint firstItem="yj5-Qh-XM0" firstAttribute="leading" secondItem="STB-Vb-L4W" secondAttribute="leading" id="OJF-D6-XNU"/>
-                            <constraint firstItem="yj5-Qh-XM0" firstAttribute="top" secondItem="STB-Vb-L4W" secondAttribute="top" id="OZq-rl-U6Q"/>
-                            <constraint firstItem="xra-Gu-UEg" firstAttribute="top" secondItem="yj5-Qh-XM0" secondAttribute="bottom" id="PZ7-IW-UyA"/>
                             <constraint firstAttribute="trailing" secondItem="zES-Tu-KwB" secondAttribute="trailing" id="PgV-2b-RY5"/>
                             <constraint firstItem="zES-Tu-KwB" firstAttribute="centerX" secondItem="STB-Vb-L4W" secondAttribute="centerX" id="pIl-4q-g6R"/>
                         </constraints>

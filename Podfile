@@ -9,6 +9,7 @@ target 'Queue' do
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
+  pod 'Firebase/Storage'
   pod 'Onboard'
   pod 'TextFieldEffects'
   pod 'SwiftMessages'
@@ -20,5 +21,6 @@ target 'Queue' do
   pod 'ChameleonFramework/Swift'
   pod 'Sparrow/Modules/RequestPermission', :git => 'https://github.com/IvanVorobei/Sparrow.git'
   pod 'IQKeyboardManagerSwift'
-
+  pod 'AlamofireImage', '~> 3.2'
+  
 end

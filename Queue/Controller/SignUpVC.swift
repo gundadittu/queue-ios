@@ -26,6 +26,11 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
     let failedLoginAlert = MessageView.viewFromNib(layout: .CardView)
 
     @IBAction func facebookBtnPressed(_ sender: Any) {
+        //start loading indicator
+        let activityIndicatorView = NVActivityIndicatorView(frame: self.view.frame, type: NVActivityIndicatorType(rawValue: loadingTypeNo)!, padding: 150)
+        self.view.addSubview(activityIndicatorView)
+        activityIndicatorView.startAnimating()
+        
         let loginManager = LoginManager()
         loginManager.logIn([ .publicProfile, .email, .userFriends ], viewController: self) { loginResult in
             switch loginResult { //facebook sign up request result 
@@ -41,7 +46,11 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
                 //print("Logged in!")
                 //successfully authenticated with facebook
                 let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
-                AuthService.instance.facebookAuth(withCredential: credential, userAuthComplete: { success, error, errorSource in
+                AuthService.instance.facebookAuth(withCredential: credential, userAuthComplete: { success, error,
+                    errorSource in
+                    //stop loading indicator after registration request and login request done
+                    activityIndicatorView.stopAnimating()
+                    
                     if success == false && error != nil {   // error with firebase authenticate request or graph api
                         if let eSource = errorSource {
                             if eSource == "firebase"{ //error with firebase
