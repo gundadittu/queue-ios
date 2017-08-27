@@ -11,14 +11,14 @@ import Foundation
 var sp_auth = SPTAuth.defaultInstance()!
 var sp_session:SPTSession!
 
+//Spotify Developer Info - find a way to remove hardcode from app 
 let SPredirect_URL = "Queue://returnAfterLogin"
-
 let SPclient_ID = "72d8cf3b5c014ce694675d2c931e339e"
+let SPtokenSwap_URL = "https://gentle-woodland-29346.herokuapp.com/swap"
+let SPtokenRefresh_URL = "https://gentle-woodland-29346.herokuapp.com/refresh"
 
 let SPrequested_scopes = [SPTAuthStreamingScope, SPTAuthPlaylistReadPrivateScope, SPTAuthPlaylistModifyPublicScope, SPTAuthPlaylistModifyPrivateScope, SPTAuthUserLibraryReadScope, SPTAuthUserLibraryModifyScope, SPTAuthUserReadPrivateScope]
 
-let SPtokenSwap_URL = "https://gentle-woodland-29346.herokuapp.com/swap"
-let SPtokenRefresh_URL = "https://gentle-woodland-29346.herokuapp.com/refresh"
 
 let SPSession_UserDefaults_Key = "SpotifySession"
 

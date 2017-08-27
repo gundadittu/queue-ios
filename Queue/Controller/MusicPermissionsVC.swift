@@ -33,7 +33,7 @@ class MusicPermissionsVC: UIViewController, SPTAudioStreamingPlaybackDelegate, S
         //initialize music provider data under user in data base
         DataService.instance.writeUserData(uid: AuthService.instance.current_uid, key: spotifyProviderKey, data: "false")
         DataService.instance.writeUserData(uid: AuthService.instance.current_uid, key: spotifyPremiumProviderKey, data: "false")
-        DataService.instance.writeUserData(uid: AuthService.instance.current_uid, key: appleMusicProviderkey, data: "false")
+        DataService.instance.writeUserData(uid: AuthService.instance.current_uid, key: appleMusicProviderKey, data: "false")
 
         //handle spotify auth notifications sent from app delegate
         SP_setup()
@@ -69,9 +69,14 @@ class MusicPermissionsVC: UIViewController, SPTAudioStreamingPlaybackDelegate, S
         DataService.instance.writeUserData(uid: AuthService.instance.current_uid, key: spotifyProviderKey, data: "true")
         
         //upload user's music data from spotify
-        musicData.instance.uploadSpotifyData(completion: {
+        SpotifyMusicManager.instance.uploadSpotifyData(completionHandler: { (error) in
             self.activityIndicatorView.stopAnimating()
-            self.performSegue(withIdentifier: "musicpermtoperm", sender: nil)
+            if error != nil {
+                //error handling
+                print(error)
+            } else {
+                self.performSegue(withIdentifier: "musicpermtoperm", sender: nil)
+            }
         })
     }
 
@@ -110,13 +115,13 @@ class MusicPermissionsVC: UIViewController, SPTAudioStreamingPlaybackDelegate, S
             switch status {
             case .authorized:
                 //update user's music provider in data base
-                DataService.instance.writeUserData(uid: AuthService.instance.current_uid, key: appleMusicProviderkey, data: "true")
+                DataService.instance.writeUserData(uid: AuthService.instance.current_uid, key: appleMusicProviderKey, data: "true")
                 
                 //upload user's music data from apple music
-                musicData.instance.uploadAppleMusicData(completion: {
+                //SpotifyMusicManager.instance.uploadAppleMusicData(completion: {
                     //self.activityIndicatorView.stopAnimating()
                     self.performSegue(withIdentifier: "musicpermtoperm", sender: nil)
-                })
+              //  })
                 
             case .denied:
                 //stop loading indicator

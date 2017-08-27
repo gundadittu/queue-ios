@@ -31,9 +31,5 @@ class StorageService {
                 print("error uploading image")
             }
         }
-       // profilePic.kf.setImage(with: picURL)
-        
-        //let uploadPic = UIImagePNGRepresentation(profilePic.image!)
-       // profilePicRef.putData(uploadPic!)
     }
 }
