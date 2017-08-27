@@ -20,7 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
             FirebaseApp.configure()
-        
+            Database.database().isPersistenceEnabled = true
+
+            UIApplication.shared.statusBarStyle = .lightContent
             if Auth.auth().currentUser == nil{
                 self.welcomeScreens()
             }
@@ -50,13 +52,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if auth.canHandle(auth.redirectURL) {
             auth.handleAuthCallback(withTriggeredAuthURL: url, callback: { (error, session) in
                 if error != nil {
-                    print("error!")
+                    let errorDesc = error?.localizedDescription
+                    if errorDesc == "access_denied"{
+                        NotificationCenter.default.post(name: Notification.Name(rawValue: "loginDenied"), object: nil)
+                    } else {
+                        NotificationCenter.default.post(name: Notification.Name(rawValue: "loginNotSuccessfull"), object: nil)
+                    }
+                } else {
+                    let userDefaults = UserDefaults.standard // change?
+                    let sessionData = NSKeyedArchiver.archivedData(withRootObject: session as Any)
+                    userDefaults.set(sessionData, forKey: "SpotifySession")
+                    userDefaults.synchronize()
+                    NotificationCenter.default.post(name: Notification.Name(rawValue: "loginSuccessfull"), object: nil)
                 }
-                let userDefaults = UserDefaults.standard // change?
-                let sessionData = NSKeyedArchiver.archivedData(withRootObject: session as Any)
-                userDefaults.set(sessionData, forKey: "SpotifySession")
-                userDefaults.synchronize()
-                NotificationCenter.default.post(name: Notification.Name(rawValue: "loginSuccessfull"), object: nil)
             })
             return true
         } else {

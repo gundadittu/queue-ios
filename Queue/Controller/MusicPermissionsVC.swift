@@ -16,7 +16,7 @@ import SafariServices
 import SwiftMessages
 import NVActivityIndicatorView
 
-class MusicPermissionsVC: UIViewController, SPTAudioStreamingPlaybackDelegate, SPTAudioStreamingDelegate {
+class MusicPermissionsVC: UIViewController, SPTAudioStreamingPlaybackDelegate, SPTAudioStreamingDelegate, SFSafariViewControllerDelegate {
     
     var loginUrl: URL?
     var spotifyAuthVC: SFSafariViewController?
@@ -38,7 +38,9 @@ class MusicPermissionsVC: UIViewController, SPTAudioStreamingPlaybackDelegate, S
         //handle spotify auth notifications sent from app delegate
         SP_setup()
         NotificationCenter.default.addObserver(self, selector: #selector(MusicPermissionsVC.sp_updateAfterFirstLogin), name: Notification.Name(rawValue: "loginSuccessfull") ,object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(MusicPermissionsVC.closeSpotifyAuthVC), name: Notification.Name(rawValue: "loginSuccessfull") ,object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(MusicPermissionsVC.closeSpotifyAuthVCOnSuccessfulAuth), name: Notification.Name(rawValue: "loginSuccessfull") ,object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(MusicPermissionsVC.closeSpotifyAuthVCOnFailedAuth), name: Notification.Name(rawValue: "loginNotSuccessfull") ,object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(MusicPermissionsVC.closeSpotifyAuthVCOnDeniedAuth), name: Notification.Name(rawValue: "loginDenied") ,object: nil)
     }
     
     func SP_setup() {
@@ -62,9 +64,9 @@ class MusicPermissionsVC: UIViewController, SPTAudioStreamingPlaybackDelegate, S
         }
     }
     
-    func closeSpotifyAuthVC(){
+    func closeSpotifyAuthVCOnSuccessfulAuth(){
         spotifyAuthVC?.dismiss(animated: true, completion: nil)
-        activityIndicatorView.startAnimating()
+        self.activityIndicatorView.startAnimating()
         //update user's music provider in database - spotify
         DataService.instance.writeUserData(uid: AuthService.instance.current_uid, key: spotifyProviderKey, data: "true")
         
@@ -72,16 +74,36 @@ class MusicPermissionsVC: UIViewController, SPTAudioStreamingPlaybackDelegate, S
         SpotifyMusicManager.instance.uploadSpotifyData(completionHandler: { (error) in
             self.activityIndicatorView.stopAnimating()
             if error != nil {
-                //error handling
-                print(error)
+                //error handling from trying to upload Spotify Data 
+                self.failedAlert.configureTheme(.error)
+                self.failedAlert.button?.isHidden = true
+                self.failedAlert.configureContent(title: "Woops!", body: error!.localizedDescription, iconText: iconText)
+                SwiftMessages.show(view: self.failedAlert)
             } else {
                 self.performSegue(withIdentifier: "musicpermtoperm", sender: nil)
             }
         })
     }
+    
+    func closeSpotifyAuthVCOnFailedAuth(){
+        spotifyAuthVC?.dismiss(animated: true, completion: nil)
+        self.failedAlert.configureTheme(.error)
+        self.failedAlert.button?.isHidden = true
+        self.failedAlert.configureContent(title: "Woops!", body: "It looks like something went wrong with trying to connect your Spotify account. Make sure your account is valid and try again.", iconText: iconText)
+        SwiftMessages.show(view: self.failedAlert)
+    }
+    
+    func closeSpotifyAuthVCOnDeniedAuth(){
+        spotifyAuthVC?.dismiss(animated: true, completion: nil)
+    }
+    
+    func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
+        spotifyAuthVC?.dismiss(animated: true, completion: nil)
+    }
 
     @IBAction func spotifyBtnPressed(_ sender: Any) {
          spotifyAuthVC = SFSafariViewController(url: loginUrl!)
+         spotifyAuthVC?.modalPresentationStyle = UIModalPresentationStyle.popover
          present(spotifyAuthVC!, animated: true, completion: nil)
     }
     

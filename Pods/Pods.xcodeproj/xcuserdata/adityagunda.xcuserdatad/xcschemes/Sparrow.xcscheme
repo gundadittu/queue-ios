@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '4EC3AF436B37B21E17583C95731A620F'
+               BlueprintIdentifier = 'B46660026DF3F34C2BFA51333E80076F'
                BlueprintName = 'Sparrow'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Sparrow.framework'>

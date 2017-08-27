@@ -22,5 +22,6 @@ target 'Queue' do
   pod 'Sparrow/Modules/RequestPermission', :git => 'https://github.com/IvanVorobei/Sparrow.git'
   pod 'IQKeyboardManagerSwift'
   pod 'AlamofireImage', '~> 3.2'
+  pod 'Firebase/Performance'
   
 end

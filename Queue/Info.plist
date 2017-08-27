@@ -84,5 +84,7 @@
 	<string>App needs acces to show and notify you of relevant nearby playlists. </string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>App needs acces to show and notify you of relevant nearby playlists. </string>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 </dict>
 </plist>

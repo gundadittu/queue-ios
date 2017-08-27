@@ -65,18 +65,31 @@ class DataService {
         return NSUUID().uuidString
     }
     
-    func createExternalSong(user_id: String, songData: [String:Any]) -> String {
-        let key = REF_EXTERNALSONGS_SONGS.childByAutoId().key
-        REF_EXTERNALSONGS_SONGS.child("\(key)").updateChildValues(songData)
-        REF_EXTERNALSONGS_SONGSBYUSER.child("\(user_id)/\(key)").updateChildValues(songData)
-        return key
+    //add return error option? error handling?
+    func createExternalSpotifySong(user_id: String, songData: [String:Any]) -> String?{
+        if let key = songData[songSpotifyIDKey] as? String {
+            REF_EXTERNALSONGS_SONGS.child("\(key)").updateChildValues(songData) //useless?
+            REF_EXTERNALSONGS_SONGSBYUSER.child("\(user_id)/\(key)").updateChildValues(songData)
+            return key
+        }
+        return nil
     }
     
-    func removeExternalSong(key: String) {
+    func removeExternalSpotifySong(key: String) {
         return
     }
     
-    func removeExternalSongbyUser(userID: String) {
+    func removeExternalSpotifySongbyUser(userID: String, key: String) {
         return
     }
+    
+    func createExternalSpotifyPlaylist(_ user_id: String,_ playlistData: [String:Any]) -> String? {
+        if let key = playlistData["playlist_spotify_id"] as? String {
+            REF_EXTERNALPLAYLISTS_PLAYLISTS.child("\(key)").updateChildValues(playlistData)
+            REF_EXTERNALPLAYLISTS_PLAYLISTSBYUSER.child("\(user_id)/\(key)").updateChildValues(playlistData)
+            return key
+        }
+        return nil
+    }
+    
 }
