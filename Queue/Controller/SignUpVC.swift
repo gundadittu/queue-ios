@@ -24,34 +24,35 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var emailAddLbl: HoshiTextField!
     let failedLoginAlert = MessageView.viewFromNib(layout: .CardView)
+    var activityIndicatorView = NVActivityIndicatorView(frame: CGRect(), type: NVActivityIndicatorType(rawValue: loadingTypeNo)!, padding: 150)
 
+    
     @IBAction func facebookBtnPressed(_ sender: Any) {
         //start loading indicator
-        let activityIndicatorView = NVActivityIndicatorView(frame: self.view.frame, type: NVActivityIndicatorType(rawValue: loadingTypeNo)!, padding: 150)
-        self.view.addSubview(activityIndicatorView)
+        self.view.addSubview(self.activityIndicatorView)
         
         let loginManager = LoginManager()
         loginManager.logIn([ .publicProfile, .email, .userFriends ], viewController: self) { loginResult in
             switch loginResult { //facebook sign up request result 
             case LoginResult.failed(let error): //facebook sign up request failed
-                print(error)
                 self.failedLoginAlert.configureTheme(.error)
                 self.failedLoginAlert.button?.isHidden = true
                 self.failedLoginAlert.configureContent(title: "Sorry!", body: "Your sign up failed. We reccomend you try signing up again.", iconText: iconText)
                 SwiftMessages.show(view: self.failedLoginAlert)
             case LoginResult.cancelled: //facebook sign up request cancelled
-                //print("User cancelled login.")
-                return 
+                self.failedLoginAlert.configureTheme(.error)
+                self.failedLoginAlert.button?.isHidden = true
+                self.failedLoginAlert.configureContent(title: "Woops!", body: "Looks like you canceled your sign up.", iconText: iconText)
+                SwiftMessages.show(view: self.failedLoginAlert)
             case LoginResult.success(let _, let _, let _):
-                //print("Logged in!")
                 //successfully authenticated with facebook
                 let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
                 //start loading indicator
-                activityIndicatorView.startAnimating()
+                self.activityIndicatorView.startAnimating()
                 AuthService.instance.facebookAuth(withCredential: credential, userAuthComplete: { success, error,
                     errorSource in
                     //stop loading indicator after registration request and login request done
-                    activityIndicatorView.stopAnimating()
+                    self.activityIndicatorView.stopAnimating()
                     
                     if success == false && error != nil {   // error with firebase authenticate request or graph api
                         if let eSource = errorSource {
@@ -157,6 +158,7 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.activityIndicatorView = NVActivityIndicatorView(frame: self.view.frame, type: NVActivityIndicatorType(rawValue: loadingTypeNo)!, padding: 150)
         firstNameLbl.delegate = self
         firstNameLbl.tag = 0
         lastNameLbl.delegate = self

@@ -66,7 +66,8 @@ class MusicPermissionsVC: UIViewController, SPTAudioStreamingPlaybackDelegate, S
     
     func closeSpotifyAuthVCOnSuccessfulAuth(){
         spotifyAuthVC?.dismiss(animated: true, completion: nil)
-        self.activityIndicatorView.startAnimating()
+        //self.activityIndicatorView.startAnimating()
+        
         //update user's music provider in database - spotify
         DataService.instance.writeUserData(uid: AuthService.instance.current_uid, key: spotifyProviderKey, data: "true")
         
@@ -74,11 +75,14 @@ class MusicPermissionsVC: UIViewController, SPTAudioStreamingPlaybackDelegate, S
         SpotifyMusicManager.instance.uploadSpotifyData(completionHandlerMain: { (error) in
             //self.activityIndicatorView.stopAnimating()
             if error != nil {
-                //error handling from trying to upload Spotify Data 
+                //error handling from trying to upload Spotify Data
+                
                 self.failedAlert.configureTheme(.error)
                 self.failedAlert.button?.isHidden = true
                 self.failedAlert.configureContent(title: "Woops!", body: "error", iconText: iconText)
                 SwiftMessages.show(view: self.failedAlert)
+ 
+                print("error")
             } else {
                 self.performSegue(withIdentifier: "musicpermtoperm", sender: nil)
             }
@@ -108,7 +112,7 @@ class MusicPermissionsVC: UIViewController, SPTAudioStreamingPlaybackDelegate, S
     }
     
     @IBAction func applemusicBtnPressed(_ sender: Any) {
-        self.activityIndicatorView.startAnimating()
+        //self.activityIndicatorView.startAnimating()
         appleMusicCheckIfDeviceCanPlayback()
     }
     

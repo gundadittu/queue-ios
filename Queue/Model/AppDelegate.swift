@@ -16,7 +16,6 @@ import IQKeyboardManagerSwift
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var auth = SPTAuth()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
             FirebaseApp.configure()
@@ -34,10 +33,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             IQKeyboardManager.sharedManager().enableAutoToolbar = false
         
             //spotify auth
-            auth.redirectURL  = URL(string: "Queue://returnAfterLogin")
-            auth.sessionUserDefaultsKey = "current session"
-            auth.tokenSwapURL = URL(string:  SpotifyAuth.instance.SPtokenSwap_URL)
-            auth.tokenRefreshURL =  URL(string:  SpotifyAuth.instance.SPtokenRefresh_URL)
+            SpotifyAuth.instance.auth.redirectURL  = URL(string: "Queue://returnAfterLogin")
+            SpotifyAuth.instance.auth.sessionUserDefaultsKey = "current session"
+            SpotifyAuth.instance.auth.tokenSwapURL = URL(string:  SpotifyAuth.instance.SPtokenSwap_URL)
+            SpotifyAuth.instance.auth.tokenRefreshURL =  URL(string:  SpotifyAuth.instance.SPtokenRefresh_URL)
         
             Auth.auth().addStateDidChangeListener { (auth, user) in
                 if Auth.auth().currentUser == nil{
@@ -49,8 +48,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
         //spotify auth
-        if auth.canHandle(auth.redirectURL) {
-            auth.handleAuthCallback(withTriggeredAuthURL: url, callback: { (error, session) in
+        if SpotifyAuth.instance.auth.canHandle(SpotifyAuth.instance.auth.redirectURL) {
+             SpotifyAuth.instance.auth.handleAuthCallback(withTriggeredAuthURL: url, callback: { (error, session) in
                 if error != nil {
                     let errorDesc = error?.localizedDescription
                     if errorDesc == "access_denied"{
@@ -60,15 +59,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     }
                 } else {
                     let userDefaults = UserDefaults.standard // change?
-                    let sessionData = NSKeyedArchiver.archivedData(withRootObject: session as Any)
+                    let sessionData = NSKeyedArchiver.archivedData(withRootObject: session as Any) //??
                     userDefaults.set(sessionData, forKey: "SpotifySession")
                     userDefaults.synchronize()
                     NotificationCenter.default.post(name: Notification.Name(rawValue: "loginSuccessfull"), object: nil)
                 }
             })
             return true
-        } else {
-            return false
         }
         
         //facebook auth

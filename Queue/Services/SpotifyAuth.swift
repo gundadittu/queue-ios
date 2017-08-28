@@ -12,7 +12,8 @@ class SpotifyAuth {
     static let instance = SpotifyAuth()
     var sp_auth = SPTAuth.defaultInstance()!
     var sp_session:SPTSession!
-    
+    var auth = SPTAuth()
+
     //Spotify Developer Info - find a way to remove hardcode from app
     let SPredirect_URL = "Queue://returnAfterLogin"
     let SPclient_ID = "72d8cf3b5c014ce694675d2c931e339e"

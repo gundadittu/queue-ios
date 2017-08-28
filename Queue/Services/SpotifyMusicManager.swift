@@ -22,41 +22,44 @@ class SpotifyMusicManager {
     func uploadSpotifyData(completionHandlerMain: @escaping (Error?) -> Void ){
         ///all saved tracks
         let dispatchGroup = DispatchGroup()
-        
-        var totalSongs = 0
-        var totalPlaylists = 0
+        var totalSongs = 52
+        var totalPlaylists = 28
+        /*
         let header = ["Authorization": "Bearer \( SpotifyAuth.instance.sp_session.accessToken!)"]
         let parameters = ["limit": 1]
-        
         dispatchGroup.enter()
         Alamofire.request(spotifyUserPlaylistListAPIURL, parameters: parameters, headers: header).responseJSON { (response) in
-            dispatchGroup.leave()
+            //dispatchGroup.leave()
             switch response.result {
             case .success(let value):
                 let json = JSON(value).dictionaryObject!
                 totalPlaylists = json["total"] as! Int
+                print("total playlists: \(totalPlaylists)")
             case .failure(let error):
                 completionHandlerMain(error)
                 return
             }
         }
         
-        dispatchGroup.wait()
-        dispatchGroup.enter()
+        //dispatchGroup.wait()
+        //dispatchGroup.enter()
         Alamofire.request(spotifyUsersSavedTracksAPIURL, parameters: parameters, headers: header).responseJSON { (response) in
             dispatchGroup.leave()
             switch response.result {
             case .success(let value):
                 let json = JSON(value).dictionaryObject!
                 totalSongs = json["total"] as! Int
+                print("total songs: \(totalSongs)")
             case .failure(let error):
                 completionHandlerMain(error)
                 return
             }
         }
-        
         dispatchGroup.wait()
+        */
+        
         dispatchGroup.enter()
+        //all user saved tracks
         self.uploadSpotifyUserAllSavedTracks (totalSongs){ (error) in
             dispatchGroup.leave()
             if error != nil {
@@ -64,7 +67,6 @@ class SpotifyMusicManager {
                 return
             }
         }
-        
         dispatchGroup.wait()
         dispatchGroup.enter()
         //all playlists
@@ -75,21 +77,17 @@ class SpotifyMusicManager {
                 return
             }
         })
-        
         dispatchGroup.notify(queue: .main) {
             completionHandlerMain(nil)
         }
     }
     
     func uploadSpotifyUserPlaylists(_ playlistCount: Int, completionHandler: @escaping (Error?) -> Void) {
-        var totalCount = playlistCount //fix - get correct total
-        
+        let totalCount = playlistCount //fix - get correct total
         let dispatchGroup = DispatchGroup()
-        
         var requestCount = 0
         var remainder = 0
         var count = 0
-        
         if totalCount < 50 {
             requestCount = 0
             remainder = totalCount
@@ -97,7 +95,6 @@ class SpotifyMusicManager {
             requestCount = totalCount/50
             remainder = totalCount%50
         }
-        
         let header = ["Authorization": "Bearer \( SpotifyAuth.instance.sp_session.accessToken!)"]
         while count < requestCount {
             dispatchGroup.wait()
@@ -112,13 +109,11 @@ class SpotifyMusicManager {
             })
             count+=1
         }
-        
-        dispatchGroup.wait()
         if remainder > 0 {
-            dispatchGroup.enter()
             let header2 = ["Authorization": "Bearer \( SpotifyAuth.instance.sp_session.accessToken!)"]
             let parameters2 = ["limit": remainder, "offset": 50*requestCount]
-            
+            dispatchGroup.wait()
+            dispatchGroup.enter()
             self.uploadSpotifyPlaylists(parameters2, header2, completion: { (error) in //replace
                 dispatchGroup.leave()
                 if error != nil {
@@ -127,27 +122,22 @@ class SpotifyMusicManager {
                 }
             })
         }
-        
         dispatchGroup.notify(queue: .main) {
             completionHandler(nil)
         }
+        return
     }
     
     func uploadSpotifyPlaylists(_ parameters: [String:Int],_ header: [String: String], completion: @escaping (Error?) -> Void) {
-       // let dispatchGroup = DispatchGroup()
         Alamofire.request(spotifyUserPlaylistListAPIURL, parameters: parameters, headers: header).responseJSON { (response) in
             switch response.result {
             case .success:
                 let value = response.result.value
-                let json = JSON(value).dictionaryObject!
+                 let json = JSON(value).dictionaryObject!
                 if let items = json["items"] as? [[String:Any]]{
                     for item in items {
-                        //dispatchGroup.wait()
-                       // dispatchGroup.enter()
                         var playlistData = [String:Any]()
-                        
                         //for spotify - description text, author display name
-                        
                         if let name = item["name"] as? String{
                              playlistData[playlistNameKey] = name
                         }
@@ -161,76 +151,65 @@ class SpotifyMusicManager {
                         if let playlistID = item["id"] as? String {
                             playlistData[playlistSourceIDKey] = playlistID
                         } else {
+                            //dispatchGroup.leave()
                             completion(NSError()) ///real error handling
                             return
                         }
-                        
                         if let images = item["images"] as? [[String:Any]] {
                             if images.count > 0{
-                                if let image = images[0] as? [String:Any]{
-                                    if let imageURL = image["url"] as? String{ //right key
+                                let image = images[0]
+                                if let imageURL = image["url"] as? String{ //right key
                                         playlistData[imageURLKey] = imageURL
-                                    }
                                 }
                             }
                         }
-                        
                         if let owner = item["owner"] as? [String:Any] {
                             if let ownerID = owner["id"] as? String {
                                 playlistData[spotifyOwnerIDKey] = ownerID
                             }
                         }
-                        
                         if let collaborativeStatus = item["collaborative"] as? Bool {
                             playlistData[collaborativeStatusKey] = collaborativeStatus
                         }
-                        
                         if let playlistURL = item["external_urls"] as? [String:Any] {
                             if let spotifyURL = playlistURL["spotify"] as? String {
                                 playlistData[playlistSpotifyLinkKey] = spotifyURL
                             }
                         }
-                        
                         if let playlistAPIURL = item["href"] as? String {
                             playlistData[spotifyHrefKey] = playlistAPIURL
                         }
-                        
                         if let  tracks = item["tracks"] as? [String:Any]{
                             if let trackCount = tracks["total"] as? Int{
                                 playlistData[playlistCountKey] = trackCount
                             if let trackAPIURL = tracks["href"] as? String{
-                            
-                             self.parseSpotifyPlaylistTracks(trackCount,trackAPIURL, completion: { (trackData, error) in
-                                    if error != nil {
+                                 self.parseSpotifyPlaylistTracks(trackCount, trackAPIURL, completion: { (trackData, error) in                                    if error != nil {
                                         completion(NSError()) // do real error handling
                                         return
                                     }
-                                if trackData == nil {
-                                    print("track data is nil")
-                                } else {
+       
                                     playlistData["track_list"] = trackData!
-                                }
-                                
                                     let userID = AuthService.instance.current_uid
                                     DataService.instance.createExternalSPPlaylist(userID, playlistData, completionHandler: { (key) in
                                         if key == nil{
                                             completion(NSError()) // do real error handling
                                             return
                                         }
+                                        
                                     })
                                 })
                             }
                           }
                         }
-                    } //end for loop
+                    }//end for loop
+                    completion(nil)
                 }
-                completion(nil)
-                return
             case .failure(let error):
                 completion(error)
                 return
             }
-        }/// end first Alamofire request
+        }// end first Alamofire request
+        return
     }
     
     func parseSpotifyPlaylistTracks(_ totalTracks: Int,_ apiURL: String, completion: @escaping ([[String:Any]]?, Error?)->Void){
@@ -238,17 +217,17 @@ class SpotifyMusicManager {
         var remainder = 0
         var requestCount = 0
         var count = 0
-
         if totalTracks < 100 {
             remainder = totalTracks
         } else {
             requestCount = totalTracks/100
             remainder = totalTracks%100
         }
+        //go through total/100 requests (each API call only allows for 100 tracks at a time)
         while count < requestCount {
-            let header = ["Authorization": "Bearer \( SpotifyAuth.instance.sp_session.accessToken!)"]
-            let parameters = ["limit": 100, "offset": 50*count]
-            Alamofire.request(apiURL, parameters: parameters, headers: header).responseJSON(completionHandler: { (response) in
+            let header2 = ["Authorization": "Bearer \(SpotifyAuth.instance.sp_session.accessToken!)"]
+            let parameters2 = ["offset": 50*count]
+            Alamofire.request(apiURL, parameters: parameters2, headers: header2).responseJSON(completionHandler: { (response) in
                 switch response.result {
                 case .success(let value):
                     let json = JSON(value).dictionaryObject!
@@ -265,8 +244,7 @@ class SpotifyMusicManager {
             })
             count+=1
         }
-        
-        if remainder > 0 {
+            //handle remainder tracks if any
             let header = ["Authorization": "Bearer \( SpotifyAuth.instance.sp_session.accessToken!)"]
             let parameters = ["limit": remainder, "offset": 50*requestCount]
             Alamofire.request(apiURL, parameters: parameters, headers: header).responseJSON(completionHandler: { (response) in
@@ -278,21 +256,18 @@ class SpotifyMusicManager {
                             let song = self.parseSingleSpotifyTrack(item)!
                             songArray.append(song)
                         }
+                        completion(songArray, nil)
                     }
-                    completion(songArray, nil)
                 case .failure(let error):
                     completion(nil,error)
                     return
                 }
             })
-        }
     }
-    
-    
     
     func uploadSpotifyUserAllSavedTracks(_ songsCount: Int, completionHandler: @escaping (Error?) -> Void ){
     
-        var totalCount = songsCount //fix - get correct total 
+        let totalCount = songsCount //fix - get correct total
     
         var requestCount = 0
         var remainder = 0
@@ -346,16 +321,16 @@ class SpotifyMusicManager {
                 
                 //iterate over each song in results data
                 for item in items {
-                    if let uploadSong = self.parseSingleSpotifyTrack(item) as? [String:Any] {
-                        //uploadSong[songOwnerUserIDKey] = AuthService.instance.current_uid
+                        let uploadSong = self.parseSingleSpotifyTrack(item)!
                         let userID = AuthService.instance.current_uid
+                    
                         //push data to database
-                        DataService.instance.createExternalSPSong(user_id: userID, songData: uploadSong, completionHandler: { key in
+                        DataService.instance.createExternalSPSong(user_id: userID, songData: uploadSong, completionHandler: { (key) in
                             if key == nil{
                                 completion(NSError()) //put real error
                             }
                         })
-                    }
+                    
                 }// end for loop
             }
             case .failure(let error):
@@ -373,19 +348,18 @@ class SpotifyMusicManager {
             if let album = track["album"] as? [String:AnyObject]{
                 if let images = album["images"] as? [[String:AnyObject]] {
                     if images.count > 0{
-                        if let image = images[0] as? [String:AnyObject]{
+                            let image = images[0]
                             let imageURL = image["url"] as? String
                             uploadSong[imageURLKey] = imageURL
-                        }
+                        
                     }
                 }
             }
             
             //isrc number
             if let externalID = track["external_ids"] as? [String:String]{
-                if let isrcCode = externalID["isrc"] as? String {
-                    uploadSong[isrcCodeKey] = isrcCode
-                }
+                let isrcCode = externalID["isrc"]
+                uploadSong[isrcCodeKey] = isrcCode
             }
             
             //artist data
