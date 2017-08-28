@@ -44,23 +44,23 @@ class MusicPermissionsVC: UIViewController, SPTAudioStreamingPlaybackDelegate, S
     }
     
     func SP_setup() {
-        sp_auth.clientID = SPclient_ID
-        sp_auth.redirectURL = URL(string: SPredirect_URL)
-        sp_auth.requestedScopes = SPrequested_scopes
-        loginUrl = sp_auth.spotifyWebAuthenticationURL()
+        //setup spotify auth information
+        SpotifyAuth.instance.sp_auth.clientID =  SpotifyAuth.instance.SPclient_ID
+         SpotifyAuth.instance.sp_auth.redirectURL = URL(string:  SpotifyAuth.instance.SPredirect_URL)
+         SpotifyAuth.instance.sp_auth.requestedScopes =  SpotifyAuth.instance.SPrequested_scopes
+        loginUrl =  SpotifyAuth.instance.sp_auth.spotifyWebAuthenticationURL()
     }
     
     func sp_updateAfterFirstLogin () {
         //load session data from user defaults
         let userDefaults = UserDefaults.standard
-        if let sessionObj: AnyObject = userDefaults.object(forKey: SPSession_UserDefaults_Key) as AnyObject? {
+        if let sessionObj: AnyObject = userDefaults.object(forKey:  SpotifyAuth.instance.SPSession_UserDefaults_Key) as AnyObject? {
             let sessionDataObj = sessionObj as! Data
-            print(sessionDataObj)
             let firstTimeSession = NSKeyedUnarchiver.unarchiveObject(with: sessionDataObj) as! SPTSession
-            sp_session = firstTimeSession
+             SpotifyAuth.instance.sp_session = firstTimeSession
             
             //write spotify token values to database
-            DataService.instance.writeUserData(uid: AuthService.instance.current_uid, key: spotifyAccessTokenKey, data: sp_session.accessToken)
+            DataService.instance.writeUserData(uid: AuthService.instance.current_uid, key: spotifyAccessTokenKey, data:  SpotifyAuth.instance.sp_session.accessToken)
         }
     }
     
@@ -71,13 +71,13 @@ class MusicPermissionsVC: UIViewController, SPTAudioStreamingPlaybackDelegate, S
         DataService.instance.writeUserData(uid: AuthService.instance.current_uid, key: spotifyProviderKey, data: "true")
         
         //upload user's music data from spotify
-        SpotifyMusicManager.instance.uploadSpotifyData(completionHandler: { (error) in
-            self.activityIndicatorView.stopAnimating()
+        SpotifyMusicManager.instance.uploadSpotifyData(completionHandlerMain: { (error) in
+            //self.activityIndicatorView.stopAnimating()
             if error != nil {
                 //error handling from trying to upload Spotify Data 
                 self.failedAlert.configureTheme(.error)
                 self.failedAlert.button?.isHidden = true
-                self.failedAlert.configureContent(title: "Woops!", body: error!.localizedDescription, iconText: iconText)
+                self.failedAlert.configureContent(title: "Woops!", body: "error", iconText: iconText)
                 SwiftMessages.show(view: self.failedAlert)
             } else {
                 self.performSegue(withIdentifier: "musicpermtoperm", sender: nil)
@@ -130,7 +130,6 @@ class MusicPermissionsVC: UIViewController, SPTAudioStreamingPlaybackDelegate, S
             }
         }
     }
-
     
     func appleMusicRequestPermission() {
         SKCloudServiceController.requestAuthorization { (status:SKCloudServiceAuthorizationStatus) in
@@ -140,11 +139,19 @@ class MusicPermissionsVC: UIViewController, SPTAudioStreamingPlaybackDelegate, S
                 DataService.instance.writeUserData(uid: AuthService.instance.current_uid, key: appleMusicProviderKey, data: "true")
                 
                 //upload user's music data from apple music
-                //SpotifyMusicManager.instance.uploadAppleMusicData(completion: {
+               AppleMusicManager.instance.uploadAMData { (error) in
                     //self.activityIndicatorView.stopAnimating()
-                    self.performSegue(withIdentifier: "musicpermtoperm", sender: nil)
-              //  })
-                
+                    if error != nil {
+                        //error handling from trying to upload Spotify Data
+                        self.failedAlert.configureTheme(.error)
+                        self.failedAlert.button?.isHidden = true
+                        self.failedAlert.configureContent(title: "Woops!", body: "error" , iconText: iconText)
+                        SwiftMessages.show(view: self.failedAlert)
+                        return
+                    } else {
+                        self.performSegue(withIdentifier: "musicpermtoperm", sender: nil)
+                    }
+                }
             case .denied:
                 //stop loading indicator
                 self.activityIndicatorView.stopAnimating()
@@ -170,6 +177,4 @@ class MusicPermissionsVC: UIViewController, SPTAudioStreamingPlaybackDelegate, S
     @IBAction func skipBtnPressed(_ sender: Any) {
         self.performSegue(withIdentifier: "musicpermtoperm", sender: nil)
     }
-    
-
 }

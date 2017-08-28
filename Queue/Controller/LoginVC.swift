@@ -30,7 +30,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         loginManager.logIn([ .publicProfile, .email, .userFriends ], viewController: self) { loginResult in
             switch loginResult { //facebook sign up request result
             case LoginResult.failed(let error): //facebook sign up request failed
-                print(error)
+                //print(error)
                 self.failedLoginAlert.configureTheme(.error)
                 self.failedLoginAlert.button?.isHidden = true
                 self.failedLoginAlert.configureContent(title: "Sorry!", body: "Your sign up failed. We reccomend you try signing up again.", iconText: iconText)
@@ -102,7 +102,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                     case 17999: //internal error
                         self.failedLoginAlert.configureContent(title: "Sorry!", body: "Something went wrong on our end. Try logging in again.")
                     default:
-                        print(errCode)
+                        //(errCode)
                         self.failedLoginAlert.configureContent(title: "Sorry!", body: "Your login failed. We reccomend you try logging in again.", iconText: iconText)
                     }
                     //shows alert

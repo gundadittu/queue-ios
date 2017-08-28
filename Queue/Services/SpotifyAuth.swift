@@ -8,30 +8,34 @@
 
 import Foundation
 
-var sp_auth = SPTAuth.defaultInstance()!
-var sp_session:SPTSession!
-
-//Spotify Developer Info - find a way to remove hardcode from app 
-let SPredirect_URL = "Queue://returnAfterLogin"
-let SPclient_ID = "72d8cf3b5c014ce694675d2c931e339e"
-let SPtokenSwap_URL = "https://gentle-woodland-29346.herokuapp.com/swap"
-let SPtokenRefresh_URL = "https://gentle-woodland-29346.herokuapp.com/refresh"
-
-let SPrequested_scopes = [SPTAuthStreamingScope, SPTAuthPlaylistReadPrivateScope, SPTAuthPlaylistModifyPublicScope, SPTAuthPlaylistModifyPrivateScope, SPTAuthUserLibraryReadScope, SPTAuthUserLibraryModifyScope, SPTAuthUserReadPrivateScope]
-
-
-let SPSession_UserDefaults_Key = "SpotifySession"
-
-func refreshSpotifyToken()
-{
-    //print("refresh token: \(self.session.encryptedRefreshToken)")
-    SPTAuth.defaultInstance().renewSession(sp_session, callback: { (error, session) in
-        if error != nil {
-            //error renewing spotify session 
-            refreshSpotifyToken()
-            return
-        }
-        //write new access token to database
-        DataService.instance.writeUserData(uid: AuthService.instance.current_uid, key: spotifyAccessTokenKey, data: sp_session.accessToken)
-    })
+class SpotifyAuth {
+    static let instance = SpotifyAuth()
+    var sp_auth = SPTAuth.defaultInstance()!
+    var sp_session:SPTSession!
+    
+    //Spotify Developer Info - find a way to remove hardcode from app
+    let SPredirect_URL = "Queue://returnAfterLogin"
+    let SPclient_ID = "72d8cf3b5c014ce694675d2c931e339e"
+    let SPtokenSwap_URL = "https://gentle-woodland-29346.herokuapp.com/swap"
+    let SPtokenRefresh_URL = "https://gentle-woodland-29346.herokuapp.com/refresh"
+    
+    let SPrequested_scopes = [SPTAuthStreamingScope, SPTAuthPlaylistReadPrivateScope, SPTAuthPlaylistModifyPublicScope, SPTAuthPlaylistModifyPrivateScope, SPTAuthUserLibraryReadScope, SPTAuthUserLibraryModifyScope, SPTAuthUserReadPrivateScope]
+    
+    
+    let SPSession_UserDefaults_Key = "SpotifySession"
+    
+    func refreshSpotifyToken()
+    {
+        //print("refresh token: \(self.session.encryptedRefreshToken)")
+        SPTAuth.defaultInstance().renewSession(sp_session, callback: { (error, session) in
+            if error != nil {
+                //error renewing spotify session
+                self.refreshSpotifyToken()
+                return
+            }
+            //write new access token to database
+            DataService.instance.writeUserData(uid: AuthService.instance.current_uid, key: spotifyAccessTokenKey, data: self.sp_session.accessToken)
+        })
+    }
+    
 }

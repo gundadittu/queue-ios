@@ -40,7 +40,8 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
                 self.failedLoginAlert.configureContent(title: "Sorry!", body: "Your sign up failed. We reccomend you try signing up again.", iconText: iconText)
                 SwiftMessages.show(view: self.failedLoginAlert)
             case LoginResult.cancelled: //facebook sign up request cancelled
-                print("User cancelled login.")
+                //print("User cancelled login.")
+                return 
             case LoginResult.success(let _, let _, let _):
                 //print("Logged in!")
                 //successfully authenticated with facebook

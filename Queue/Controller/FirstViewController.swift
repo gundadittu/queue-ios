@@ -21,7 +21,7 @@ class FirstViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
     @IBAction func refreshBtnPressed(_ sender: Any) {
-        refreshSpotifyToken()
+         SpotifyAuth.instance.refreshSpotifyToken()
     }
     
     override func didReceiveMemoryWarning() {

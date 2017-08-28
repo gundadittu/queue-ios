@@ -36,8 +36,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             //spotify auth
             auth.redirectURL  = URL(string: "Queue://returnAfterLogin")
             auth.sessionUserDefaultsKey = "current session"
-            auth.tokenSwapURL = URL(string: SPtokenSwap_URL)
-            auth.tokenRefreshURL =  URL(string: SPtokenRefresh_URL)
+            auth.tokenSwapURL = URL(string:  SpotifyAuth.instance.SPtokenSwap_URL)
+            auth.tokenRefreshURL =  URL(string:  SpotifyAuth.instance.SPtokenRefresh_URL)
         
             Auth.auth().addStateDidChangeListener { (auth, user) in
                 if Auth.auth().currentUser == nil{

@@ -23,13 +23,15 @@ class StorageService {
         let profilePicRef = _REF_PROFILE_PICS.child("\(userid).png")
         let picURL = URL(string: link)
         Alamofire.request(picURL!).responseImage { response in
-            if let image = response.result.value {
+            switch response.result {
+            case .success(let image):
                 let uploadPic = UIImagePNGRepresentation(image)
                 profilePicRef.putData(uploadPic!)
                 DataService.instance.writeUserData(uid: userid, key: profilePicKey, data: true)
-            } else {
-                print("error uploading image")
+            case .failure(let error):
+                print("error uploading image") // do better error handling
             }
+           
         }
     }
 }
