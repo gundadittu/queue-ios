@@ -23,5 +23,5 @@ target 'Queue' do
   pod 'IQKeyboardManagerSwift'
   pod 'AlamofireImage', '~> 3.2'
   pod 'Firebase/Performance'
-  
+
 end

@@ -21,20 +21,17 @@ class MusicPermissionsVC: UIViewController, SPTAudioStreamingPlaybackDelegate, S
     var loginUrl: URL?
     var spotifyAuthVC: SFSafariViewController?
     let failedAlert = MessageView.viewFromNib(layout: .CardView)
-    var activityIndicatorView = NVActivityIndicatorView(frame: CGRect(), type: NVActivityIndicatorType(rawValue: loadingTypeNo)!, padding: 150) // dummy data until viewDidLoad initializes with self.view.frame
+    var activityIndicatorView = NVActivityIndicatorView(frame: CGRect(), type: NVActivityIndicatorType(rawValue: loadingTypeNo)!, padding: 150)
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         //initialize loading indicator view
         activityIndicatorView = NVActivityIndicatorView(frame: self.view.frame, type: NVActivityIndicatorType(rawValue: loadingTypeNo)!, padding: 150)
         self.view.addSubview(activityIndicatorView)
-        
         //initialize music provider data under user in data base
         DataService.instance.writeUserData(uid: AuthService.instance.current_uid, key: spotifyProviderKey, data: "false")
         DataService.instance.writeUserData(uid: AuthService.instance.current_uid, key: spotifyPremiumProviderKey, data: "false")
         DataService.instance.writeUserData(uid: AuthService.instance.current_uid, key: appleMusicProviderKey, data: "false")
-
         //handle spotify auth notifications sent from app delegate
         SP_setup()
         NotificationCenter.default.addObserver(self, selector: #selector(MusicPermissionsVC.sp_updateAfterFirstLogin), name: Notification.Name(rawValue: "loginSuccessfull") ,object: nil)
@@ -46,12 +43,12 @@ class MusicPermissionsVC: UIViewController, SPTAudioStreamingPlaybackDelegate, S
     func SP_setup() {
         //setup spotify auth information
         SpotifyAuth.instance.sp_auth.clientID =  SpotifyAuth.instance.SPclient_ID
-         SpotifyAuth.instance.sp_auth.redirectURL = URL(string:  SpotifyAuth.instance.SPredirect_URL)
-         SpotifyAuth.instance.sp_auth.requestedScopes =  SpotifyAuth.instance.SPrequested_scopes
+        SpotifyAuth.instance.sp_auth.redirectURL = URL(string:  SpotifyAuth.instance.SPredirect_URL)
+        SpotifyAuth.instance.sp_auth.requestedScopes =  SpotifyAuth.instance.SPrequested_scopes
         loginUrl =  SpotifyAuth.instance.sp_auth.spotifyWebAuthenticationURL()
     }
     
-    func sp_updateAfterFirstLogin () {
+    func sp_updateAfterFirstLogin(){
         //load session data from user defaults
         let userDefaults = UserDefaults.standard
         if let sessionObj: AnyObject = userDefaults.object(forKey:  SpotifyAuth.instance.SPSession_UserDefaults_Key) as AnyObject? {
@@ -66,25 +63,28 @@ class MusicPermissionsVC: UIViewController, SPTAudioStreamingPlaybackDelegate, S
     
     func closeSpotifyAuthVCOnSuccessfulAuth(){
         spotifyAuthVC?.dismiss(animated: true, completion: nil)
-        //self.activityIndicatorView.startAnimating()
+        self.activityIndicatorView.startAnimating()
         
         //update user's music provider in database - spotify
         DataService.instance.writeUserData(uid: AuthService.instance.current_uid, key: spotifyProviderKey, data: "true")
         
         //upload user's music data from spotify
         SpotifyMusicManager.instance.uploadSpotifyData(completionHandlerMain: { (error) in
-            //self.activityIndicatorView.stopAnimating()
+            DispatchQueue.main.async {
+                self.activityIndicatorView.stopAnimating()
+            }
             if error != nil {
                 //error handling from trying to upload Spotify Data
-                
-                self.failedAlert.configureTheme(.error)
-                self.failedAlert.button?.isHidden = true
-                self.failedAlert.configureContent(title: "Woops!", body: "error", iconText: iconText)
-                SwiftMessages.show(view: self.failedAlert)
- 
-                print("error")
+                DispatchQueue.main.async {
+                    self.failedAlert.configureTheme(.error)
+                    self.failedAlert.button?.isHidden = true
+                    self.failedAlert.configureContent(title: "Woops!", body: "There was an issue trying to import your Spotify library.", iconText: iconText)
+                    SwiftMessages.show(view: self.failedAlert)
+                }
             } else {
-                self.performSegue(withIdentifier: "musicpermtoperm", sender: nil)
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "musicpermtoperm", sender: nil)
+                }
             }
         })
     }
@@ -108,12 +108,14 @@ class MusicPermissionsVC: UIViewController, SPTAudioStreamingPlaybackDelegate, S
     @IBAction func spotifyBtnPressed(_ sender: Any) {
          spotifyAuthVC = SFSafariViewController(url: loginUrl!)
          spotifyAuthVC?.modalPresentationStyle = UIModalPresentationStyle.popover
+         spotifyAuthVC?.setStatusBarStyle(.default)
          present(spotifyAuthVC!, animated: true, completion: nil)
     }
     
     @IBAction func applemusicBtnPressed(_ sender: Any) {
-        //self.activityIndicatorView.startAnimating()
-        appleMusicCheckIfDeviceCanPlayback()
+        self.activityIndicatorView.startAnimating()
+        self.appleMusicCheckIfDeviceCanPlayback()
+        //self.appleMusicRequestPermission()
     }
     
     func appleMusicCheckIfDeviceCanPlayback() {
@@ -125,12 +127,14 @@ class MusicPermissionsVC: UIViewController, SPTAudioStreamingPlaybackDelegate, S
                 self.appleMusicRequestPermission()
             } else { //The user doesn't have an Apple Music subscription available. Now would be a good time to prompt them to buy one?
                 //stop loading indicator
-                self.activityIndicatorView.stopAnimating()
-                //show alert of failed request
-                self.failedAlert.configureTheme(.error)
-                self.failedAlert.button?.isHidden = true
-                self.failedAlert.configureContent(title: "Woops!", body: "It looks like you don't have a valid Apple Music subscription!", iconText: iconText)
-                SwiftMessages.show(view: self.failedAlert)
+                DispatchQueue.main.async {
+                    self.activityIndicatorView.stopAnimating()
+                    //show alert of failed request
+                    self.failedAlert.configureTheme(.error)
+                    self.failedAlert.button?.isHidden = true
+                    self.failedAlert.configureContent(title: "Woops!", body: "It looks like you don't have a valid Apple Music subscription!", iconText: iconText)
+                    SwiftMessages.show(view: self.failedAlert)
+                }
             }
         }
     }
@@ -141,39 +145,50 @@ class MusicPermissionsVC: UIViewController, SPTAudioStreamingPlaybackDelegate, S
             case .authorized:
                 //update user's music provider in data base
                 DataService.instance.writeUserData(uid: AuthService.instance.current_uid, key: appleMusicProviderKey, data: "true")
-                
                 //upload user's music data from apple music
-               AppleMusicManager.instance.uploadAMData { (error) in
-                    //self.activityIndicatorView.stopAnimating()
+                AppleMusicManager.instance.uploadAMData { (error) in
+                    DispatchQueue.main.async {
+                        self.activityIndicatorView.stopAnimating()
+                    }
                     if error != nil {
-                        //error handling from trying to upload Spotify Data
-                        self.failedAlert.configureTheme(.error)
-                        self.failedAlert.button?.isHidden = true
-                        self.failedAlert.configureContent(title: "Woops!", body: "error" , iconText: iconText)
-                        SwiftMessages.show(view: self.failedAlert)
-                        return
+                         DispatchQueue.main.async {
+                            //error handling from trying to upload Spotify Data
+                            self.failedAlert.configureTheme(.error)
+                            self.failedAlert.button?.isHidden = true
+                            self.failedAlert.configureContent(title: "Woops!", body: "There was an issue trying to import your Apple Music library." , iconText: iconText)
+                            SwiftMessages.show(view: self.failedAlert)
+                            return
+                        }
                     } else {
-                        self.performSegue(withIdentifier: "musicpermtoperm", sender: nil)
+                        DispatchQueue.main.async {
+                            self.performSegue(withIdentifier: "musicpermtoperm", sender: nil)
+                        }
                     }
                 }
             case .denied:
-                //stop loading indicator
-                self.activityIndicatorView.stopAnimating()
-                //show failed alert
-                self.failedAlert.configureTheme(.error)
-                self.failedAlert.button?.isHidden = true
-                self.failedAlert.configureContent(title: "Woops!", body: "It looks like you didn't allows us to acccess your Apple Music library.", iconText: iconText)
-                SwiftMessages.show(view: self.failedAlert)
+                DispatchQueue.main.async {
+                    //stop loading indicator
+                    self.activityIndicatorView.stopAnimating()
+                    //show failed alert
+                    self.failedAlert.configureTheme(.error)
+                    self.failedAlert.button?.isHidden = true
+                    self.failedAlert.configureContent(title: "Woops!", body: "It looks like you didn't allows us to acccess your Apple Music library.", iconText: iconText)
+                    SwiftMessages.show(view: self.failedAlert)
+                }
             case .notDetermined:
-                self.failedAlert.configureTheme(.error)
-                self.failedAlert.button?.isHidden = true
-                self.failedAlert.configureContent(title: "Woops!", body: "Something went wrong with trying to access your Apple Music membership. Please try again.", iconText: iconText)
-                SwiftMessages.show(view: self.failedAlert)
+                DispatchQueue.main.async {
+                    self.failedAlert.configureTheme(.error)
+                    self.failedAlert.button?.isHidden = true
+                    self.failedAlert.configureContent(title: "Woops!", body: "Something went wrong with trying to access your Apple Music membership. Please try again.", iconText: iconText)
+                    SwiftMessages.show(view: self.failedAlert)
+                }
             case .restricted:
-                self.failedAlert.configureTheme(.error)
-                self.failedAlert.button?.isHidden = true
-                self.failedAlert.configureContent(title: "Woops!", body: "It looks like your Apple Music membership won't let us access it.", iconText: iconText)
-                SwiftMessages.show(view: self.failedAlert)
+                DispatchQueue.main.async {
+                    self.failedAlert.configureTheme(.error)
+                    self.failedAlert.button?.isHidden = true
+                    self.failedAlert.configureContent(title: "Woops!", body: "It looks like your Apple Music membership won't let us access it.", iconText: iconText)
+                    SwiftMessages.show(view: self.failedAlert)
+                }
             }
         }
     }

@@ -14,143 +14,137 @@ import SwiftyJSON
 class AppleMusicManager {
     
     static let instance = AppleMusicManager()
-    
-    func uploadAMData(completionHandler: @escaping (Error?)->Void){
+
+    func uploadAMData(completionHandler: @escaping (Error?)->Void)  {
         let dispatchGroup = DispatchGroup()
+        let userid = AuthService.instance.current_uid
+        var errorThrown: Bool = false
         
         dispatchGroup.enter()
-        self.uploadAMUserAllSavedTracks{ (error) in
+        self.parseAMUserAllSavedTracks{ list in
             dispatchGroup.leave()
-            if error != nil {
-                completionHandler(error) //real error
-                return
+            ///write to database
+            for item in list {
+                do {
+                    try DataService.instance.createExternalAMSong(userid, item)
+                } catch {
+                    errorThrown = true
+                    completionHandler(DataError.uploadingSong)
+                    return
+                }
             }
         }
         
         dispatchGroup.wait()
-        dispatchGroup.enter()
-        self.uploadAMUserPlaylists { (error) in
-            dispatchGroup.leave()
-            if error != nil {
-                completionHandler(error) // real error
-                return
+        if errorThrown == false {
+            dispatchGroup.enter()
+            self.parseAMUserPlaylists  { list in
+                dispatchGroup.leave()
+                //write to database
+                for item in list {
+                    do {
+                        try DataService.instance.createExternalAMPlaylist(userid, item)
+                    } catch {
+                        errorThrown = true
+                        completionHandler(DataError.uploadingPlaylist)
+                        return
+                    }
+                }
             }
-        }
-        
-        dispatchGroup.notify(queue: .main) {
-            completionHandler(nil)
-        }
+//        }
+        dispatchGroup.notify(queue: .main, execute: {
+            if errorThrown == false {
+                completionHandler(nil)
+            }
+        })
+    }
     }
     
-    func uploadAMUserAllSavedTracks(completion: @escaping (Error?)->Void){
-        let dispatchGroup = DispatchGroup()
+    func parseAMUserAllSavedTracks(completion: @escaping ([[String:Any]]) -> Void)  -> Void {
+        var songList = [[String:Any]]()
         let songQuery = MPMediaQuery.songs()
         let songs = songQuery.items!
         for song in songs {
-            dispatchGroup.wait()
-            dispatchGroup.enter()
-            var songUpload = [String:Any]()
             if song.mediaType.rawValue == 1 {
-                if let title = song.title as? String{
-                    songUpload[songNameKey] = title
-                }
-                if let songID = song.persistentID as? UInt64{
-                    songUpload[songSourceIDKey] = songID
-                }
-               // song.playbackStoreID
-                /*
-                songUpload[songGenreKey] = song.genre
-                songUpload[artistNameKey] = song.artist
-                songUpload[albumNameKey] = song.albumTitle
-                songUpload[albumAMIDKey] = song.albumPersistentID
-                //songUpload[imageURLKey] = song.artwork
-                songUpload[artistAMIDKey] = song.artistPersistentID
-                songUpload[imageURLKey] = song.artwork
-                songUpload[songDurationKey] = song.playbackDuration
-                songUpload[addedTimestampKey] = song.dateAdded
-                songUpload[songSourceKey] = "apple_music"
-                let ownerID = AuthService.instance.current_uid
-                songUpload[songOwnerUserIDKey] = ownerID
-                ///rating, release date, skip count????
-                //for spotify - genre, release date, rating
- */
-                let ownerID = AuthService.instance.current_uid
-
-                DataService.instance.createExternalAMSong(user_id: ownerID, songData: songUpload, completionHandler: { (key) in
-                    dispatchGroup.leave()
-                    if key == nil {
-                        completion(NSError()) //real error
-                        return
-                    }
-                })
+                //if let timestamp = song.value(forKey: MPMediaItemPropertyDateAdded) as? String {
+                //    songUpload[addedTimestampKey] = timestamp
+                //}
+                //songUpload[imageURLKey] = String(describing: song.artwork)
+                //let ownerID = AuthService.instance.current_uid
+                
+                let songUpload = parseAMsong(song)
+                songList.append(songUpload)
             }
         }
-        dispatchGroup.notify(queue: .main) {
-            completion(nil)
-        }
+        completion(songList)
     }
     
-    func uploadAMUserPlaylists(completion: @escaping (Error?)->Void){
-        let dispatchGroup = DispatchGroup()
+    func parseAMUserPlaylists(completion: @escaping ([[String:Any]])  -> Void) -> Void{
+        var playlistList = [[String:Any]]()
         let myPlaylistQuery = MPMediaQuery.playlists()
         let playlists = myPlaylistQuery.collections
         for playlist in playlists! {
-            dispatchGroup.wait()
-            dispatchGroup.enter()
             var playlistData = [String:Any]()
-            
-            if let title = playlist.value(forProperty: MPMediaPlaylistPropertyName) as? String {
-                playlistData[playlistNameKey] = title 
-            }
-            if let playID = playlist.persistentID as? UInt64 {
-                playlistData[playlistSourceIDKey] = playID
-            }
+            let id = playlist.value(forProperty: MPMediaPlaylistPropertyPersistentID) as! UInt64
+            playlistData[playlistSourceIDKey] = id
+            let name = playlist.value(forProperty: MPMediaPlaylistPropertyName)
+            playlistData[playlistNameKey] = name!
             playlistData[sourceKey] = "apple_music"
-            //playlistData[imageURLKey] =
-            //playlistData[] = am owner ID
-             //playlistData[playlistCountKey] = playlist.count
-            
-            //playlistData["description"] = playlist.description
-            //playlistData["author"] = playlist.authorDisplayName
-            ///playlistData["timestamp"] = timestamp
-            let ownerID = AuthService.instance.current_uid
             let songs = playlist.items
-            var songArray = [[String:Any]]()
-            for song in songs {
-                var songUpload = [String:Any]()
-                if let title = song.title as? String{
-                    songUpload[songNameKey] = title
+            playlistData["track_count"] = songs.count
+            //image
+            //let author = playlist.value(forProperty: MPMediaPlaylistPropertyAuthorDisplayName) as! String
+            //playlistData["owner_display_name"] = author
+            //playlistData["description"] = String(describing: playlist.value(forProperty: MPMediaPlaylistPropertyDescriptionText)!)
+            
+            var songList = [[String:Any]]()
+            for song in songs{
+                if song.mediaType.rawValue == 1 {
+                    let songUpload = parseAMsong(song)
+                    songList.append(songUpload)
                 }
-                if let songID = song.persistentID as? UInt64{
-                    songUpload[songSourceIDKey] =  songID
-                }
-                //songUpload["am_playback_id"] song.playbackStoreID
-                //songUpload[songGenreKey] = song.genre
-               // songUpload[artistNameKey] = song.artist
-                //songUpload[albumNameKey] = song.albumTitle
-                ///songUpload[albumAMIDKey] = song.albumPersistentID
-                //songUpload[imageURLKey] = song.artwork
-                //songUpload[artistAMIDKey] = song.artistPersistentID
-               // songUpload[imageURLKey] = song.artwork
-                //songUpload[songDurationKey] = song.playbackDuration
-                //songUpload[addedTimestampKey] = song.dateAdded
-                songUpload[songSourceKey] = "apple_music"
-                songArray.append(songUpload)
             }
-             playlistData[playlistTracksKey] = songArray
-            //upload to database
-            DataService.instance.createExternalAMPlaylist(ownerID, playlistData, completionHandler: {(key) in
-                dispatchGroup.leave()
-                if key == nil{
-                    completion(NSError()) //real error 
-                    return
-                }
-            })
-        }//end of playlist for loop
-        
-        dispatchGroup.notify(queue: .main) {
-            completion(nil)
+            playlistData["track_list"] = songList
+            playlistList.append(playlistData)
         }
+        completion(playlistList)
+    }
+    
+    func parseAMsong(_ song: MPMediaItem) -> [String:Any] {
+        var songUpload = [String:Any]()
+        
+        let title = song.value(forProperty: MPMediaItemPropertyTitle) as! String
+        songUpload[songNameKey] = title
+    
+        let playID = song.value(forKey: MPMediaItemPropertyPlaybackStoreID) as! String
+        songUpload["playback_id"] = playID
+        
+        let id = song.value(forProperty: MPMediaItemPropertyPersistentID) as! Int
+        songUpload[songSourceIDKey] = id 
+       
+        if let genre  = song.value(forKey: MPMediaItemPropertyGenre) as? String {
+             songUpload[songGenreKey] = genre
+        }
+         if let artist = song.value(forKey: MPMediaItemPropertyArtist) as? String  {
+            songUpload[artistNameKey] = artist
+         }
+         if let albumName = song.value(forKey: MPMediaItemPropertyAlbumTitle) as? String {
+            songUpload[albumNameKey] = albumName
+         }
+         let duration = song.value(forKey: MPMediaItemPropertyPlaybackDuration) as! Double
+         songUpload[songDurationKey] = duration
+        songUpload[songSourceKey] = "apple_music"
+        
+        //let artistID = song.value(forKey: MPMediaItemPropertyArtistPersistentID) as! NSNumber
+        //songUpload[artistAMIDKey] = artistID
+        
+        //let albumID = song.value(forKey: MPMediaItemPropertyAlbumPersistentID) as! Int
+        //    songUpload[albumAMIDKey] = albumID
+        
+        //songUpload[imageURLKey] = String(describing: song.artwork)
+        ///rating, release date, skip count???? image??
+        
+        return songUpload
     }
 }
 

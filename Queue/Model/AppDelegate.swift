@@ -127,6 +127,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window?.makeKeyAndVisible()
             window?.rootViewController?.present(onboardingVC!, animated: true, completion: nil)
     }
-
 }
 

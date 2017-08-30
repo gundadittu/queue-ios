@@ -4,6 +4,7 @@ import Firebase
 let DB_BASE = Database.database().reference()
 
 class DataService {
+  
     static let instance = DataService()
     private var _REF_BASE = DB_BASE
     private var _REF_USERS = DB_BASE.child("users")
@@ -66,7 +67,7 @@ class DataService {
     }
     
     //add return error option? error handling?
-    func createExternalSPSong(user_id: String, songData: [String:Any], completionHandler: @escaping (String?)->Void){
+    func createExternalSPSong(user_id: String, songData: [String:Any], completionHandler: @escaping (String?)->Void)  -> Void {
         if let key = songData[songSourceIDKey] as? String {
             REF_EXTERNALSONGS_SONGS.child("\(key)").updateChildValues(songData) //useless?
             REF_EXTERNALSONGS_SONGSBYUSER.child("\(user_id)/\(key)").updateChildValues(songData)
@@ -76,24 +77,31 @@ class DataService {
         completionHandler(nil)
     }
     
-    func createExternalSPPlaylist(_ user_id: String,_ playlistData: [String:Any], completionHandler: @escaping (String?)->Void){
+    func createExternalSPPlaylist(_ user_id: String,_ playlistData: [String:Any], completionHandler: @escaping (String?)->Void) -> Void {
         if let key = playlistData[playlistSourceIDKey] as? String {
             REF_EXTERNALPLAYLISTS_PLAYLISTS.child("\(key)").updateChildValues(playlistData)
             REF_EXTERNALPLAYLISTS_PLAYLISTSBYUSER.child("\(user_id)/\(key)").updateChildValues(playlistData)
             completionHandler(key)
-            return
         }
         completionHandler(nil)
     }
     
-    func createExternalAMSong(user_id: String, songData: [String:Any], completionHandler: @escaping (UInt64?)->Void){
-        if let key = songData[songSourceIDKey] as? UInt64 {
-            REF_EXTERNALSONGS_SONGS.child("\(String(key))").updateChildValues(songData) //useless?
-            REF_EXTERNALSONGS_SONGSBYUSER.child("\(user_id)/\(String(key))").updateChildValues(songData)
-            completionHandler(key)
-            return
+    func createExternalAMSong(_ user_id: String,_ songData: [String:Any]) throws ->Void {
+        if let key = songData[songSourceIDKey] as? Int {
+            ///self.REF_EXTERNALSONGS_SONGS.child("\(String(describing: key))").updateChildValues(songData) //useless?
+            self.REF_EXTERNALSONGS_SONGSBYUSER.child("\(user_id)/\(key)").updateChildValues(songData)
+        } else {
+            throw DataError.uploadingPlaylist
         }
-        completionHandler(nil)
+    }
+    
+    func createExternalAMPlaylist(_ user_id: String,_ playlistData: [String:Any]) throws -> Void{
+        if let key = playlistData[playlistSourceIDKey] as? UInt64 {
+            self.REF_EXTERNALPLAYLISTS_PLAYLISTS.child("\(key)").updateChildValues(playlistData)
+            self.REF_EXTERNALPLAYLISTS_PLAYLISTSBYUSER.child("\(user_id)/\(key)").updateChildValues(playlistData)
+        } else {
+            throw DataError.uploadingPlaylist
+        }
     }
     
     func removeExternalSong(key: String) {
@@ -102,15 +110,5 @@ class DataService {
     
     func removeExternalSongbyUser(userID: String, key: String) {
         return
-    }
-    
-    func createExternalAMPlaylist(_ user_id: String,_ playlistData: [String:Any], completionHandler: @escaping (UInt64?)->Void){
-        if let key = playlistData[playlistSourceIDKey] as? UInt64 {
-            REF_EXTERNALPLAYLISTS_PLAYLISTS.child("\(String(key))").updateChildValues(playlistData)
-            REF_EXTERNALPLAYLISTS_PLAYLISTSBYUSER.child("\(user_id)/\(String(key))").updateChildValues(playlistData)
-            completionHandler(key)
-            return
-        }
-        completionHandler(nil)
     }
 }

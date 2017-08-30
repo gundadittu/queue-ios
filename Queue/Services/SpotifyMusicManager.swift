@@ -21,7 +21,7 @@ class SpotifyMusicManager {
     
     func uploadSpotifyData(completionHandlerMain: @escaping (Error?) -> Void ){
         ///all saved tracks
-        let dispatchGroup = DispatchGroup()
+        //let dispatchGroup = DispatchGroup()
         var totalSongs = 52
         var totalPlaylists = 28
         /*
@@ -58,27 +58,20 @@ class SpotifyMusicManager {
         dispatchGroup.wait()
         */
         
-        dispatchGroup.enter()
         //all user saved tracks
-        self.uploadSpotifyUserAllSavedTracks (totalSongs){ (error) in
-            dispatchGroup.leave()
+        return self.uploadSpotifyUserAllSavedTracks (totalSongs){ (error) in
             if error != nil {
                 completionHandlerMain(error)
                 return
             }
-        }
-        dispatchGroup.wait()
-        dispatchGroup.enter()
-        //all playlists
-        self.uploadSpotifyUserPlaylists(totalPlaylists, completionHandler: { (error) in
-            dispatchGroup.leave()
-            if error != nil{
-                completionHandlerMain(error)
+            return self.uploadSpotifyUserPlaylists(totalPlaylists, completionHandler: { (error) in
+                if error != nil{
+                    completionHandlerMain(error)
+                    return
+                }
+                completionHandlerMain(nil)
                 return
-            }
-        })
-        dispatchGroup.notify(queue: .main) {
-            completionHandlerMain(nil)
+            })
         }
     }
     

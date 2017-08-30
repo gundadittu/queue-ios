@@ -68,7 +68,6 @@ class AuthService {
             }
             connection.start()
         }
-        
         let params = ["fields": "id,name"]
         let graphRequest = FBSDKGraphRequest(graphPath: "/me/friends", parameters: params)
         let connection = FBSDKGraphRequestConnection()
@@ -84,7 +83,6 @@ class AuthService {
             }
         })
         connection.start()
-        
     }
     
     func facebookLogin(withCredential credential: AuthCredential, userLoginComplete: @escaping (_ status: Bool, _ error: Error?) ->()){

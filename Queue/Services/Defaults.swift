@@ -9,3 +9,10 @@
 let loadingTypeNo = 3
 let iconText = ["🤔", "😳", "🙄", "😶"].sm_random()!
 let iconText_success = ["🙌","😀","☺️","🙃"].sm_random()
+
+
+enum DataError: Error {
+    case uploadingPlaylist
+    case uploadingSong
+    case other
+}

@@ -19,7 +19,6 @@
 		0449708D1F47B36600CC4D87 /* AuthServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0449708C1F47B36600CC4D87 /* AuthServices.swift */; };
 		0449708F1F47B38900CC4D87 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0449708E1F47B38900CC4D87 /* DataService.swift */; };
 		0464BB771F463EBF0057501A /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0464BB761F463EBF0057501A /* SignUpVC.swift */; };
-		0471EAB01F4602850022CD07 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0471EAAF1F4601FC0022CD07 /* GoogleService-Info.plist */; };
 		0471EAB71F461CF40022CD07 /* GetStartedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0471EAB61F461CF40022CD07 /* GetStartedVC.swift */; };
 		0471EAB91F4631D30022CD07 /* fbButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0471EAB81F4631D30022CD07 /* fbButton.swift */; };
 		0478B65C1F464EFC005932E7 /* GetStartedNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478B65B1F464EFC005932E7 /* GetStartedNavBar.swift */; };
@@ -33,6 +32,13 @@
 		0484ADEB1F33B0660045AE34 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0484ADE91F33B0660045AE34 /* Main.storyboard */; };
 		0484ADED1F33B0660045AE34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0484ADEC1F33B0660045AE34 /* Assets.xcassets */; };
 		0484ADF01F33B0660045AE34 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0484ADEE1F33B0660045AE34 /* LaunchScreen.storyboard */; };
+		04BC8C101F54B00F008AC720 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 041821061F54AF5500B8C4EC /* GoogleService-Info.plist */; };
+		04E596F61F577A88009FC51D /* Registration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04E596F51F577A88009FC51D /* Registration.storyboard */; };
+		04E596F81F577CEE009FC51D /* CreatePlaylistVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E596F71F577CEE009FC51D /* CreatePlaylistVC.swift */; };
+		04E596FA1F577DB5009FC51D /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E596F91F577DB5009FC51D /* CustomTabBar.swift */; };
+		04E596FC1F577E19009FC51D /* Create.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04E596FB1F577E19009FC51D /* Create.storyboard */; };
+		04E596FE1F577E3C009FC51D /* Discover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04E596FD1F577E3C009FC51D /* Discover.storyboard */; };
+		04E597001F577E57009FC51D /* Library.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04E596FF1F577E57009FC51D /* Library.storyboard */; };
 		04FFD11B1F4CC0AB008E2116 /* BridgeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FFD11A1F4CC0AB008E2116 /* BridgeViewController.m */; };
 		04FFD11C1F4CC100008E2116 /* SpotifyAudioPlayback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04FFD1161F4CC08D008E2116 /* SpotifyAudioPlayback.framework */; };
 		04FFD11D1F4CC100008E2116 /* SpotifyAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04FFD1151F4CC08D008E2116 /* SpotifyAuthentication.framework */; };
@@ -41,6 +47,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		041821061F54AF5500B8C4EC /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		042A97B31F46CD8000A925A6 /* PermissionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsVC.swift; sourceTree = "<group>"; };
 		042A97B51F46D41600A925A6 /* GetStartedNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStartedNavController.swift; sourceTree = "<group>"; };
 		042C70FF1F538DFD00B97D61 /* AppleMusicAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMusicAuth.swift; sourceTree = "<group>"; };
@@ -54,7 +61,6 @@
 		0449708C1F47B36600CC4D87 /* AuthServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServices.swift; sourceTree = "<group>"; };
 		0449708E1F47B38900CC4D87 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		0464BB761F463EBF0057501A /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
-		0471EAAF1F4601FC0022CD07 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0471EAB61F461CF40022CD07 /* GetStartedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStartedVC.swift; sourceTree = "<group>"; };
 		0471EAB81F4631D30022CD07 /* fbButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fbButton.swift; sourceTree = "<group>"; };
 		0478B65B1F464EFC005932E7 /* GetStartedNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStartedNavBar.swift; sourceTree = "<group>"; };
@@ -70,6 +76,12 @@
 		0484ADEC1F33B0660045AE34 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0484ADEF1F33B0660045AE34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0484ADF11F33B0660045AE34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04E596F51F577A88009FC51D /* Registration.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Registration.storyboard; sourceTree = "<group>"; };
+		04E596F71F577CEE009FC51D /* CreatePlaylistVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePlaylistVC.swift; sourceTree = "<group>"; };
+		04E596F91F577DB5009FC51D /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
+		04E596FB1F577E19009FC51D /* Create.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Create.storyboard; sourceTree = "<group>"; };
+		04E596FD1F577E3C009FC51D /* Discover.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Discover.storyboard; sourceTree = "<group>"; };
+		04E596FF1F577E57009FC51D /* Library.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Library.storyboard; sourceTree = "<group>"; };
 		04FFD1151F4CC08D008E2116 /* SpotifyAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAuthentication.framework; sourceTree = "<group>"; };
 		04FFD1161F4CC08D008E2116 /* SpotifyAudioPlayback.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAudioPlayback.framework; sourceTree = "<group>"; };
 		04FFD1171F4CC08D008E2116 /* SpotifyMetadata.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyMetadata.framework; sourceTree = "<group>"; };
@@ -129,6 +141,7 @@
 				0471EAB81F4631D30022CD07 /* fbButton.swift */,
 				0478B65B1F464EFC005932E7 /* GetStartedNavBar.swift */,
 				0478B65F1F465BFA005932E7 /* roundButton.swift */,
+				04E596F91F577DB5009FC51D /* CustomTabBar.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -145,6 +158,7 @@
 				042A97B31F46CD8000A925A6 /* PermissionsVC.swift */,
 				042A97B51F46D41600A925A6 /* GetStartedNavController.swift */,
 				042CB8FE1F47D9E600B77973 /* ForgotPasswordVC.swift */,
+				04E596F71F577CEE009FC51D /* CreatePlaylistVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -176,9 +190,13 @@
 				0471EAB11F461CA40022CD07 /* Model */,
 				0471EAB21F461CAF0022CD07 /* View */,
 				0484ADE91F33B0660045AE34 /* Main.storyboard */,
+				04E596FD1F577E3C009FC51D /* Discover.storyboard */,
+				04E596F51F577A88009FC51D /* Registration.storyboard */,
+				04E596FB1F577E19009FC51D /* Create.storyboard */,
+				04E596FF1F577E57009FC51D /* Library.storyboard */,
 				0484ADEC1F33B0660045AE34 /* Assets.xcassets */,
 				0484ADEE1F33B0660045AE34 /* LaunchScreen.storyboard */,
-				0471EAAF1F4601FC0022CD07 /* GoogleService-Info.plist */,
+				041821061F54AF5500B8C4EC /* GoogleService-Info.plist */,
 				0484ADF11F33B0660045AE34 /* Info.plist */,
 			);
 			path = Queue;
@@ -276,9 +294,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04E596F61F577A88009FC51D /* Registration.storyboard in Resources */,
 				0484ADF01F33B0660045AE34 /* LaunchScreen.storyboard in Resources */,
-				0471EAB01F4602850022CD07 /* GoogleService-Info.plist in Resources */,
+				04BC8C101F54B00F008AC720 /* GoogleService-Info.plist in Resources */,
 				0484ADED1F33B0660045AE34 /* Assets.xcassets in Resources */,
+				04E596FC1F577E19009FC51D /* Create.storyboard in Resources */,
+				04E596FE1F577E3C009FC51D /* Discover.storyboard in Resources */,
+				04E597001F577E57009FC51D /* Library.storyboard in Resources */,
 				0484ADEB1F33B0660045AE34 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -321,6 +343,7 @@
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/Onboard/Onboard.framework",
+				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/Sparrow/Sparrow.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftMessages/SwiftMessages.framework",
@@ -344,6 +367,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Onboard.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Sparrow.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMessages.framework",
@@ -398,10 +422,12 @@
 				042A97B41F46CD8000A925A6 /* PermissionsVC.swift in Sources */,
 				0471EAB71F461CF40022CD07 /* GetStartedVC.swift in Sources */,
 				0478B65C1F464EFC005932E7 /* GetStartedNavBar.swift in Sources */,
+				04E596F81F577CEE009FC51D /* CreatePlaylistVC.swift in Sources */,
 				0484ADE61F33B0660045AE34 /* FirstViewController.swift in Sources */,
 				04FFD11B1F4CC0AB008E2116 /* BridgeViewController.m in Sources */,
 				044383051F53903C00103C9C /* AppleMusicManager.swift in Sources */,
 				043986DF1F5116F20072E0ED /* SpotifyMusicManager.swift in Sources */,
+				04E596FA1F577DB5009FC51D /* CustomTabBar.swift in Sources */,
 				0471EAB91F4631D30022CD07 /* fbButton.swift in Sources */,
 				042C71001F538DFD00B97D61 /* AppleMusicAuth.swift in Sources */,
 				042CB8FF1F47D9E600B77973 /* ForgotPasswordVC.swift in Sources */,
