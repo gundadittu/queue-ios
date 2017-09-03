@@ -11,6 +11,7 @@ import Firebase
 import Onboard
 import FBSDKCoreKit
 import IQKeyboardManagerSwift
+import ChameleonFramework
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,8 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
             FirebaseApp.configure()
             Database.database().isPersistenceEnabled = true
-
-            UIApplication.shared.statusBarStyle = .lightContent
+        
             if Auth.auth().currentUser == nil{
                 self.welcomeScreens()
             }
@@ -80,6 +80,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             logoPage.bodyLabel.textAlignment = .left
             logoPage.titleLabel.font = UIFont(name: "Avenir-Heavy", size: 40)
             logoPage.bodyLabel.font = UIFont(name: "Avenir-Thin", size: 20)
+        
             let playlistFeatures = OnboardingContentViewController(title: "A Playlist Everyone Can Play With", body: "Page body goes here.", image: nil, buttonText: nil) { () -> Void in return }
             playlistFeatures.topPadding = 0
             playlistFeatures.underIconPadding = 0
@@ -87,6 +88,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             playlistFeatures.bodyLabel.textAlignment = .left
             playlistFeatures.titleLabel.font = UIFont(name: "Avenir-Heavy", size: 30)
             playlistFeatures.bodyLabel.font = UIFont(name: "Avenir-Thin", size: 20)
+
             let groupPlaylists = OnboardingContentViewController(title: "Group Playlists", body: "Page body goes here.", image: nil, buttonText: nil) { () -> Void in return }
             groupPlaylists.topPadding = 0
             groupPlaylists.titleLabel.font = UIFont(name: "Avenir-Heavy", size: 30)
@@ -94,6 +96,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             groupPlaylists.titleLabel.textAlignment = .left
             groupPlaylists.bodyLabel.textAlignment = .left
             groupPlaylists.bodyLabel.font = UIFont(name: "Avenir-Thin", size: 20)
+
             let livePlaylists = OnboardingContentViewController(title: "Go Live", body: "Page body goes here.", image: UIImage(named: "icon"), buttonText: nil) { () -> Void in return }
             livePlaylists.topPadding = 0
             livePlaylists.underIconPadding = 0
@@ -101,6 +104,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             livePlaylists.bodyLabel.textAlignment = .left
             livePlaylists.titleLabel.font = UIFont(name: "Avenir-Heavy", size: 30)
             livePlaylists.bodyLabel.font = UIFont(name: "Avenir-Thin", size: 20)
+
             let socialFeatures = OnboardingContentViewController(title: "Never Miss a Beat", body: "Page body goes here.", image: nil, buttonText: nil) { () -> Void in }
             socialFeatures.topPadding = 0
             socialFeatures.underIconPadding = 0
@@ -108,10 +112,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             socialFeatures.bodyLabel.textAlignment = .left
             socialFeatures.titleLabel.font = UIFont(name: "Avenir-Heavy", size: 30)
             socialFeatures.bodyLabel.font = UIFont(name: "Avenir-Thin", size: 20)
-            
-        let onboardingVC = OnboardingViewController(backgroundImage: UIImage(named: "background"), contents: [logoPage,playlistFeatures, groupPlaylists, livePlaylists, socialFeatures]) //change background to proper video or individual images
+
+        let onboardingVC = OnboardingViewController(backgroundImage: nil, contents: [logoPage,playlistFeatures, groupPlaylists, livePlaylists, socialFeatures]) //change background to proper video or individual images
             onboardingVC?.shouldMaskBackground = false //change later?
             onboardingVC?.allowSkipping = true
+            onboardingVC?.view.backgroundColor = GradientColor(.topToBottom, frame: (onboardingVC?.view.frame)!, colors: backgroundGradientColors)
             let skipButton = onboardingVC?.skipButton
             skipButton!.setTitle("Get Started", for: UIControlState.normal )
             skipButton!.titleLabel?.font = UIFont(name: "Avenir-Heavy", size: 20)

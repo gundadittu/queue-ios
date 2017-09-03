@@ -15,6 +15,9 @@ class DataService {
     private var _REF_EXTERNALPLAYLISTS = DB_BASE.child("externalMusic/externalPlaylists")
     private var _REF_EXTERNALPLAYLISTS_PLAYLISTS = DB_BASE.child("externalMusic/externalPlaylists/playlists")
     private var _REF_EXTERNALPLAYLISTS_PLAYLISTSBYUSER = DB_BASE.child("externalMusic/externalPlaylists/playlistsByUser")
+    private var _REF_GROUPPLAYLISTS = DB_BASE.child("groupPlaylists") //add getter
+    private var _REF_GROUPPLAYLISTS_BYUSER = DB_BASE.child("groupPlaylists/playlistsbyuser") //add getter
+    private var _REF_GROUPPLAYLISTS_PLAYLISTS = DB_BASE.child("groupPlaylists/playlists") //add getter
 
     var REF_BASE: DatabaseReference {
         return _REF_BASE
@@ -43,7 +46,11 @@ class DataService {
     var REF_EXTERNALPLAYLISTS_PLAYLISTSBYUSER: DatabaseReference {
         return _REF_EXTERNALPLAYLISTS_PLAYLISTSBYUSER
     }
-
+    
+    var REF_GROUPPLAYLISTS_PLAYLISTS: DatabaseReference {
+        return _REF_GROUPPLAYLISTS_PLAYLISTS
+    }
+    
     func createDBUser(uid: String, userData: Dictionary<String, Any>) {
         REF_USERS.child("\(uid)").updateChildValues(userData)
     }
@@ -110,5 +117,33 @@ class DataService {
     
     func removeExternalSongbyUser(userID: String, key: String) {
         return
+    }
+    
+    func createGroupPlaylist(title: String, type: playlistType, ownerID: String, trackList: [track], playlistPrivacyStatus: accessType, mood: playlistMood, invitations: [playlistInvitation], participants: [playlistUser], completionHandler: @escaping (Error?,GroupPlaylist?)->Void) {
+        
+        let key = _REF_GROUPPLAYLISTS_PLAYLISTS.childByAutoId().key
+        //parse trackslist, image, send invitations, add particpants
+        let playlistArray = ["name": title, "mood": mood, "playlist_type": type, "playlist_owner_id": ownerID] as [String : Any]
+        let childUpdates = ["\(key)": playlistArray]
+        /*
+        self._REF_GROUPPLAYLISTS_BYUSER.child(ownerID).updateChildValues(childUpdates) { (error, dbRef) in //check to see if any of the key data, etc. is nil
+            if error != nil {
+                print(error?.localizedDescription)
+            }
+        }
+         */
+        /*
+        self._REF_GROUPPLAYLISTS_PLAYLISTS.updateChildValues(childUpdates) { (error, dbRef) in
+            if error == nil{
+                let playlist = GroupPlaylist(playlistKey: key, title: title)
+                completionHandler(nil, playlist)
+            } else {
+                completionHandler(error, nil)
+            }
+        }
+         */
+        
+        let playlist = GroupPlaylist(playlistKey: key, title: title)
+        completionHandler(nil, playlist)
     }
 }

@@ -10,9 +10,12 @@ import UIKit
 
 class SecondViewController: UIViewController {
 
+    //@IBOutlet weak var segmentedTabs: TwicketSegmentedControl!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        let titles = ["First", "Second", "Third"]
+       // segmentedTabs.setSegmentItems(titles)
     }
 
     override func didReceiveMemoryWarning() {

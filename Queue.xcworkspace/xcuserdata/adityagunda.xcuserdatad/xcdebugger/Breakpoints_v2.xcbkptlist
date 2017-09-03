@@ -10,22 +10,6 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Queue/Services/SpotifyMusicManager.swift"
-            timestampString = "525681510.788685"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
-            landmarkName = "uploadSpotifyData(completionHandlerMain:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Queue/Services/SpotifyMusicManager.swift"
             timestampString = "525681510.788758"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
@@ -54,27 +38,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Queue/Services/SpotifyMusicManager.swift"
-            timestampString = "525681510.788866"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
-            landmarkName = "uploadSpotifyData(completionHandlerMain:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Queue/Services/AppleMusicManager.swift"
-            timestampString = "525824027.853428"
+            timestampString = "525846174.71403"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "32"
@@ -90,7 +58,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Queue/Services/AppleMusicManager.swift"
-            timestampString = "525824027.853528"
+            timestampString = "525846174.714108"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "49"
@@ -106,7 +74,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Queue/Services/AppleMusicManager.swift"
-            timestampString = "525824027.853602"
+            timestampString = "525846174.714152"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "121"
@@ -122,7 +90,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Queue/Services/AppleMusicManager.swift"
-            timestampString = "525824027.85366"
+            timestampString = "525846174.714197"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "119"
@@ -138,7 +106,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Queue/Services/AppleMusicManager.swift"
-            timestampString = "525824027.853715"
+            timestampString = "525846174.714235"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "134"
@@ -154,12 +122,284 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Queue/Services/AppleMusicManager.swift"
-            timestampString = "525824027.853763"
+            timestampString = "525846174.714311"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "135"
             endingLineNumber = "135"
             landmarkName = "parseAMsong(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Queue/Services/DataService.swift"
+            timestampString = "526083569.580892"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
+            landmarkName = "DataService"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Queue/Services/DataService.swift"
+            timestampString = "526083569.581482"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
+            landmarkName = "createGroupPlaylist(title:type:ownerID:trackList:playlistPrivacyStatus:mood:invitations:participants:completionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Queue/Services/DataService.swift"
+            timestampString = "526083569.581944"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
+            landmarkName = "createGroupPlaylist(title:type:ownerID:trackList:playlistPrivacyStatus:mood:invitations:participants:completionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Queue/Services/DataService.swift"
+            timestampString = "526083569.582421"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
+            landmarkName = "createGroupPlaylist(title:type:ownerID:trackList:playlistPrivacyStatus:mood:invitations:participants:completionHandler:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Queue.DataService.createGroupPlaylist(title: Swift.String, type: Queue.playlistType, ownerID: Swift.String, trackList: Swift.Array&lt;Queue.track&gt;, playlistPrivacyStatus: Queue.accessType, mood: Queue.playlistMood, invitations: Swift.Array&lt;Queue.playlistInvitation&gt;, participants: Swift.Array&lt;Queue.playlistUser&gt;, completionHandler: (Swift.Optional&lt;Swift.Error&gt;, Swift.Optional&lt;Queue.GroupPlaylist&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Queue"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adityagunda/Documents/GitHub/queue-ios/Queue/Services/DataService.swift"
+                  timestampString = "526027672.02097"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "125"
+                  endingLineNumber = "125"
+                  offsetFromSymbolStart = "1152">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Error&gt;, __ObjC.DatabaseReference) -&gt; () in Queue.DataService.createGroupPlaylist(title: Swift.String, type: Queue.playlistType, ownerID: Swift.String, trackList: Swift.Array&lt;Queue.track&gt;, playlistPrivacyStatus: Queue.accessType, mood: Queue.playlistMood, invitations: Swift.Array&lt;Queue.playlistInvitation&gt;, participants: Swift.Array&lt;Queue.playlistUser&gt;, completionHandler: (Swift.Optional&lt;Swift.Error&gt;, Swift.Optional&lt;Queue.GroupPlaylist&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Queue"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adityagunda/Documents/GitHub/queue-ios/Queue/Services/DataService.swift"
+                  timestampString = "526027672.028248"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "126"
+                  endingLineNumber = "126"
+                  offsetFromSymbolStart = "24">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Queue/Services/DataService.swift"
+            timestampString = "526083569.582806"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
+            landmarkName = "createGroupPlaylist(title:type:ownerID:trackList:playlistPrivacyStatus:mood:invitations:participants:completionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Queue/Services/DataService.swift"
+            timestampString = "526083569.583184"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "133"
+            endingLineNumber = "133"
+            landmarkName = "createGroupPlaylist(title:type:ownerID:trackList:playlistPrivacyStatus:mood:invitations:participants:completionHandler:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Queue.DataService.createGroupPlaylist(title: Swift.String, type: Queue.playlistType, ownerID: Swift.String, trackList: Swift.Array&lt;Queue.track&gt;, playlistPrivacyStatus: Queue.accessType, mood: Queue.playlistMood, invitations: Swift.Array&lt;Queue.playlistInvitation&gt;, participants: Swift.Array&lt;Queue.playlistUser&gt;, completionHandler: (Swift.Optional&lt;Swift.Error&gt;, Swift.Optional&lt;Queue.GroupPlaylist&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Queue"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adityagunda/Documents/GitHub/queue-ios/Queue/Services/DataService.swift"
+                  timestampString = "526032895.009048"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "132"
+                  endingLineNumber = "132"
+                  offsetFromSymbolStart = "1156">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Error&gt;, __ObjC.DatabaseReference) -&gt; () in Queue.DataService.createGroupPlaylist(title: Swift.String, type: Queue.playlistType, ownerID: Swift.String, trackList: Swift.Array&lt;Queue.track&gt;, playlistPrivacyStatus: Queue.accessType, mood: Queue.playlistMood, invitations: Swift.Array&lt;Queue.playlistInvitation&gt;, participants: Swift.Array&lt;Queue.playlistUser&gt;, completionHandler: (Swift.Optional&lt;Swift.Error&gt;, Swift.Optional&lt;Queue.GroupPlaylist&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Queue"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adityagunda/Documents/GitHub/queue-ios/Queue/Services/DataService.swift"
+                  timestampString = "526032895.012207"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "133"
+                  endingLineNumber = "133"
+                  offsetFromSymbolStart = "64">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Queue/Services/DataService.swift"
+            timestampString = "526083569.58356"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
+            landmarkName = "createGroupPlaylist(title:type:ownerID:trackList:playlistPrivacyStatus:mood:invitations:participants:completionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Queue/Services/DataService.swift"
+            timestampString = "526083569.583938"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "135"
+            endingLineNumber = "135"
+            landmarkName = "createGroupPlaylist(title:type:ownerID:trackList:playlistPrivacyStatus:mood:invitations:participants:completionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Queue/Services/DataService.swift"
+            timestampString = "526083569.584344"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
+            landmarkName = "createGroupPlaylist(title:type:ownerID:trackList:playlistPrivacyStatus:mood:invitations:participants:completionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Queue/Services/DataService.swift"
+            timestampString = "526083569.584775"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "137"
+            endingLineNumber = "137"
+            landmarkName = "createGroupPlaylist(title:type:ownerID:trackList:playlistPrivacyStatus:mood:invitations:participants:completionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Queue/Services/DataService.swift"
+            timestampString = "526083569.585208"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "138"
+            endingLineNumber = "138"
+            landmarkName = "createGroupPlaylist(title:type:ownerID:trackList:playlistPrivacyStatus:mood:invitations:participants:completionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Queue/Services/DataService.swift"
+            timestampString = "526083569.585647"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
+            landmarkName = "createGroupPlaylist(title:type:ownerID:trackList:playlistPrivacyStatus:mood:invitations:participants:completionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Queue/Services/DataService.swift"
+            timestampString = "526083569.586089"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
+            landmarkName = "createGroupPlaylist(title:type:ownerID:trackList:playlistPrivacyStatus:mood:invitations:participants:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

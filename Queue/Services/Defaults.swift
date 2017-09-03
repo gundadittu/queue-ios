@@ -6,6 +6,8 @@
 //  Copyright © 2017 Aditya Gunda. All rights reserved.
 //
 
+import ChameleonFramework
+
 let loadingTypeNo = 3
 let iconText = ["🤔", "😳", "🙄", "😶"].sm_random()!
 let iconText_success = ["🙌","😀","☺️","🙃"].sm_random()
@@ -16,3 +18,5 @@ enum DataError: Error {
     case uploadingSong
     case other
 }
+
+let backgroundGradientColors = [FlatPurpleDark(), FlatMagentaDark(), FlatMagenta(), FlatPink()]

@@ -23,5 +23,12 @@ target 'Queue' do
   pod 'IQKeyboardManagerSwift'
   pod 'AlamofireImage', '~> 3.2'
   pod 'Firebase/Performance'
+  pod 'XLPagerTabStrip'
+  pod 'McPicker'
+  pod 'TwicketSegmentedControl'
+  pod 'SSBouncyButton', '~> 1.0'
+  pod 'VBFPopFlatButton'
+  pod 'XLActionController'
+  pod 'PMSuperButton'
 
 end
