@@ -66,7 +66,13 @@ let spotifyOwnerIDKey = "spotify_owner_id"
 let playlistSpotifyIDKey = "playlist_spotify_id"
 
 let collaborativeStatusKey = "collaborative_status"
-let playlistCountKey = "total_count"
-let playlistTracksKey = "playlist_tracks"
+let playlistCountKey = "track_count"
+let playlistTrackCountKey = "track_count"
+
+let playlistTracksKey = "track_list"
 let playlistNameKey = "playlist_name"
 let playlistSpotifyLinkKey = "playlist_spotify_link"
+
+let playlistKeyKey = "playlist_key"
+
+let spotifyUserID = "spotify_username"

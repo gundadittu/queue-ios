@@ -29,6 +29,15 @@ target 'Queue' do
   pod 'SSBouncyButton', '~> 1.0'
   pod 'VBFPopFlatButton'
   pod 'XLActionController'
+  pod 'MultiToggleButton'
+  pod 'ButtonBackgroundColor'
+  pod 'Colours'
+  pod 'PureLayout'
+  pod 'UIEmptyState'
   pod 'PMSuperButton'
-
+  pod 'CRRefresh'
+  pod 'SwipeCellKit'
+  pod 'RMActionController', '~> 1.2.1'
+  pod 'Kingfisher', '~> 3.0'
+  
 end

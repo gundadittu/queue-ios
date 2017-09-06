@@ -8,6 +8,7 @@
 
 import Foundation
 
+/*
 class livePlaylist : playlist {
    // private var _status: liveStatus
     
@@ -23,3 +24,4 @@ class livePlaylist : playlist {
     }
  */
 }
+ */

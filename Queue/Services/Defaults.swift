@@ -11,6 +11,7 @@ import ChameleonFramework
 let loadingTypeNo = 3
 let iconText = ["🤔", "😳", "🙄", "😶"].sm_random()!
 let iconText_success = ["🙌","😀","☺️","🙃"].sm_random()
+let iconText_sad = ["😢", "😳", "🙄", "😕", "😒", "😔"].sm_random()!
 
 
 enum DataError: Error {

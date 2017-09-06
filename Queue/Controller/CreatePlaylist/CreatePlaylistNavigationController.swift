@@ -12,11 +12,13 @@ import ChameleonFramework
 class CreatePlaylistNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.navigationBar.isTranslucent = false
         self.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: FlatWhite()]
         self.navigationBar.tintColor = FlatWhite()
         self.navigationBar.barTintColor = FlatPurpleDark()
         self.hidesNavigationBarHairline = true
+ 
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

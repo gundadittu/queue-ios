@@ -85,12 +85,14 @@ class DataService {
     }
     
     func createExternalSPPlaylist(_ user_id: String,_ playlistData: [String:Any], completionHandler: @escaping (String?)->Void) -> Void {
-        if let key = playlistData[playlistSourceIDKey] as? String {
-            REF_EXTERNALPLAYLISTS_PLAYLISTS.child("\(key)").updateChildValues(playlistData)
-            REF_EXTERNALPLAYLISTS_PLAYLISTSBYUSER.child("\(user_id)/\(key)").updateChildValues(playlistData)
-            completionHandler(key)
+        //print(playlistData[playlistSourceIDKey])
+        guard let key = playlistData[playlistSourceIDKey] as? String else {
+            completionHandler(nil)
+            return
         }
-        completionHandler(nil)
+        REF_EXTERNALPLAYLISTS_PLAYLISTS.child("\(key)").updateChildValues(playlistData)
+        REF_EXTERNALPLAYLISTS_PLAYLISTSBYUSER.child("\(user_id)/\(key)").updateChildValues(playlistData)
+        completionHandler(key)
     }
     
     func createExternalAMSong(_ user_id: String,_ songData: [String:Any]) throws ->Void {
@@ -119,6 +121,7 @@ class DataService {
         return
     }
     
+    /*
     func createGroupPlaylist(title: String, type: playlistType, ownerID: String, trackList: [track], playlistPrivacyStatus: accessType, mood: playlistMood, invitations: [playlistInvitation], participants: [playlistUser], completionHandler: @escaping (Error?,GroupPlaylist?)->Void) {
         
         let key = _REF_GROUPPLAYLISTS_PLAYLISTS.childByAutoId().key
@@ -143,7 +146,31 @@ class DataService {
         }
          */
         
-        let playlist = GroupPlaylist(playlistKey: key, title: title)
-        completionHandler(nil, playlist)
+        //let playlist = GroupPlaylist(playlistKey: key, title: title)
+       // completionHandler(nil, playlist)
+    }
+ */
+    
+    func getUserExternalPlaylistData(userID: String, completionHandler: @escaping ([ExternalPlaylist]) -> Void) {
+        let ref = REF_EXTERNALPLAYLISTS_PLAYLISTSBYUSER.child("\(userID)") //change to parameter
+        var returnArray = [ExternalPlaylist]()
+        ref.observeSingleEvent(of: .value, with: { (snapshot) in
+            for playlistSnapshot in snapshot.children {
+                guard let playlist = (playlistSnapshot as! DataSnapshot).value as? [String:Any] else {
+                    return
+                }
+                guard let playlistSource = playlist[sourceKey] as? String else {
+                    return
+                }
+                if playlistSource == "apple_music" {
+                    let amPlaylist = AMExternalPlaylist(snapshot: (playlistSnapshot as! DataSnapshot), type: .externalAppleMusic)
+                    returnArray.append(amPlaylist)
+                } else if playlistSource == "spotify"{
+                    let spPlaylist = SPExternalPlaylist(snapshot: (playlistSnapshot as! DataSnapshot), type: .externalSpotify)
+                     returnArray.append(spPlaylist)
+                }
+            }
+            completionHandler(returnArray)
+        })
     }
 }

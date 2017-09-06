@@ -134,13 +134,13 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Ci-fQ-vLo" customClass="roundButton" customModule="Queue" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Ci-fQ-vLo" customClass="roundButton" customModule="Queue" customModuleProvider="target">
                                 <rect key="frame" x="10" y="592" width="345" height="45"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="D5Z-jn-YIj"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="22"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="23"/>
                                 <state key="normal" title="Create Playlist">
                                     <color key="titleColor" red="0.27836513519287109" green="0.18530510365962982" blue="0.59323644638061523" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -218,7 +218,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="mkW-wn-uMa"/>
                     <connections>
-                        <outlet property="createBtn" destination="1Ci-fQ-vLo" id="W4r-0u-WNp"/>
+                        <outlet property="createBtn" destination="1Ci-fQ-vLo" id="BFB-d1-SZF"/>
                         <outlet property="moodPickerTextField" destination="DHo-zx-cGx" id="UQ4-ex-zWx"/>
                         <outlet property="playlistNameTextField" destination="wG5-Hi-Ddi" id="GcK-fD-kwV"/>
                         <outlet property="privateSwitch" destination="0R1-9j-kzq" id="t6N-qw-IcV"/>

@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import Alamofire
+import SwiftyJSON
 
 class SpotifyAuth {
     static let instance = SpotifyAuth()
@@ -19,11 +21,31 @@ class SpotifyAuth {
     let SPclient_ID = "72d8cf3b5c014ce694675d2c931e339e"
     let SPtokenSwap_URL = "https://gentle-woodland-29346.herokuapp.com/swap"
     let SPtokenRefresh_URL = "https://gentle-woodland-29346.herokuapp.com/refresh"
-    
     let SPrequested_scopes = [SPTAuthStreamingScope, SPTAuthPlaylistReadPrivateScope, SPTAuthPlaylistModifyPublicScope, SPTAuthPlaylistModifyPrivateScope, SPTAuthUserLibraryReadScope, SPTAuthUserLibraryModifyScope, SPTAuthUserReadPrivateScope]
-    
-    
     let SPSession_UserDefaults_Key = "SpotifySession"
+    
+    let spotifyUserProfileAPIURL = "https://api.spotify.com/v1/me"
+    
+    func updatePremiumStatus(){
+      let header = ["Authorization": "Bearer \( SpotifyAuth.instance.sp_session.accessToken!)"]
+        Alamofire.request(spotifyUserProfileAPIURL, headers: header).responseJSON { (response) in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value).dictionaryObject!
+                guard let product = json["product"] as? String else {
+                    return
+                }
+                if product == "premium" {
+                     DataService.instance.writeUserData(uid: AuthService.instance.current_uid, key: spotifyPremiumProviderKey, data: "true")
+                } else {
+                    DataService.instance.writeUserData(uid: AuthService.instance.current_uid, key: spotifyPremiumProviderKey, data: "false")
+                }
+            case .failure(let error):
+                print("error updating user's Spotify Premium status: \(error.localizedDescription)")
+                DataService.instance.writeUserData(uid: AuthService.instance.current_uid, key: spotifyPremiumProviderKey, data: "false")
+            }
+        }
+    }
     
     func refreshSpotifyToken()
     {

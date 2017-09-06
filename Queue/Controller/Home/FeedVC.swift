@@ -15,7 +15,7 @@ class FeedVC: UIViewController, IndicatorInfoProvider {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = FlatWhite()
+        self.view.backgroundColor = UIColor.ghostWhite()
     }
 
     override func didReceiveMemoryWarning() {

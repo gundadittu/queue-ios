@@ -11,18 +11,29 @@
 		041757F11F5A695D00424495 /* GroupPlaylist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041757F01F5A695D00424495 /* GroupPlaylist.swift */; };
 		041757F31F5A74BF00424495 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041757F21F5A74BF00424495 /* Enums.swift */; };
 		041757F61F5A81E500424495 /* GroupPlaylists.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 041757F51F5A81E500424495 /* GroupPlaylists.storyboard */; };
-		041757F81F5A82D200424495 /* GroupPlaylistVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041757F71F5A82D200424495 /* GroupPlaylistVC.swift */; };
+		041757F81F5A82D200424495 /* GPVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041757F71F5A82D200424495 /* GPVC.swift */; };
+		04219ADC1F5D0BD400F25E58 /* ExternalPlaylistVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04219ADB1F5D0BD400F25E58 /* ExternalPlaylistVC.swift */; };
+		04219AE01F5D0F0B00F25E58 /* ExternalPlaylistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04219ADF1F5D0F0B00F25E58 /* ExternalPlaylistCell.swift */; };
+		04219AE21F5D13CE00F25E58 /* AMExternalPlaylistTrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04219AE11F5D13CE00F25E58 /* AMExternalPlaylistTrackCell.swift */; };
+		04219AE41F5D15A600F25E58 /* PlaylistTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04219AE31F5D15A600F25E58 /* PlaylistTrack.swift */; };
 		042A97B41F46CD8000A925A6 /* PermissionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042A97B31F46CD8000A925A6 /* PermissionsVC.swift */; };
 		042A97B61F46D41600A925A6 /* GetStartedNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042A97B51F46D41600A925A6 /* GetStartedNavController.swift */; };
 		042C71001F538DFD00B97D61 /* AppleMusicAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042C70FF1F538DFD00B97D61 /* AppleMusicAuth.swift */; };
 		042CB8FF1F47D9E600B77973 /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042CB8FE1F47D9E600B77973 /* ForgotPasswordVC.swift */; };
 		042CB9021F47EA5E00B77973 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042CB9011F47EA5E00B77973 /* Defaults.swift */; };
+		04331F551F5E1EFE0093131F /* roundTrackImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04331F541F5E1EFE0093131F /* roundTrackImage.swift */; };
+		04331F571F5E26380093131F /* SPExternalPlaylistTrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04331F561F5E26380093131F /* SPExternalPlaylistTrackCell.swift */; };
+		04331F5C1F5E509B0093131F /* SongOptions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04331F5B1F5E509B0093131F /* SongOptions.storyboard */; };
+		04331F621F5E67140093131F /* SongOptionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04331F611F5E67140093131F /* SongOptionsController.swift */; };
+		04331F661F5E7F360093131F /* LibraryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04331F651F5E7F360093131F /* LibraryVC.swift */; };
 		043986DD1F5004B90072E0ED /* StorageServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043986DC1F5004B90072E0ED /* StorageServices.swift */; };
 		043986DF1F5116F20072E0ED /* SpotifyMusicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043986DE1F5116F20072E0ED /* SpotifyMusicManager.swift */; };
 		044383051F53903C00103C9C /* AppleMusicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044383041F53903C00103C9C /* AppleMusicManager.swift */; };
 		0447C1F51F46791F0037CB26 /* MusicPermissionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0447C1F41F46791F0037CB26 /* MusicPermissionsVC.swift */; };
 		0449708D1F47B36600CC4D87 /* AuthServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0449708C1F47B36600CC4D87 /* AuthServices.swift */; };
 		0449708F1F47B38900CC4D87 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0449708E1F47B38900CC4D87 /* DataService.swift */; };
+		044A74921F5C737A00122040 /* GPContainerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044A74911F5C737A00122040 /* GPContainerVC.swift */; };
+		044A74941F5C760400122040 /* GPMoreOptionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044A74931F5C760400122040 /* GPMoreOptionsVC.swift */; };
 		044AEC9A1F59ECED00BC2F14 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044AEC991F59ECED00BC2F14 /* CurrentUser.swift */; };
 		044AEC9C1F59ED0100BC2F14 /* LivePlaylist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044AEC9B1F59ED0100BC2F14 /* LivePlaylist.swift */; };
 		044AEC9E1F59ED7D00BC2F14 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044AEC9D1F59ED7D00BC2F14 /* Playlist.swift */; };
@@ -38,17 +49,18 @@
 		0478B6621F466A8B005932E7 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478B6611F466A8B005932E7 /* LoginVC.swift */; };
 		0480DA5F1F4F8B3300DC4580 /* SpotifyAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0480DA5E1F4F8B3300DC4580 /* SpotifyAuth.swift */; };
 		0480DA611F4F9F2300DC4580 /* Database Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0480DA601F4F9F2300DC4580 /* Database Keys.swift */; };
-		04828E0D1F57A65100534B45 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04828E0C1F57A65100534B45 /* CustomView.swift */; };
-		04828E0F1F58807600534B45 /* LibraryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04828E0E1F58807500534B45 /* LibraryVC.swift */; };
+		04828E0F1F58807600534B45 /* LibraryPlaylistsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04828E0E1F58807500534B45 /* LibraryPlaylistsVC.swift */; };
 		0484ADE41F33B0660045AE34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0484ADE31F33B0660045AE34 /* AppDelegate.swift */; };
 		0484ADE61F33B0660045AE34 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0484ADE51F33B0660045AE34 /* HomeVC.swift */; };
 		0484ADE81F33B0660045AE34 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0484ADE71F33B0660045AE34 /* SecondViewController.swift */; };
 		0484ADEB1F33B0660045AE34 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0484ADE91F33B0660045AE34 /* Main.storyboard */; };
 		0484ADED1F33B0660045AE34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0484ADEC1F33B0660045AE34 /* Assets.xcassets */; };
 		0484ADF01F33B0660045AE34 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0484ADEE1F33B0660045AE34 /* LaunchScreen.storyboard */; };
+		0497F6761F5E868F00566AFA /* LibrarySongsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0497F6751F5E868F00566AFA /* LibrarySongsVC.swift */; };
+		0497F6781F5E887E00566AFA /* LibraryAlbumsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0497F6771F5E887E00566AFA /* LibraryAlbumsVC.swift */; };
+		04A1D2641F5E0F4C0008EC39 /* roundLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A1D2631F5E0F4C0008EC39 /* roundLabel.swift */; };
 		04BC8C101F54B00F008AC720 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 041821061F54AF5500B8C4EC /* GoogleService-Info.plist */; };
-		04C966A51F5B7B6A006FB8B3 /* GroupPlaylistTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C966A31F5B7B6A006FB8B3 /* GroupPlaylistTrack.swift */; };
-		04C966A61F5B7B6A006FB8B3 /* GroupPlaylistTrack.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04C966A41F5B7B6A006FB8B3 /* GroupPlaylistTrack.xib */; };
+		04C966A51F5B7B6A006FB8B3 /* GPTrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C966A31F5B7B6A006FB8B3 /* GPTrackCell.swift */; };
 		04CB50251F59BFB300BDC536 /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CB50241F59BFB300BDC536 /* FeedVC.swift */; };
 		04CB50271F59BFFE00BDC536 /* ExploreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CB50261F59BFFE00BDC536 /* ExploreVC.swift */; };
 		04CB50291F59C96600BDC536 /* CreateGroupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CB50281F59C96600BDC536 /* CreateGroupVC.swift */; };
@@ -68,6 +80,7 @@
 		04E597031F577F56009FC51D /* CreatePlaylistNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E597021F577F56009FC51D /* CreatePlaylistNavigationController.swift */; };
 		04E597071F578056009FC51D /* HomeNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E597061F578056009FC51D /* HomeNavigationController.swift */; };
 		04E5970A1F578639009FC51D /* LibraryNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E597091F578639009FC51D /* LibraryNavigationController.swift */; };
+		04EA03A41F5D091700326319 /* ExternalPlaylist.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04EA03A31F5D091700326319 /* ExternalPlaylist.storyboard */; };
 		04FFD11B1F4CC0AB008E2116 /* BridgeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FFD11A1F4CC0AB008E2116 /* BridgeViewController.m */; };
 		04FFD11C1F4CC100008E2116 /* SpotifyAudioPlayback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04FFD1161F4CC08D008E2116 /* SpotifyAudioPlayback.framework */; };
 		04FFD11D1F4CC100008E2116 /* SpotifyAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04FFD1151F4CC08D008E2116 /* SpotifyAuthentication.framework */; };
@@ -80,20 +93,31 @@
 		041757F01F5A695D00424495 /* GroupPlaylist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupPlaylist.swift; sourceTree = "<group>"; };
 		041757F21F5A74BF00424495 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		041757F51F5A81E500424495 /* GroupPlaylists.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GroupPlaylists.storyboard; sourceTree = "<group>"; };
-		041757F71F5A82D200424495 /* GroupPlaylistVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupPlaylistVC.swift; sourceTree = "<group>"; };
+		041757F71F5A82D200424495 /* GPVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPVC.swift; sourceTree = "<group>"; };
 		041821061F54AF5500B8C4EC /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		04219ADB1F5D0BD400F25E58 /* ExternalPlaylistVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalPlaylistVC.swift; sourceTree = "<group>"; };
+		04219ADF1F5D0F0B00F25E58 /* ExternalPlaylistCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalPlaylistCell.swift; sourceTree = "<group>"; };
+		04219AE11F5D13CE00F25E58 /* AMExternalPlaylistTrackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMExternalPlaylistTrackCell.swift; sourceTree = "<group>"; };
+		04219AE31F5D15A600F25E58 /* PlaylistTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistTrack.swift; sourceTree = "<group>"; };
 		042A97B31F46CD8000A925A6 /* PermissionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsVC.swift; sourceTree = "<group>"; };
 		042A97B51F46D41600A925A6 /* GetStartedNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStartedNavController.swift; sourceTree = "<group>"; };
 		042C70FF1F538DFD00B97D61 /* AppleMusicAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMusicAuth.swift; sourceTree = "<group>"; };
 		042CB8FE1F47D9E600B77973 /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
 		042CB9011F47EA5E00B77973 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		042CB9031F48296400B77973 /* Queue.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Queue.entitlements; sourceTree = "<group>"; };
+		04331F541F5E1EFE0093131F /* roundTrackImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = roundTrackImage.swift; sourceTree = "<group>"; };
+		04331F561F5E26380093131F /* SPExternalPlaylistTrackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPExternalPlaylistTrackCell.swift; sourceTree = "<group>"; };
+		04331F5B1F5E509B0093131F /* SongOptions.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SongOptions.storyboard; sourceTree = "<group>"; };
+		04331F611F5E67140093131F /* SongOptionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongOptionsController.swift; sourceTree = "<group>"; };
+		04331F651F5E7F360093131F /* LibraryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryVC.swift; sourceTree = "<group>"; };
 		043986DC1F5004B90072E0ED /* StorageServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageServices.swift; sourceTree = "<group>"; };
 		043986DE1F5116F20072E0ED /* SpotifyMusicManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyMusicManager.swift; sourceTree = "<group>"; };
 		044383041F53903C00103C9C /* AppleMusicManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMusicManager.swift; sourceTree = "<group>"; };
 		0447C1F41F46791F0037CB26 /* MusicPermissionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPermissionsVC.swift; sourceTree = "<group>"; };
 		0449708C1F47B36600CC4D87 /* AuthServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServices.swift; sourceTree = "<group>"; };
 		0449708E1F47B38900CC4D87 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		044A74911F5C737A00122040 /* GPContainerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPContainerVC.swift; sourceTree = "<group>"; };
+		044A74931F5C760400122040 /* GPMoreOptionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPMoreOptionsVC.swift; sourceTree = "<group>"; };
 		044AEC991F59ECED00BC2F14 /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
 		044AEC9B1F59ED0100BC2F14 /* LivePlaylist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivePlaylist.swift; sourceTree = "<group>"; };
 		044AEC9D1F59ED7D00BC2F14 /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
@@ -109,8 +133,7 @@
 		0478B6611F466A8B005932E7 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		0480DA5E1F4F8B3300DC4580 /* SpotifyAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyAuth.swift; sourceTree = "<group>"; };
 		0480DA601F4F9F2300DC4580 /* Database Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Database Keys.swift"; sourceTree = "<group>"; };
-		04828E0C1F57A65100534B45 /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
-		04828E0E1F58807500534B45 /* LibraryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryVC.swift; sourceTree = "<group>"; };
+		04828E0E1F58807500534B45 /* LibraryPlaylistsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryPlaylistsVC.swift; sourceTree = "<group>"; };
 		0484ADE01F33B0660045AE34 /* Queue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Queue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0484ADE31F33B0660045AE34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0484ADE51F33B0660045AE34 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
@@ -119,8 +142,10 @@
 		0484ADEC1F33B0660045AE34 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0484ADEF1F33B0660045AE34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0484ADF11F33B0660045AE34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		04C966A31F5B7B6A006FB8B3 /* GroupPlaylistTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupPlaylistTrack.swift; sourceTree = "<group>"; };
-		04C966A41F5B7B6A006FB8B3 /* GroupPlaylistTrack.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupPlaylistTrack.xib; sourceTree = "<group>"; };
+		0497F6751F5E868F00566AFA /* LibrarySongsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrarySongsVC.swift; sourceTree = "<group>"; };
+		0497F6771F5E887E00566AFA /* LibraryAlbumsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryAlbumsVC.swift; sourceTree = "<group>"; };
+		04A1D2631F5E0F4C0008EC39 /* roundLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = roundLabel.swift; sourceTree = "<group>"; };
+		04C966A31F5B7B6A006FB8B3 /* GPTrackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTrackCell.swift; sourceTree = "<group>"; };
 		04CB50241F59BFB300BDC536 /* FeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
 		04CB50261F59BFFE00BDC536 /* ExploreVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreVC.swift; sourceTree = "<group>"; };
 		04CB50281F59C96600BDC536 /* CreateGroupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupVC.swift; sourceTree = "<group>"; };
@@ -140,6 +165,7 @@
 		04E597021F577F56009FC51D /* CreatePlaylistNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePlaylistNavigationController.swift; sourceTree = "<group>"; };
 		04E597061F578056009FC51D /* HomeNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigationController.swift; sourceTree = "<group>"; };
 		04E597091F578639009FC51D /* LibraryNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryNavigationController.swift; sourceTree = "<group>"; };
+		04EA03A31F5D091700326319 /* ExternalPlaylist.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ExternalPlaylist.storyboard; sourceTree = "<group>"; };
 		04FFD1151F4CC08D008E2116 /* SpotifyAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAuthentication.framework; sourceTree = "<group>"; };
 		04FFD1161F4CC08D008E2116 /* SpotifyAudioPlayback.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAudioPlayback.framework; sourceTree = "<group>"; };
 		04FFD1171F4CC08D008E2116 /* SpotifyMetadata.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyMetadata.framework; sourceTree = "<group>"; };
@@ -180,11 +206,21 @@
 			isa = PBXGroup;
 			children = (
 				041757F51F5A81E500424495 /* GroupPlaylists.storyboard */,
-				041757F71F5A82D200424495 /* GroupPlaylistVC.swift */,
-				04C966A31F5B7B6A006FB8B3 /* GroupPlaylistTrack.swift */,
-				04C966A41F5B7B6A006FB8B3 /* GroupPlaylistTrack.xib */,
+				044A74911F5C737A00122040 /* GPContainerVC.swift */,
+				041757F71F5A82D200424495 /* GPVC.swift */,
+				04C966A31F5B7B6A006FB8B3 /* GPTrackCell.swift */,
+				044A74931F5C760400122040 /* GPMoreOptionsVC.swift */,
 			);
 			path = "Group Playlist";
+			sourceTree = "<group>";
+		};
+		04331F581F5E50570093131F /* SongOptions */ = {
+			isa = PBXGroup;
+			children = (
+				04331F5B1F5E509B0093131F /* SongOptions.storyboard */,
+				04331F611F5E67140093131F /* SongOptionsController.swift */,
+			);
+			path = SongOptions;
 			sourceTree = "<group>";
 		};
 		0449708B1F47B35100CC4D87 /* Services */ = {
@@ -213,11 +249,12 @@
 				044AEC991F59ECED00BC2F14 /* CurrentUser.swift */,
 				044AEC9F1F59F15A00BC2F14 /* User.swift */,
 				044AEC9D1F59ED7D00BC2F14 /* Playlist.swift */,
+				04219AE31F5D15A600F25E58 /* PlaylistTrack.swift */,
 				044AEC9B1F59ED0100BC2F14 /* LivePlaylist.swift */,
+				041757F01F5A695D00424495 /* GroupPlaylist.swift */,
 				044AECA11F59F18E00BC2F14 /* PlaylistInvitation.swift */,
 				044AECA31F59F1E500BC2F14 /* Track.swift */,
 				044AECA51F59FCE800BC2F14 /* playlistUser .swift */,
-				041757F01F5A695D00424495 /* GroupPlaylist.swift */,
 				041757F21F5A74BF00424495 /* Enums.swift */,
 			);
 			path = Model;
@@ -229,7 +266,8 @@
 				0471EAB81F4631D30022CD07 /* fbButton.swift */,
 				0478B65B1F464EFC005932E7 /* GetStartedNavBar.swift */,
 				0478B65F1F465BFA005932E7 /* roundButton.swift */,
-				04828E0C1F57A65100534B45 /* CustomView.swift */,
+				04A1D2631F5E0F4C0008EC39 /* roundLabel.swift */,
+				04331F541F5E1EFE0093131F /* roundTrackImage.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -246,6 +284,8 @@
 				04CB50351F59DE6C00BDC536 /* Notifications */,
 				04E597081F57861C009FC51D /* Library */,
 				041757F41F5A813A00424495 /* Group Playlist */,
+				04EA03A01F5D08C400326319 /* External Playlist */,
+				04331F581F5E50570093131F /* SongOptions */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -348,9 +388,24 @@
 			children = (
 				04E596FF1F577E57009FC51D /* Library.storyboard */,
 				04E597091F578639009FC51D /* LibraryNavigationController.swift */,
-				04828E0E1F58807500534B45 /* LibraryVC.swift */,
+				04331F651F5E7F360093131F /* LibraryVC.swift */,
+				04828E0E1F58807500534B45 /* LibraryPlaylistsVC.swift */,
+				04219ADF1F5D0F0B00F25E58 /* ExternalPlaylistCell.swift */,
+				0497F6751F5E868F00566AFA /* LibrarySongsVC.swift */,
+				0497F6771F5E887E00566AFA /* LibraryAlbumsVC.swift */,
 			);
 			path = Library;
+			sourceTree = "<group>";
+		};
+		04EA03A01F5D08C400326319 /* External Playlist */ = {
+			isa = PBXGroup;
+			children = (
+				04EA03A31F5D091700326319 /* ExternalPlaylist.storyboard */,
+				04219ADB1F5D0BD400F25E58 /* ExternalPlaylistVC.swift */,
+				04219AE11F5D13CE00F25E58 /* AMExternalPlaylistTrackCell.swift */,
+				04331F561F5E26380093131F /* SPExternalPlaylistTrackCell.swift */,
+			);
+			path = "External Playlist";
 			sourceTree = "<group>";
 		};
 		3E698256A222C6D525268C63 /* Pods */ = {
@@ -452,9 +507,10 @@
 				041757F61F5A81E500424495 /* GroupPlaylists.storyboard in Resources */,
 				0484ADED1F33B0660045AE34 /* Assets.xcassets in Resources */,
 				04CB50301F59DA6600BDC536 /* Search.storyboard in Resources */,
-				04C966A61F5B7B6A006FB8B3 /* GroupPlaylistTrack.xib in Resources */,
+				04EA03A41F5D091700326319 /* ExternalPlaylist.storyboard in Resources */,
 				04E596FC1F577E19009FC51D /* Create.storyboard in Resources */,
 				04E596FE1F577E3C009FC51D /* Home.storyboard in Resources */,
+				04331F5C1F5E509B0093131F /* SongOptions.storyboard in Resources */,
 				04E597001F577E57009FC51D /* Library.storyboard in Resources */,
 				0484ADEB1F33B0660045AE34 /* Main.storyboard in Resources */,
 			);
@@ -489,7 +545,10 @@
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/BRYSerialAnimationQueue/BRYSerialAnimationQueue.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/ButtonBackgroundColor/ButtonBackgroundColor.framework",
+				"${BUILT_PRODUCTS_DIR}/CRRefresh/CRRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
+				"${BUILT_PRODUCTS_DIR}/Colours/Colours.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
@@ -497,18 +556,24 @@
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/McPicker/McPicker.framework",
+				"${BUILT_PRODUCTS_DIR}/MultiToggleButton/MultiToggleButton.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/Onboard/Onboard.framework",
 				"${BUILT_PRODUCTS_DIR}/PMSuperButton/PMSuperButton.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/PureLayout/PureLayout.framework",
+				"${BUILT_PRODUCTS_DIR}/RMActionController/RMActionController.framework",
 				"${BUILT_PRODUCTS_DIR}/SSBouncyButton/SSBouncyButton.framework",
 				"${BUILT_PRODUCTS_DIR}/Sparrow/Sparrow.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftMessages/SwiftMessages.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework",
 				"${BUILT_PRODUCTS_DIR}/TextFieldEffects/TextFieldEffects.framework",
 				"${BUILT_PRODUCTS_DIR}/TwicketSegmentedControl/TwicketSegmentedControl.framework",
 				"${BUILT_PRODUCTS_DIR}/UIColor-Hex/UIColor_Hex.framework",
+				"${BUILT_PRODUCTS_DIR}/UIEmptyState/UIEmptyState.framework",
 				"${BUILT_PRODUCTS_DIR}/UIImage+BetterAdditions/UIImage_BetterAdditions.framework",
 				"${BUILT_PRODUCTS_DIR}/VBFPopFlatButton/VBFPopFlatButton.framework",
 				"${BUILT_PRODUCTS_DIR}/XLActionController/XLActionController.framework",
@@ -523,7 +588,10 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BRYSerialAnimationQueue.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ButtonBackgroundColor.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CRRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Colours.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
@@ -531,18 +599,24 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/McPicker.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MultiToggleButton.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Onboard.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PMSuperButton.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PureLayout.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RMActionController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SSBouncyButton.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Sparrow.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMessages.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeCellKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TextFieldEffects.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwicketSegmentedControl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UIColor_Hex.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UIEmptyState.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UIImage_BetterAdditions.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/VBFPopFlatButton.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XLActionController.framework",
@@ -584,38 +658,50 @@
 				0480DA611F4F9F2300DC4580 /* Database Keys.swift in Sources */,
 				043986DD1F5004B90072E0ED /* StorageServices.swift in Sources */,
 				04CB50271F59BFFE00BDC536 /* ExploreVC.swift in Sources */,
-				041757F81F5A82D200424495 /* GroupPlaylistVC.swift in Sources */,
+				04219AE21F5D13CE00F25E58 /* AMExternalPlaylistTrackCell.swift in Sources */,
+				041757F81F5A82D200424495 /* GPVC.swift in Sources */,
 				0480DA5F1F4F8B3300DC4580 /* SpotifyAuth.swift in Sources */,
 				042A97B61F46D41600A925A6 /* GetStartedNavController.swift in Sources */,
 				04CB503B1F59DF3E00BDC536 /* NotificationsVC.swift in Sources */,
 				042CB9021F47EA5E00B77973 /* Defaults.swift in Sources */,
+				04219ADC1F5D0BD400F25E58 /* ExternalPlaylistVC.swift in Sources */,
 				04CB50391F59DF2E00BDC536 /* NotificationsNavController.swift in Sources */,
+				0497F6761F5E868F00566AFA /* LibrarySongsVC.swift in Sources */,
 				04CB50321F59DB9200BDC536 /* SearchVC.swift in Sources */,
+				04331F621F5E67140093131F /* SongOptionsController.swift in Sources */,
+				0497F6781F5E887E00566AFA /* LibraryAlbumsVC.swift in Sources */,
 				044AECA41F59F1E500BC2F14 /* Track.swift in Sources */,
 				0449708F1F47B38900CC4D87 /* DataService.swift in Sources */,
 				0478B6601F465BFA005932E7 /* roundButton.swift in Sources */,
 				04E5970A1F578639009FC51D /* LibraryNavigationController.swift in Sources */,
+				04219AE41F5D15A600F25E58 /* PlaylistTrack.swift in Sources */,
 				041757F11F5A695D00424495 /* GroupPlaylist.swift in Sources */,
 				0447C1F51F46791F0037CB26 /* MusicPermissionsVC.swift in Sources */,
+				04A1D2641F5E0F4C0008EC39 /* roundLabel.swift in Sources */,
 				0484ADE81F33B0660045AE34 /* SecondViewController.swift in Sources */,
 				044AECA21F59F18E00BC2F14 /* PlaylistInvitation.swift in Sources */,
-				04828E0D1F57A65100534B45 /* CustomView.swift in Sources */,
 				04CB50251F59BFB300BDC536 /* FeedVC.swift in Sources */,
 				04E597071F578056009FC51D /* HomeNavigationController.swift in Sources */,
-				04C966A51F5B7B6A006FB8B3 /* GroupPlaylistTrack.swift in Sources */,
+				04C966A51F5B7B6A006FB8B3 /* GPTrackCell.swift in Sources */,
 				0478B6621F466A8B005932E7 /* LoginVC.swift in Sources */,
+				044A74941F5C760400122040 /* GPMoreOptionsVC.swift in Sources */,
 				044AEC9E1F59ED7D00BC2F14 /* Playlist.swift in Sources */,
+				04219AE01F5D0F0B00F25E58 /* ExternalPlaylistCell.swift in Sources */,
+				04331F571F5E26380093131F /* SPExternalPlaylistTrackCell.swift in Sources */,
 				0484ADE41F33B0660045AE34 /* AppDelegate.swift in Sources */,
 				044AECA01F59F15A00BC2F14 /* User.swift in Sources */,
 				044AECA61F59FCE800BC2F14 /* playlistUser .swift in Sources */,
-				04828E0F1F58807600534B45 /* LibraryVC.swift in Sources */,
+				04828E0F1F58807600534B45 /* LibraryPlaylistsVC.swift in Sources */,
 				0464BB771F463EBF0057501A /* SignUpVC.swift in Sources */,
 				0449708D1F47B36600CC4D87 /* AuthServices.swift in Sources */,
 				042A97B41F46CD8000A925A6 /* PermissionsVC.swift in Sources */,
 				044AEC9C1F59ED0100BC2F14 /* LivePlaylist.swift in Sources */,
 				04CB502B1F59C97600BDC536 /* CreatePlaylistVC.swift in Sources */,
 				0471EAB71F461CF40022CD07 /* GetStartedVC.swift in Sources */,
+				04331F551F5E1EFE0093131F /* roundTrackImage.swift in Sources */,
 				044AEC9A1F59ECED00BC2F14 /* CurrentUser.swift in Sources */,
+				044A74921F5C737A00122040 /* GPContainerVC.swift in Sources */,
+				04331F661F5E7F360093131F /* LibraryVC.swift in Sources */,
 				0478B65C1F464EFC005932E7 /* GetStartedNavBar.swift in Sources */,
 				04E596F81F577CEE009FC51D /* OldCreatePlaylistVC.swift in Sources */,
 				0484ADE61F33B0660045AE34 /* HomeVC.swift in Sources */,

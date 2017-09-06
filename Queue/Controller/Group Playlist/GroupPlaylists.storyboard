@@ -16,158 +16,285 @@
         </array>
     </customFonts>
     <scenes>
+        <!--Group Playlist ContainerVC-->
+        <scene sceneID="16U-wQ-tvJ">
+            <objects>
+                <viewController storyboardIdentifier="groupplaylist" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2w9-RK-6C4" customClass="GroupPlaylistContainerVC" customModule="Queue" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="39K-Lc-C8p">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Xut-za-Acm" customClass="ButtonBarView" customModule="XLPagerTabStrip">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="79"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="v20-a8-zgo">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="XPu-67-mLW">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fIn-EV-l7v">
+                                <rect key="frame" x="0.0" y="87" width="375" height="580"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Xut-za-Acm" firstAttribute="leading" secondItem="rgf-bc-9ct" secondAttribute="leading" id="FNd-Mt-2mh"/>
+                            <constraint firstItem="Xut-za-Acm" firstAttribute="top" secondItem="39K-Lc-C8p" secondAttribute="top" id="Jq7-Vj-cTa"/>
+                            <constraint firstItem="fIn-EV-l7v" firstAttribute="bottom" secondItem="rgf-bc-9ct" secondAttribute="bottom" id="VHa-Db-cbx"/>
+                            <constraint firstItem="fIn-EV-l7v" firstAttribute="leading" secondItem="rgf-bc-9ct" secondAttribute="leading" id="g8Q-bw-lMA"/>
+                            <constraint firstItem="fIn-EV-l7v" firstAttribute="top" secondItem="Xut-za-Acm" secondAttribute="bottom" id="lly-P8-AwY"/>
+                            <constraint firstItem="fIn-EV-l7v" firstAttribute="trailing" secondItem="rgf-bc-9ct" secondAttribute="trailing" id="lpO-KN-gJ9"/>
+                            <constraint firstItem="Xut-za-Acm" firstAttribute="trailing" secondItem="rgf-bc-9ct" secondAttribute="trailing" id="ohC-Z9-Yij"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="rgf-bc-9ct"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="OKg-9N-DuU"/>
+                    <connections>
+                        <outlet property="buttonBarObj" destination="Xut-za-Acm" id="h0x-Ae-I46"/>
+                        <outlet property="scrollView" destination="fIn-EV-l7v" id="c2K-Ip-Y9X"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bOb-Ey-5wc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-349.60000000000002" y="174.96251874062969"/>
+        </scene>
         <!--Group PlaylistVC-->
         <scene sceneID="BxO-NH-diG">
             <objects>
-                <viewController storyboardIdentifier="groupplaylist" useStoryboardIdentifierAsRestorationIdentifier="YES" id="yqv-2t-3fn" customClass="GroupPlaylistVC" customModule="Queue" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="playlist" useStoryboardIdentifierAsRestorationIdentifier="YES" id="yqv-2t-3fn" customClass="GroupPlaylistVC" customModule="Queue" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" tag="-2" contentMode="scaleToFill" id="aaM-mN-ung">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Playlist Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5jg-2B-cbX">
-                                <rect key="frame" x="167" y="20" width="187" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Created by " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hde-oo-mSi">
-                                <rect key="frame" x="167" y="50" width="187" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                <color key="textColor" red="0.27836513519287109" green="0.18530510365962982" blue="0.59323644638061523" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vwA-uq-XS9">
-                                <rect key="frame" x="299" y="147" width="0.0" height="0.0"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Wc7-1F-zLG">
-                                <rect key="frame" x="0.0" y="261" width="375" height="406"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="N2r-Wv-Ddr">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <stackView key="tableHeaderView" opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" id="3p7-Pc-uUM">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="258"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="NBr-iv-N9j">
+                                            <rect key="frame" x="20" y="20" width="335" height="152"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder_playlist" translatesAutoresizingMaskIntoConstraints="NO" id="ECL-Fs-cIj">
+                                                    <rect key="frame" x="0.0" y="0.0" width="166" height="152"/>
+                                                </imageView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Xuw-Ei-Aln">
+                                                    <rect key="frame" x="181" y="0.0" width="154" height="71.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Playlist Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QCa-6R-kYl">
+                                                            <rect key="frame" x="0.0" y="0.0" width="122" height="23.5"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="umF-Hc-1Ms">
+                                                            <rect key="frame" x="0.0" y="23.5" width="74" height="30"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                            <state key="normal" title="Created by">
+                                                                <color key="titleColor" red="0.3707177639" green="0.25714370609999998" blue="0.75468015669999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                            </state>
+                                                        </button>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="last updated" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YCX-vW-n3a">
+                                                            <rect key="frame" x="0.0" y="53.5" width="85.5" height="18"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <color key="textColor" red="0.68888300657272339" green="0.71366006135940552" blue="0.73448425531387329" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                        </stackView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are a member of this playlist." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="43n-1K-dnF">
+                                            <rect key="frame" x="0.0" y="180" width="375" height="20"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="20" id="vTd-h4-px5"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                                            <color key="textColor" red="0.68888300657272339" green="0.71366006135940552" blue="0.73448425531387329" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="sJC-MH-pAA">
+                                            <rect key="frame" x="20" y="204" width="335" height="30"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hmj-8h-sNP" customClass="roundButton" customModule="Queue" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="155" height="30"/>
+                                                    <color key="backgroundColor" red="0.2783651352" green="0.1853051037" blue="0.59323644639999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="FYk-zd-Jpi"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
+                                                    <state key="normal" title="Join Group">
+                                                        <color key="titleColor" red="0.90823972225189209" green="0.92638683319091797" blue="0.9317171573638916" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i3X-j1-2wo" customClass="roundButton" customModule="Queue" customModuleProvider="target">
+                                                    <rect key="frame" x="180" y="0.0" width="155" height="30"/>
+                                                    <color key="backgroundColor" red="0.2783651352" green="0.1853051037" blue="0.59323644639999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="rhO-wn-Laj"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
+                                                    <state key="normal" title="Save to Library">
+                                                        <color key="titleColor" red="0.90823972225189209" green="0.92638683319091797" blue="0.9317171573638916" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" id="KGe-Yx-uYQ"/>
+                                            </constraints>
+                                        </stackView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="3Ym-60-ugY">
+                                            <rect key="frame" x="20" y="208" width="335" height="50"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TEN-gf-XpZ">
+                                                    <rect key="frame" x="0.0" y="0.0" width="162.5" height="50"/>
+                                                    <color key="backgroundColor" red="0.90823972225189209" green="0.92638683319091797" blue="0.9317171573638916" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                    <state key="normal" title=" PLAY NEW" image="play_icon">
+                                                        <color key="titleColor" red="0.27836513519287109" green="0.18530510365962982" blue="0.59323644638061523" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yl3-qK-erl">
+                                                    <rect key="frame" x="172.5" y="0.0" width="162.5" height="50"/>
+                                                    <color key="backgroundColor" red="0.90823972225189209" green="0.92638683319091797" blue="0.9317171573638916" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                    <state key="normal" title="SHUFFLE" image="shuffle_icon">
+                                                        <color key="titleColor" red="0.27836513519287109" green="0.18530510365962982" blue="0.59323644638061523" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="50" id="eSC-1d-jTJ"/>
+                                            </constraints>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="NBr-iv-N9j" firstAttribute="top" secondItem="3p7-Pc-uUM" secondAttribute="top" constant="20" id="Eza-Vo-87e"/>
+                                        <constraint firstAttribute="trailing" secondItem="sJC-MH-pAA" secondAttribute="trailing" constant="20" id="NRc-jw-UVO"/>
+                                        <constraint firstItem="NBr-iv-N9j" firstAttribute="leading" secondItem="3p7-Pc-uUM" secondAttribute="leading" constant="20" id="PaD-26-GqM"/>
+                                        <constraint firstAttribute="trailing" secondItem="NBr-iv-N9j" secondAttribute="trailing" constant="20" id="ZL4-la-iwI"/>
+                                        <constraint firstAttribute="trailing" secondItem="3Ym-60-ugY" secondAttribute="trailing" constant="20" id="Zle-Bt-pZ8"/>
+                                        <constraint firstItem="sJC-MH-pAA" firstAttribute="leading" secondItem="3p7-Pc-uUM" secondAttribute="leading" constant="20" id="e6K-fL-lyB"/>
+                                        <constraint firstItem="3Ym-60-ugY" firstAttribute="leading" secondItem="3p7-Pc-uUM" secondAttribute="leading" constant="20" id="vmu-UW-pfB"/>
+                                        <constraint firstAttribute="trailing" secondItem="43n-1K-dnF" secondAttribute="trailing" id="wHj-Bj-ocM"/>
+                                        <constraint firstItem="43n-1K-dnF" firstAttribute="leading" secondItem="3p7-Pc-uUM" secondAttribute="leading" id="xYX-4r-8ud"/>
+                                    </constraints>
+                                </stackView>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="gpTrack" rowHeight="104" id="Rmm-lN-fOG" customClass="GroupPlaylistTrackCell" customModule="Queue" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="286" width="375" height="104"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Rmm-lN-fOG" id="qbe-VP-olP">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="103.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gZ7-MG-0gY">
+                                                    <rect key="frame" x="166.5" y="28" width="42" height="49"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ft1-eV-fmv">
+                                                            <rect key="frame" x="0.0" y="0.0" width="42" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DRu-KL-wor">
+                                                            <rect key="frame" x="0.0" y="28.5" width="42" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="gZ7-MG-0gY" firstAttribute="centerX" secondItem="qbe-VP-olP" secondAttribute="centerX" id="c5h-aC-20V"/>
+                                                <constraint firstItem="gZ7-MG-0gY" firstAttribute="centerY" secondItem="qbe-VP-olP" secondAttribute="centerY" id="r0B-dZ-ylc"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="artistLabel" destination="DRu-KL-wor" id="N3I-tI-phF"/>
+                                            <outlet property="nameLabel" destination="ft1-eV-fmv" id="8ah-a1-aku"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="2bI-95-gg2">
-                                <rect key="frame" x="20" y="177" width="335" height="50"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ynf-xx-a4L" customClass="PMSuperButton" customModule="PMSuperButton">
-                                        <rect key="frame" x="0.0" y="0.0" width="155.5" height="50"/>
-                                        <color key="backgroundColor" red="0.90823972230000005" green="0.92638683320000004" blue="0.93171715740000005" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
-                                        <state key="normal" title=" NEW" image="play_icon">
-                                            <color key="titleColor" red="0.2783651352" green="0.1853051037" blue="0.59323644639999995" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="rippleColor">
-                                                <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="rippleSpeed">
-                                                <real key="value" value="1"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="5"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KDS-k2-jce" customClass="PMSuperButton" customModule="PMSuperButton">
-                                        <rect key="frame" x="179.5" y="0.0" width="155.5" height="50"/>
-                                        <color key="backgroundColor" red="0.90823972225189209" green="0.92638683319091797" blue="0.9317171573638916" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
-                                        <state key="normal" title="SHUFFLE" image="shuffle_icon">
-                                            <color key="titleColor" red="0.2783651352" green="0.1853051037" blue="0.59323644639999995" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="rippleColor">
-                                                <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="rippleSpeed">
-                                                <real key="value" value="1"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="5"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </button>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="MoS-ir-iBm"/>
-                                </constraints>
-                            </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="last updated " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u61-gr-3uK">
-                                <rect key="frame" x="167" y="74" width="100" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <color key="textColor" red="0.42655369639396667" green="0.47584608197212219" blue="0.48026475310325623" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bKd-VN-2FI" customClass="PMSuperButton" customModule="PMSuperButton">
-                                <rect key="frame" x="323" y="122" width="26" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.2783651352" green="0.1853051037" blue="0.59323644639999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" image="more_options_white"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" red="0.2783651352" green="0.1853051037" blue="0.59323644639999995" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="13"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="checkboxButton" value="NO"/>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="rippleColor">
-                                        <color key="value" red="0.90823972230000005" green="0.92638683320000004" blue="0.93171715740000005" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="ripple" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="rippleSpeed">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ODg-Hk-T5p" customClass="PMSuperButton" customModule="PMSuperButton">
-                                <rect key="frame" x="167" y="115" width="78" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.2783651352" green="0.1853051037" blue="0.59323644639999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Join">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UlI-4D-qp1">
-                                <rect key="frame" x="16" y="20" width="143" height="128"/>
-                                <color key="backgroundColor" red="0.3707177639" green="0.25714370609999998" blue="0.75468015669999999" alpha="1" colorSpace="calibratedRGB"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="UlI-4D-qp1" firstAttribute="top" secondItem="ikM-G7-aT3" secondAttribute="top" id="49n-Vy-XAM"/>
-                            <constraint firstItem="ikM-G7-aT3" firstAttribute="trailing" secondItem="2bI-95-gg2" secondAttribute="trailing" constant="20" id="G1m-mS-Yea"/>
-                            <constraint firstItem="2bI-95-gg2" firstAttribute="leading" secondItem="ikM-G7-aT3" secondAttribute="leading" constant="20" id="QOw-bP-8pL"/>
-                            <constraint firstItem="2bI-95-gg2" firstAttribute="top" secondItem="UlI-4D-qp1" secondAttribute="bottom" constant="29" id="Y4K-hJ-qr1"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="ikM-G7-aT3"/>
                     </view>
                     <connections>
-                        <outlet property="playlistNameLabel" destination="5jg-2B-cbX" id="E8Y-tl-rTQ"/>
-                        <outlet property="tableView" destination="Wc7-1F-zLG" id="Dj6-3O-mdK"/>
+                        <outlet property="createdByBtn" destination="umF-Hc-1Ms" id="2tQ-Wh-VRe"/>
+                        <outlet property="joinBtn" destination="hmj-8h-sNP" id="HDi-4i-T1t"/>
+                        <outlet property="joinSaveStackView" destination="sJC-MH-pAA" id="pdx-Gt-Smb"/>
+                        <outlet property="lastUpdatedLbl" destination="YCX-vW-n3a" id="GYS-go-zD8"/>
+                        <outlet property="playBtn" destination="TEN-gf-XpZ" id="qcm-rQ-K1T"/>
+                        <outlet property="playlistImageView" destination="ECL-Fs-cIj" id="Chg-Ju-Me1"/>
+                        <outlet property="playlistInfoStackView" destination="ECL-Fs-cIj" id="ggf-Dj-Pi5"/>
+                        <outlet property="playlistTitleLabel" destination="QCa-6R-kYl" id="nfU-PP-Pl3"/>
+                        <outlet property="saveLibraryBtn" destination="i3X-j1-2wo" id="RZm-uM-DrR"/>
+                        <outlet property="shuffleBtn" destination="yl3-qK-erl" id="l0t-2z-4ar"/>
+                        <outlet property="tableView" destination="N2r-Wv-Ddr" id="DCi-kg-ho6"/>
+                        <outlet property="userStatusLabel" destination="43n-1K-dnF" id="MEj-0M-TAO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vrm-bw-4hg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-151.19999999999999" y="164.16791604197903"/>
+            <point key="canvasLocation" x="476" y="174.96251874062969"/>
+        </scene>
+        <!--More OptionsVC-->
+        <scene sceneID="HsI-NV-HPx">
+            <objects>
+                <viewController storyboardIdentifier="more" id="diJ-ol-vIl" customClass="GPMoreOptionsVC" customModule="Queue" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Y17-ml-0Vf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="WbF-ue-LmW"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fYE-uC-nN3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1260" y="174.96251874062969"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="3PP-nG-Hx1">
+            <objects>
+                <tableViewController id="MMf-mb-O6V" customClass="TableViewController" customModule="Queue" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="xmA-Ym-BXT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="MMf-mb-O6V" id="z9G-4R-HHS"/>
+                            <outlet property="delegate" destination="MMf-mb-O6V" id="K3a-b6-34H"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="tableView" destination="xmA-Ym-BXT" id="qlj-DC-Uoa"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B9y-IK-xoN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1978" y="181"/>
         </scene>
     </scenes>
     <resources>
-        <image name="more_options_white" width="25" height="25"/>
+        <image name="placeholder_playlist" width="166" height="158"/>
         <image name="play_icon" width="16" height="16"/>
-        <image name="shuffle_icon" width="25" height="25"/>
+        <image name="shuffle_icon" width="16" height="16"/>
     </resources>
 </document>

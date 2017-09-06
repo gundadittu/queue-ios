@@ -56,9 +56,6 @@ class MusicPermissionsVC: UIViewController, SPTAudioStreamingPlaybackDelegate, S
             let sessionDataObj = sessionObj as! Data
             let firstTimeSession = NSKeyedUnarchiver.unarchiveObject(with: sessionDataObj) as! SPTSession
              SpotifyAuth.instance.sp_session = firstTimeSession
-            
-            //write spotify token values to database
-            DataService.instance.writeUserData(uid: AuthService.instance.current_uid, key: spotifyAccessTokenKey, data:  SpotifyAuth.instance.sp_session.accessToken)
         }
     }
     
@@ -68,7 +65,13 @@ class MusicPermissionsVC: UIViewController, SPTAudioStreamingPlaybackDelegate, S
         
         //update user's music provider in database - spotify
         DataService.instance.writeUserData(uid: AuthService.instance.current_uid, key: spotifyProviderKey, data: "true")
-        
+        //write spotify token values to database
+        DataService.instance.writeUserData(uid: AuthService.instance.current_uid, key: spotifyAccessTokenKey, data:  SpotifyAuth.instance.sp_session.accessToken)
+        //upload spotify username
+        DataService.instance.writeUserData(uid: AuthService.instance.current_uid, key: spotifyUserID, data: SpotifyAuth.instance.sp_session.canonicalUsername)
+        //update spotify premium status
+        SpotifyAuth.instance.updatePremiumStatus()
+            
         //upload user's music data from spotify
         SpotifyMusicManager.instance.uploadSpotifyData(completionHandlerMain: { (error) in
             DispatchQueue.main.async {
@@ -146,6 +149,7 @@ class MusicPermissionsVC: UIViewController, SPTAudioStreamingPlaybackDelegate, S
             case .authorized:
                 //update user's music provider in data base
                 DataService.instance.writeUserData(uid: AuthService.instance.current_uid, key: appleMusicProviderKey, data: "true")
+                
                 //upload user's music data from apple music
                 AppleMusicManager.instance.uploadAMData { (error) in
                     DispatchQueue.main.async {

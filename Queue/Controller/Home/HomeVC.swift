@@ -18,15 +18,15 @@ class HomeVC: ButtonBarPagerTabStripViewController  {
 
     override func viewDidLoad() {
         settings.style.selectedBarBackgroundColor = FlatPurpleDark()
-        settings.style.buttonBarItemBackgroundColor = UIColor.white //GradientColor(.topToBottom, frame: view.frame, colors: backgroundGradientColors)
+        settings.style.buttonBarItemBackgroundColor = UIColor.white
         settings.style.buttonBarItemTitleColor =  FlatBlack()
         settings.style.buttonBarItemFont = UIFont(name: "HelveticaNeue-Bold", size: CGFloat(12))!
         settings.style.buttonBarMinimumLineSpacing = CGFloat(0)
-        settings.style.buttonBarBackgroundColor = FlatWhite()
-        //settings.style.buttonBarHeight = CGFloat(30)
+        //settings.style.buttonBarBackgroundColor = UIColor.ghostWhite()
         super.viewDidLoad()
         self.title = "Home"
         self.view.backgroundColor = FlatWhite()
+
         scrollView.backgroundColor = FlatWhite()
     }
     
@@ -37,11 +37,17 @@ class HomeVC: ButtonBarPagerTabStripViewController  {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        UIApplication.shared.statusBarStyle = UIStatusBarStyle.default
+        self.navigationController?.navigationBar.barTintColor = FlatPurpleDark()
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+        UIApplication.shared.statusBarStyle = .lightContent
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         UIApplication.shared.statusBarStyle = .lightContent
+        self.navigationController?.navigationBar.barTintColor = UIColor.white
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: FlatBlack()]
+        self.navigationController?.navigationBar.tintColor = FlatPurpleDark()
     }
     
 

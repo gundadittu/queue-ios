@@ -13,19 +13,20 @@ import TextFieldEffects
 import SwiftMessages
 import TwicketSegmentedControl
 import NVActivityIndicatorView
+import ButtonBackgroundColor
 
 //func for when switch value changes - changes privacy value
 
 class CreatePlaylistVC: UIViewController, IndicatorInfoProvider, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, TwicketSegmentedControlDelegate {
     
-    private let _moodData =  playlist.moodData
+    private let _moodData =  Playlist.moodData
     private var _chosenMood: String?
     private var _playlistType: playlistType = .live
     private var _playlistPrivacyStatus: accessType =  accessType.publicAccess
     
     private var _participants = [playlistUser]()
     private var _invitations = [playlistInvitation]()
-    private var _liveStatus = livePlaylist.liveStatus.active
+    //private var _liveStatus = livePlaylist.liveStatus.active
     //private var _trackList = [track]()
     //private var _owner_id = AuthService.instance.current_uid
 
@@ -53,8 +54,11 @@ class CreatePlaylistVC: UIViewController, IndicatorInfoProvider, UIPickerViewDel
         twicketSegment.font = UIFont(name: "Helvetica Neue", size: CGFloat(15))!
         
         createBtn.titleLabel?.textAlignment = .center
+        createBtn.backgroundColorForStates(normal: FlatWhite(), highlighted: FlatWhiteDark())
         
         self.view.backgroundColor = FlatPurpleDark() //GradientColor(.topToBottom, frame: view.frame, colors: backgroundGradientColors)
+        
+        
         
         playlistNameTextField.delegate = self
         playlistNameTextField.tag = 0
@@ -135,6 +139,8 @@ class CreatePlaylistVC: UIViewController, IndicatorInfoProvider, UIPickerViewDel
             activityIndicatorView.startAnimating()
             
             //create group playlist - in database and local object
+            
+            /*
             DataService.instance.createGroupPlaylist(title: title!, type: type , ownerID: ownerID, trackList: trackList, playlistPrivacyStatus: playlistPrivacyStatus, mood: mood!, invitations: invitations, participants: participants, completionHandler: { (error, playlist) in
                 DispatchQueue.main.async {
                     activityIndicatorView.stopAnimating()
@@ -148,6 +154,7 @@ class CreatePlaylistVC: UIViewController, IndicatorInfoProvider, UIPickerViewDel
                     SwiftMessages.show(view: self.failedLoginAlert)
                 }
             })
+ */
         } else {
             self.failedLoginAlert.configureTheme(.error)
             self.failedLoginAlert.button?.isHidden = true
@@ -172,12 +179,23 @@ class CreatePlaylistVC: UIViewController, IndicatorInfoProvider, UIPickerViewDel
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "createToGroupPlaylist"{
+            /*
             if let playlistObj = sender as? GroupPlaylist{
-                let destination = segue.destination as! GroupPlaylistVC
-                destination.playlistName = playlistObj.title
-                destination.navigationItem.hidesBackButton = true 
+                let destination = segue.destination as! GroupPlaylistContainerVC
+                //destination.playlistName = playlistObj.title
+                //destination.navigationItem.hidesBackButton = true 
             }
+            */
         }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        UIApplication.shared.statusBarStyle = UIStatusBarStyle.default
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        UIApplication.shared.statusBarStyle = .lightContent
+    }
+    
     
 }

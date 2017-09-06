@@ -86,7 +86,7 @@ class AppleMusicManager {
         for playlist in playlists! {
             var playlistData = [String:Any]()
             let id = playlist.value(forProperty: MPMediaPlaylistPropertyPersistentID) as! UInt64
-            playlistData[playlistSourceIDKey] = id
+            playlistData[playlistSourceIDKey] = "\(id)"
             let name = playlist.value(forProperty: MPMediaPlaylistPropertyName)
             playlistData[playlistNameKey] = name!
             playlistData[sourceKey] = "apple_music"

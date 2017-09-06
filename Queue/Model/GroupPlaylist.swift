@@ -9,6 +9,7 @@
 import Foundation
 import FirebaseDatabase
 
+/*
 class GroupPlaylist : playlist {
     
     override init (playlistKey: String, title: String){
@@ -34,3 +35,4 @@ class GroupPlaylist : playlist {
      */
     
 }
+*/
